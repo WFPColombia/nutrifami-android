@@ -1,4 +1,4 @@
-package pma.com.nutrifami;
+package org.pma.nutrifami;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

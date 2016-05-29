@@ -5,7 +5,7 @@ android {
     buildToolsVersion "23.0.3"
 
     defaultConfig {
-        applicationId "pma.com.nutrifami"
+        applicationId "org.pma.nutrifami"
         minSdkVersion 15
         targetSdkVersion 23
         versionCode 1
