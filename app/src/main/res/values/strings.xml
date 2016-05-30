@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">Nutrifami</string>
+    <string name="get_started">Get started</string>
+    <string name="title_activity_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_passport">Documento</string>
+    <string name="prompt_voucher_id">Codigo</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="error_invalid_passport">This passport id is invalid</string>
+    <string name="error_invalid_voucher_id">This voucher id is invalid</string>
+    <string name="error_login">We couldn\'t log you in. Double check your passport and voucher id.</string>
+    <string name="error_field_required">This field is required</string>
 </resources>
