@@ -11,4 +11,5 @@
     <string name="error_invalid_voucher_id">This voucher id is invalid</string>
     <string name="error_login">We couldn\'t log you in. Double check your passport and voucher id.</string>
     <string name="error_field_required">This field is required</string>
+    <string name="skip_underlined"><u>Skip</u></string>
 </resources>

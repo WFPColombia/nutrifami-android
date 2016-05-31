@@ -3,6 +3,7 @@ package org.pma.nutrifami;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 
 import android.os.AsyncTask;
@@ -61,10 +62,23 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        TextView skipTextView = (TextView) findViewById(R.id.skip);
+        skipTextView.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    navigateToModulesPage();
+                }
+            }
+        );
+
         mLoginFormView = findViewById(R.id.login_form);
         mProgressView = findViewById(R.id.login_progress);
     }
 
+    private void navigateToModulesPage() {
+        Intent i = new Intent(this, ModulesActivity.class);
+        startActivity(i);
+    }
 
     /**
      * Attempts to sign in or register the account specified by the login form.
@@ -196,7 +210,7 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(false);
 
             if (success) {
-                finish();
+                navigateToModulesPage();
             } else {
                 mVoucherIdTextView.setError(getString(R.string.error_login));
                 mVoucherIdTextView.requestFocus();

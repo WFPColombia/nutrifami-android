@@ -70,6 +70,14 @@
                 android:text="@string/action_sign_in"
                 android:textStyle="bold" />
 
+            <TextView
+                android:padding="@dimen/activity_vertical_margin"
+                android:text="@string/skip_underlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:id="@+id/skip" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>
