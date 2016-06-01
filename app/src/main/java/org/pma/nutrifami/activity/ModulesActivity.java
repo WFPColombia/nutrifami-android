@@ -11,6 +11,8 @@ import android.widget.Button;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
+import org.pma.nutrifami.lib.ModuleManager;
+import org.pma.nutrifami.model.Module;
 
 public class ModulesActivity extends AppCompatActivity {
 
@@ -24,8 +26,11 @@ public class ModulesActivity extends AppCompatActivity {
         firstModuleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Module module = ModuleManager.getInstance().getModules()[0];
+
                 Intent intent = new Intent(activity, ModuleActivity.class);
-                intent.putExtra(Constants.MODULE_ID, 0);
+                intent.putExtra(Constants.MODULE_ID, module.getId());
+
                 startActivity(intent);
             }
         });

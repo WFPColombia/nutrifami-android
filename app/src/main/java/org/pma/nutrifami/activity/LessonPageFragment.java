@@ -61,6 +61,7 @@ public class LessonPageFragment extends Fragment {
             public void onClick(View v) {
                 Class<? extends AppCompatActivity> gameActivityClass = ModuleManager.getInstance().getGameActivity(args.getString(Constants.LESSON_ID));
                 Intent intent = new Intent(context, gameActivityClass);
+                intent.putExtra(Constants.LESSON_ID, args.getString(Constants.LESSON_ID));
                 startActivity(intent);
             }
         });

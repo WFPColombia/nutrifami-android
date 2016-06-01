@@ -1,10 +1,12 @@
 package org.pma.nutrifami.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.adapter.LessonPagePagerAdaptor;
 import org.pma.nutrifami.lib.ModuleManager;
@@ -19,8 +21,9 @@ public class ModuleActivity extends FragmentActivity {
         setContentView(R.layout.activity_module_carousel);
 
         ModuleManager moduleManager = ModuleManager.getInstance();
-        // TODO: Get real module
-        Module module = moduleManager.getModules()[0];
+        Intent intent = getIntent();
+        String moduleId = intent.getStringExtra(Constants.MODULE_ID);
+        Module module = moduleManager.getModule(moduleId);
 
         ViewPager mPager = (ViewPager) findViewById(R.id.lesson_page_pager);
         mPager.setOffscreenPageLimit(2);
