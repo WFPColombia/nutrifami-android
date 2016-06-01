@@ -4,6 +4,6 @@
     android:id="@+id/activity_profile"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.pma.nutrifami.activities.ProfileActivity">
+    tools:context="org.pma.nutrifami.activity.ProfileActivity">
 
 </android.support.constraint.ConstraintLayout>

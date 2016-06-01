@@ -19,6 +19,9 @@
 
     <!-- Module activity -->
     <string name="module_title">Module</string>
+    <string name="lesson_card_title">Lesson title</string>
+    <string name="lesson_card_description">Lesson description. Lesson description. Lesson description. Lesson description. Lesson description. Lesson description. Lesson description.</string>
+    <string name="lesson_card_play_button">Play</string>
 
     <!-- Profile activity -->
     <string name="profile_title">Profile</string>

@@ -5,7 +5,7 @@
     android:id="@+id/activity_modules"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.pma.nutrifami.activities.ModulesActivity">
+    tools:context="org.pma.nutrifami.activity.ModulesActivity">
 
     <Button
         android:text="First Module"

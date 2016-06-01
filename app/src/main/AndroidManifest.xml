@@ -8,7 +8,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activities.StartActivity">
+        <activity android:name=".activity.StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -16,21 +16,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".activities.ModulesActivity"
+            android:name=".activity.ModulesActivity"
             android:label="@string/modules_title" />
         <activity
-            android:name=".activities.ModuleActivity"
+            android:name=".activity.ModuleActivity"
             android:label="@string/module_title" />
         <activity
-            android:name=".activities.ProfileActivity"
+            android:name=".activity.ProfileActivity"
             android:label="@string/profile_title" />
-        <activity android:name=".activities.games.QuizActivity" />
-        <activity android:name=".activities.games.PictureQuizActivity" />
-        <activity android:name=".activities.games.SwipeActivity" />
-        <activity android:name=".activities.games.PairsActivity"></activity>
+        <activity android:name=".activity.game.QuizActivity" />
+        <activity android:name=".activity.game.PictureQuizActivity" />
+        <activity android:name=".activity.game.SwipeActivity" />
+        <activity android:name=".activity.game.PairsActivity" />
     </application>
 
 </manifest>

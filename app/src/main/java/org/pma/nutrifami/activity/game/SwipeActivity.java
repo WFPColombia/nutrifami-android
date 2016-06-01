@@ -1,7 +1,7 @@
-package org.pma.nutrifami.activities.games;
+package org.pma.nutrifami.activity.game;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import org.pma.nutrifami.R;
 
