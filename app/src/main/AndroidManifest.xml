@@ -27,6 +27,10 @@
         <activity
             android:name=".activities.ProfileActivity"
             android:label="@string/profile_title" />
+        <activity android:name=".activities.games.QuizActivity" />
+        <activity android:name=".activities.games.PictureQuizActivity" />
+        <activity android:name=".activities.games.SwipeActivity" />
+        <activity android:name=".activities.games.PairsActivity"></activity>
     </application>
 
 </manifest>

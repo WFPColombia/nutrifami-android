@@ -8,10 +8,10 @@
     tools:context="org.pma.nutrifami.activities.ModuleActivity">
 
     <Button
-        android:text="Tinder"
+        android:text="Swipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/module_button_tinder"
+        android:id="@+id/module_button_swipe"
         tools:layout_editor_absoluteX="161dp"
         tools:layout_editor_absoluteY="120dp" />
 
