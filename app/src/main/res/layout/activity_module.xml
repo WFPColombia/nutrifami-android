@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.LinearConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_module"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.pma.nutrifami.ModuleActivity">
+
+    <Button
+        android:text="Tinder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/module_button_tinder"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <Button
+        android:text="Quiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/module_button_quiz"
+        tools:layout_editor_absoluteY="40dp"
+        app:layout_constraintLeft_toLeftOf="@+id/activity_module"
+        app:layout_constraintRight_toRightOf="@+id/activity_module" />
+
+    <Button
+        android:text="Pairs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/module_button_pairs"
+        android:layout_marginTop="48dp"
+        app:layout_constraintRight_toRightOf="@+id/activity_module" />
+
+    <Button
+        android:text="Picture Quiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/module_button_picture_quiz"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="192dp" />
+</android.support.constraint.LinearConstraintLayout>

@@ -12,4 +12,14 @@
     <string name="error_login">We couldn\'t log you in. Double check your passport and voucher id.</string>
     <string name="error_field_required">This field is required</string>
     <string name="skip_underlined"><u>Skip</u></string>
+
+    <!-- Modules activity -->
+    <string name="modules_title">Modules</string>
+    <string name="menu_profile_title">Profile</string>
+
+    <!-- Module activity -->
+    <string name="module_title">Module</string>
+
+    <!-- Profile activity -->
+    <string name="profile_title">Profile</string>
 </resources>
