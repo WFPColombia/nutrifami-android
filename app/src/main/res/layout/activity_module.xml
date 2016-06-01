@@ -5,7 +5,7 @@
     android:id="@+id/activity_module"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.pma.nutrifami.ModuleActivity">
+    tools:context="org.pma.nutrifami.activities.ModuleActivity">
 
     <Button
         android:text="Tinder"

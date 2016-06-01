@@ -1,4 +1,4 @@
-package org.pma.nutrifami;
+package org.pma.nutrifami.activities;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -16,6 +16,8 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import org.pma.nutrifami.R;
 
 /**
  * A login screen that offers login via email/password.
