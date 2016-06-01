@@ -23,6 +23,8 @@ public class ModuleActivity extends FragmentActivity {
         Module module = moduleManager.getModules()[0];
 
         ViewPager mPager = (ViewPager) findViewById(R.id.lesson_page_pager);
+        mPager.setOffscreenPageLimit(2);
+
         PagerAdapter mPagerAdapter = new LessonPagePagerAdaptor(getSupportFragmentManager(), module);
         mPager.setAdapter(mPagerAdapter);
 
