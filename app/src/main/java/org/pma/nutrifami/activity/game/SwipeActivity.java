@@ -93,36 +93,7 @@ public class SwipeActivity extends AppCompatActivity implements CardStack.CardEv
     @Override
     public boolean swipeEnd(int section, float distance) {
         Log.d("Swipe direction", "" + section);
-        if (distance <= 300) {
-            return false;
-        }
-
-        // Don't do any logic if we are at an explanation card
-        final int currentIndex = mCardStack.getCurrIndex();
-        if (currentIndex % 2 != 0 || currentIndex >= mUnits.size() * 2) {
-            return true;
-        }
-
-        Unit currentUnit = mUnits.get(currentIndex / 2);
-        int correctAnswer = currentUnit.getCorrectAnswer();
-        String feedbackText;
-        if ((section % 2 == 0 && correctAnswer == 0) ||
-                (section % 2 == 1 && correctAnswer == 1)) {
-            // Answer is correct
-
-            feedbackText = "Correcto!";
-        } else {
-           // Answer is not correct
-            Log.d("Swipe", "Re-adding unit" + currentUnit);
-            feedbackText = "Not correcto!";
-            addCardForUnit(currentUnit);
-            mUnits.add(currentUnit);
-        }
-
-        Toast toast = Toast.makeText(getApplicationContext(), feedbackText, Toast.LENGTH_LONG);
-        toast.show();
-
-        return true;
+        return distance > 300;
     }
 
     @Override
@@ -142,6 +113,31 @@ public class SwipeActivity extends AppCompatActivity implements CardStack.CardEv
         Log.d("Discarded mIndex", "" + mIndex);
 //        mCardStack.getCurrIndex();
         Log.d("CardStack current index", "" + mCardStack.getCurrIndex());
+
+        // Don't do any logic if we are at an explanation card
+        final int currentIndex = mCardStack.getCurrIndex() - 1;
+        if (currentIndex % 2 != 0 || currentIndex >= mUnits.size() * 2) {
+            return;
+        }
+
+        Unit currentUnit = mUnits.get(currentIndex / 2);
+        int correctAnswer = currentUnit.getCorrectAnswer();
+        String feedbackText;
+        if ((direction % 2 == 0 && correctAnswer == 0) ||
+                (direction % 2 == 1 && correctAnswer == 1)) {
+            // Answer is correct
+
+            feedbackText = "Correcto!";
+        } else {
+           // Answer is not correct
+            Log.d("Swipe", "Re-adding unit" + currentUnit);
+            feedbackText = "Not correcto!";
+            addCardForUnit(currentUnit);
+            mUnits.add(currentUnit);
+        }
+
+        Toast toast = Toast.makeText(getApplicationContext(), feedbackText, Toast.LENGTH_LONG);
+        toast.show();
     }
 
     @Override
