@@ -143,14 +143,14 @@ public class MockModuleManager extends ModuleManager {
                                 "Bread is a fruit right? This is some more text that is quite irrelevant but should still look decent.",
                                 new String[]{"A long way to say no", "A long way to say yes"},
                                 0,
-                                "Bananas are indeed fruit!",
+                                "Bread is not a fruit!",
                                 "NOT_IMPLEMENTED"
                         ),
                         new SwipeUnit(
                                 "Apples are fruits right? This is some more text that is quite irrelevant but should still look decent.",
                                 new String[]{"A long way to say no", "A long way to say yes"},
                                 1,
-                                "Bananas are indeed fruit!",
+                                "Apples are fruits!",
                                 "NOT_IMPLEMENTED"
                         )});
 
