@@ -72,4 +72,16 @@ public class ModuleManager {
         }
         return null;
     }
+
+    public Lesson getLesson(String lessonId) {
+        for (int i = 0; i < mModules.length; i++) {
+            Lesson[] lessons = mModules[i].getLessons();
+            for (int j = 0; j < lessons.length; j++) {
+               if (lessons[j].getId().equals(lessonId)) {
+                   return lessons[j];
+               }
+            }
+        }
+        return null;
+    }
 }
