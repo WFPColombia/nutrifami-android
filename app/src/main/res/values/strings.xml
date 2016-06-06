@@ -27,4 +27,9 @@
     <string name="profile_title">Profile</string>
     <string name="text_quiz_question">Question Question Question Question Question Question</string>
     <string name="swipe_card_text_dummy">This is a question which will be presented on a swipeable card. Of what I have seen, it could be quite long but who knows at this point! =)</string>
+
+    <!-- Explanation dialogue -->
+    <string name="explanation_ok">Ok</string>
+    <string name="explanation_correct">Correct</string>
+    <string name="explanation_false">Not correct</string>
 </resources>
