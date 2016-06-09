@@ -8,7 +8,7 @@ import android.support.v4.view.ViewPager;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.adapter.LessonPagePagerAdaptor;
+import org.pma.nutrifami.adapter.LessonPagePagerAdapter;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.model.Module;
 
@@ -28,7 +28,7 @@ public class ModuleActivity extends FragmentActivity {
         ViewPager mPager = (ViewPager) findViewById(R.id.lesson_page_pager);
         mPager.setOffscreenPageLimit(2);
 
-        PagerAdapter mPagerAdapter = new LessonPagePagerAdaptor(getSupportFragmentManager(), module);
+        PagerAdapter mPagerAdapter = new LessonPagePagerAdapter(getSupportFragmentManager(), module);
         mPager.setAdapter(mPagerAdapter);
 
         new CoverFlow.Builder()

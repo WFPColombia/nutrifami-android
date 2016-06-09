@@ -19,11 +19,10 @@ import org.pma.nutrifami.model.Unit;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SwipeActivity extends AppCompatActivity implements CardStack.CardEventListener {
+public class SwipeActivity extends GameActivity implements CardStack.CardEventListener {
 
     private CardStack mCardStack;
     private SwipeCardDataAdapter mSwipeCardDataAdapter;
-    private ArrayList<Unit> mUnits;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,19 +37,14 @@ public class SwipeActivity extends AppCompatActivity implements CardStack.CardEv
         mCardStack.setListener(this);
 
         // Get lesson data
-        final String lessonId = getIntent().getStringExtra(Constants.LESSON_ID);
-        final Lesson lesson = ModuleManager.getInstance().getLesson(lessonId);
-        mUnits = new ArrayList<>();
-        mUnits.addAll(Arrays.asList(lesson.getUnits()));
-
-        setTitle(lesson.getTitle());
+        setTitle(getLesson().getTitle());
 
         mSwipeCardDataAdapter = new SwipeCardDataAdapter(getApplicationContext(), 0);
         // Add questions to cardDataAdapter
 
-        final int length = mUnits.size();
+        final int length = getUnits().size();
         for (int i = 0; i < length; i++) {
-            mSwipeCardDataAdapter.add(mUnits.get(i));
+            mSwipeCardDataAdapter.add(getUnits().get(i));
         }
         mCardStack.setAdapter(mSwipeCardDataAdapter);
 
@@ -60,7 +54,7 @@ public class SwipeActivity extends AppCompatActivity implements CardStack.CardEv
         assert noButton != null;
         assert yesButton != null;
 
-        final String[] answers = mUnits.get(0).getAnswers();
+        final String[] answers = getCurrentUnit().getAnswers();
 
         noButton.setText(answers[0]);
         yesButton.setText(answers[1]);
@@ -102,42 +96,19 @@ public class SwipeActivity extends AppCompatActivity implements CardStack.CardEv
 
     @Override
     public void discarded(int mIndex, int direction) {
-        final int currentIndex = mIndex - 1;
-        if (currentIndex > mUnits.size()) {
-            Log.d("SwipeActivity", "Attempting to discard invalid unit");
-            return;
+        final int correctAnswer = getCurrentUnit().getCorrectAnswer();
+        final boolean correct =
+            (direction % 2 == 0 && correctAnswer == 0) ||
+            (direction % 2 == 1 && correctAnswer == 1);
+        if (!correct) {
+            mSwipeCardDataAdapter.add(getCurrentUnit());
         }
 
-        final Unit currentUnit = mUnits.get(currentIndex);
-        final int correctAnswer = currentUnit.getCorrectAnswer();
-        String feedbackText;
-        DialogInterface.OnDismissListener callback = null;
-
-        if ((direction % 2 == 0 && correctAnswer == 0) ||
-            (direction % 2 == 1 && correctAnswer == 1)) {
-            // Answer is correct
-            feedbackText = getString(R.string.explanation_correct);
-        } else {
-           // Answer is not correct
-            Log.d("SwipeActivity", "Re-adding unit" + currentUnit);
-            feedbackText = getString(R.string.explanation_false);
-            mSwipeCardDataAdapter.add(currentUnit);
-            mUnits.add(currentUnit);
-        }
-
-        // Check if last answer
-        if (currentIndex == mUnits.size() - 1) {
-            callback = new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    finish();
-                }
-            };
-        }
-        UnitExplanationManager.getInstance().showExplanation(this, feedbackText, currentUnit.getAnswerExplanation(), callback);
+        answerSelected(correct, null, null);
     }
 
     @Override
     public void topCardTapped() {
+
     }
 }

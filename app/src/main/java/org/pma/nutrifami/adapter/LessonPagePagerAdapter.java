@@ -12,10 +12,10 @@ import org.pma.nutrifami.model.Module;
  * Created by Peter Juras on 01.06.16.
  */
 
-public class LessonPagePagerAdaptor extends FragmentStatePagerAdapter {
+public class LessonPagePagerAdapter extends FragmentStatePagerAdapter {
     private Module mModule;
 
-    public LessonPagePagerAdaptor(FragmentManager fragmentManager, Module module) {
+    public LessonPagePagerAdapter(FragmentManager fragmentManager, Module module) {
         super(fragmentManager);
         mModule = module;
     }
