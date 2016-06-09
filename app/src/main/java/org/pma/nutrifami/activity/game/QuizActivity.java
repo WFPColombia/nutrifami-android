@@ -32,6 +32,8 @@ public class QuizActivity extends GameActivity implements AnswerClickListener {
         setContentView(R.layout.activity_quiz);
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.text_quiz_answers);
+        assert recyclerView != null;
+
         recyclerView.setHasFixedSize(true);
 
         this.mQuestionTextView = (TextView) findViewById(R.id.text_quiz_question);

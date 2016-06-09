@@ -30,6 +30,7 @@ public abstract class GameActivity extends AppCompatActivity {
         this.mLesson = ModuleManager.getInstance().getLesson(lessonId);
         this.mUnits = new ArrayList<>(Arrays.asList(this.mLesson.getUnits()));
         this.mCurrentUnit = 0;
+        setTitle(getLesson().getTitle());
     }
 
     protected Unit getCurrentUnit() {

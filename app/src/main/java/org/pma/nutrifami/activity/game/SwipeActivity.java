@@ -20,7 +20,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class SwipeActivity extends GameActivity implements CardStack.CardEventListener {
-
     private CardStack mCardStack;
     private SwipeCardDataAdapter mSwipeCardDataAdapter;
 
@@ -29,23 +28,17 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_swipe);
 
-        mCardStack = (CardStack) findViewById(R.id.swipe_card_stack);
-
+        this.mCardStack = (CardStack) findViewById(R.id.swipe_card_stack);
         assert mCardStack != null;
+
         mCardStack.setContentResource(R.layout.swipe_card);
         mCardStack.setStackMargin(20);
         mCardStack.setListener(this);
 
-        // Get lesson data
-        setTitle(getLesson().getTitle());
-
         mSwipeCardDataAdapter = new SwipeCardDataAdapter(getApplicationContext(), 0);
         // Add questions to cardDataAdapter
 
-        final int length = getUnits().size();
-        for (int i = 0; i < length; i++) {
-            mSwipeCardDataAdapter.add(getUnits().get(i));
-        }
+        mSwipeCardDataAdapter.addAll(getUnits());
         mCardStack.setAdapter(mSwipeCardDataAdapter);
 
         // Initialize 'no' & 'yes' buttons
@@ -80,7 +73,6 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
 
     @Override
     public boolean swipeEnd(int section, float distance) {
-        Log.d("SwipeActivity", "Swipe section: " + section);
         return distance > 300;
     }
 
