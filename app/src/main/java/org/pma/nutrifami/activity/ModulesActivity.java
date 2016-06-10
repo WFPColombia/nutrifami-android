@@ -12,6 +12,7 @@ import android.widget.Button;
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.lib.ModuleManager;
+import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.model.Module;
 
 public class ModulesActivity extends AppCompatActivity {
@@ -55,6 +56,17 @@ public class ModulesActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (SessionManager.getInstance().isFirstLaunch(this)) {
+            Intent intent = new Intent(this, StartActivity.class);
+            startActivity(intent);
+            finish();
         }
     }
 }

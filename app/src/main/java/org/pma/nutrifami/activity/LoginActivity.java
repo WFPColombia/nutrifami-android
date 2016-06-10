@@ -17,7 +17,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
+import org.pma.nutrifami.lib.SessionManager;
 
 /**
  * A login screen that offers login via email/password.
@@ -76,8 +78,13 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void navigateToModulesPage() {
-        Intent i = new Intent(this, ModulesActivity.class);
-        startActivity(i);
+        // Set first launch flag to navigate to modules the next time
+        SessionManager.getInstance().setFirstLaunch(this, false);
+
+        Intent intent = new Intent(this, ModulesActivity.class);
+        intent.putExtra(Constants.CALLED_FROM_LOGIN, true);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     /**
