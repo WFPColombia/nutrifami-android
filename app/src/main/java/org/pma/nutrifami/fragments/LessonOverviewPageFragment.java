@@ -18,12 +18,13 @@ import org.pma.nutrifami.activity.LectureActivity;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.model.Lesson;
+import org.pma.nutrifami.util.Updateable;
 
 /**
  * Created by Peter Juras on 01.06.16.
  */
 
-public class LessonOverviewPageFragment extends Fragment {
+public class LessonOverviewPageFragment extends Fragment implements Updateable {
     private final static String LESSON_TITLE = "Lesson_Title";
     private final static String LESSON_IMAGE = "Lesson_Image";
     private final static String LESSON_DESCRIPTION = "Lesson_Desc";
@@ -64,7 +65,7 @@ public class LessonOverviewPageFragment extends Fragment {
         final Lesson lesson = ModuleManager.getInstance().getLesson(lessonId);
 
         if (SessionManager.getInstance().areLessonsCompleted(context, lesson)) {
-            ImageView completedImageView = (ImageView) rootView.findViewById(R.id.lesson_card_completed);
+            ImageView completedImageView = (ImageView) rootView.findViewById(R.id.card_completed_image_view);
             completedImageView.setVisibility(View.VISIBLE);
         }
 
@@ -80,5 +81,20 @@ public class LessonOverviewPageFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+
+    @Override
+    public void update() {
+        final Bundle args = getArguments();
+        final Lesson lesson = ModuleManager.getInstance().getLesson(args.getString(Constants.LESSON_ID));
+
+        if (SessionManager.getInstance().areLessonsCompleted(getContext(), lesson)) {
+            View completedImageView = getView().findViewById(R.id.card_completed_image_view);
+            if (completedImageView == null) {
+                return;
+            }
+            completedImageView.setVisibility(View.VISIBLE);
+        }
     }
 }

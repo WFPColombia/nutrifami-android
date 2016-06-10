@@ -5,7 +5,6 @@ import android.content.SharedPreferences;
 
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;
-import org.pma.nutrifami.model.Unit;
 
 import java.util.HashSet;
 import java.util.Set;
