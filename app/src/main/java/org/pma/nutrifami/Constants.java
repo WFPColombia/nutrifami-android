@@ -8,4 +8,5 @@ public final class Constants {
     public final static String MODULE_ID = "MODULE_ID";
     public final static String LESSON_ID = "LESSON_ID";
     public final static String LESSON_OVERVIEW = "LESSON_OVERVIEW";
+    public final static String UNITS_POSITION = "UNITS_POSITION";
 }

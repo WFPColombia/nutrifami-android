@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.pma.nutrifami.Constants;
@@ -16,51 +17,37 @@ import org.pma.nutrifami.R;
  * Created by Peter on 10.06.2016.
  */
 public class LessonIntroductionPageFragment extends Fragment {
-    protected final static String LESSON_TITLE = "Lesson_Title";
-    protected final static String LESSON_IMAGE = "Lesson_Image";
-    protected final static String LESSON_DESCRIPTION = "Lesson_Desc";
+    private static String INTRODUCTION_TITLE = "INTRODUCTION_TITLE";
+    private static String INTRODUCTION_TEXT = "INTRODUCTION_TEXT";
 
-    protected static Bundle getArguments(String id, String title, String image, String description) {
+    protected static Bundle getArguments(String title, String text) {
         Bundle args = new Bundle();
-        args.putString(Constants.LESSON_ID, id);
-        args.putString(LESSON_TITLE, title);
-        args.putString(LESSON_IMAGE, image);
-        args.putString(LESSON_DESCRIPTION, description);
+        args.putString(INTRODUCTION_TITLE, title);
+        args.putString(INTRODUCTION_TEXT, text);
         return args;
     }
 
-    public static Fragment newInstance(String id, String title, String image, String description) {
-        Bundle args = getArguments(id, title, image, description);
+    public static Fragment newInstance(String title, String text) {
+        Bundle args = getArguments(title, text);
         LessonIntroductionPageFragment fragment = new LessonIntroductionPageFragment();
         fragment.setArguments(args);
         return fragment;
-    }
-
-    @LayoutRes
-    private int mLayoutResource;
-
-    public LessonIntroductionPageFragment() {
-        this.mLayoutResource = R.layout.fragment_lesson_introduction;
-    }
-
-    protected void setLayoutResource(@LayoutRes int layoutResource) {
-        this.mLayoutResource = layoutResource;
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup rootView = (ViewGroup) inflater.inflate(
-                this.mLayoutResource, container, false
+                R.layout.fragment_lesson_introduction, container, false
         );
 
         final Bundle args = getArguments();
 
-        TextView titleTextView = (TextView) rootView.findViewById(R.id.lesson_title);
-        titleTextView.setText(args.getString(LESSON_TITLE));
+        TextView titleTextView = (TextView) rootView.findViewById(R.id.introduction_title);
+        titleTextView.setText(args.getString(INTRODUCTION_TITLE));
 
-        TextView descriptionTextView = (TextView) rootView.findViewById(R.id.lesson_description);
-        descriptionTextView.setText(args.getString(LESSON_DESCRIPTION));
+        TextView introductionTextView = (TextView) rootView.findViewById(R.id.introduction_text);
+        introductionTextView.setText(args.getString(INTRODUCTION_TEXT));
 
         return rootView;
     }

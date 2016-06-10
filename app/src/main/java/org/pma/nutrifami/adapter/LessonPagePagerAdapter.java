@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import org.pma.nutrifami.fragments.LessonPageFragment;
+import org.pma.nutrifami.fragments.LessonOverviewPageFragment;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;
 
@@ -23,7 +23,7 @@ public class LessonPagePagerAdapter extends FragmentStatePagerAdapter {
     @Override
     public Fragment getItem(int position) {
         Lesson lesson = getModule().getLessons()[position];
-        return LessonPageFragment.newInstance(lesson.getId(), lesson.getTitle(), lesson.getImage(), lesson.getDescription());
+        return LessonOverviewPageFragment.newInstance(lesson.getId(), lesson.getTitle(), lesson.getImage(), lesson.getDescription());
     }
 
     @Override

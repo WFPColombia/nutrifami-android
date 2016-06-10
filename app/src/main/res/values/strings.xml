@@ -21,7 +21,8 @@
     <string name="module_title">Module</string>
     <string name="lesson_card_title">Lesson title</string>
     <string name="lesson_card_description">Lesson description. Lesson description. Lesson description. Lesson description. Lesson description. Lesson description. Lesson description.</string>
-    <string name="lesson_card_play_button">Play</string>
+    <string name="game_card_play_button">Play</string>
+    <string name="lesson_card_start_button">Start</string>
 
     <!-- Profile activity -->
     <string name="profile_title">Profile</string>
@@ -32,4 +33,14 @@
     <string name="explanation_ok">Ok</string>
     <string name="explanation_correct">Correct</string>
     <string name="explanation_false">Not correct</string>
+
+    <!-- Game types -->
+    <string name="game_pairs_title">Form pairs!</string>
+    <string name="game_pairs_description">Select the corresponding pairs to win the game!</string>
+    <string name="game_swipe_title">Swipey Wipey!</string>
+    <string name="game_swipe_description">Swipe your way to your luck!</string>
+    <string name="game_quiz_title">Quizmaster!</string>
+    <string name="game_quiz_description">Answer the following questions to see if you are the best quiz master in town!</string>
+    <string name="game_picture_quiz_title">Picture quiz!</string>
+    <string name="game_picture_quiz_description">Look closely and answer the question based on what you see!</string>
 </resources>

@@ -42,7 +42,7 @@
             android:id="@+id/lesson_play_button"
             android:layout_below="@id/lesson_description"
             android:layout_height="wrap_content"
-            android:text="@string/lesson_card_play_button" />
+            android:text="@string/lesson_card_start_button" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

@@ -4,10 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
+import org.pma.nutrifami.fragments.LessonGamePageFragment;
 import org.pma.nutrifami.fragments.LessonIntroductionPageFragment;
-import org.pma.nutrifami.fragments.LessonPageFragment;
-import org.pma.nutrifami.model.UnitType;
+import org.pma.nutrifami.fragments.LessonOverviewPageFragment;
+import org.pma.nutrifami.model.IntroductionUnit;
 import org.pma.nutrifami.model.Lesson;
+import org.pma.nutrifami.model.Unit;
+import org.pma.nutrifami.model.UnitType;
 
 /**
  * Created by Peter on 10.06.2016.
@@ -22,10 +25,13 @@ public class LessonUnitPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        if (this.mLesson.getUnits()[position].getGameType() == UnitType.Introduction) {
-            return new LessonIntroductionPageFragment();
+        Unit unit = this.mLesson.getUnits()[position][0];
+
+        if (unit instanceof IntroductionUnit) {
+            IntroductionUnit introductionUnit = (IntroductionUnit) unit;
+            return LessonIntroductionPageFragment.newInstance(introductionUnit.getTitle(), introductionUnit.getDescription());
         } else {
-            return new LessonPageFragment();
+            return LessonGamePageFragment.newInstance(mLesson.getId(), position, unit.getGameType().toString());
         }
     }
 

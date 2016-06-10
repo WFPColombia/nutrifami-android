@@ -1,6 +1,7 @@
 package org.pma.nutrifami.activity.game;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -26,9 +27,12 @@ public abstract class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        final String lessonId = getIntent().getStringExtra(Constants.LESSON_ID);
+        final Intent intent = getIntent();
+        final String lessonId = intent.getStringExtra(Constants.LESSON_ID);
+        final int unitsPosition = intent.getIntExtra(Constants.UNITS_POSITION, 0);
+
         this.mLesson = ModuleManager.getInstance().getLesson(lessonId);
-        this.mUnits = new ArrayList<>(Arrays.asList(this.mLesson.getUnits()));
+        this.mUnits = new ArrayList<>(Arrays.asList(this.mLesson.getUnits()[unitsPosition]));
         this.mCurrentUnit = 0;
         setTitle(getLesson().getTitle());
     }

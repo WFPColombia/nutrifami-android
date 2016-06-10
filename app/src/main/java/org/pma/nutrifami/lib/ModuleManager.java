@@ -53,7 +53,7 @@ public class ModuleManager {
             for (int j = 0; j < lessons.length; j++) {
                 Lesson lesson = lessons[j];
                 if (lesson.getId().equals(lessonId)) {
-                   return resolveGameActivity(lesson.getUnits()[0].getGameType());
+                   return resolveGameActivity(lesson.getUnits()[position][0].getGameType());
                 }
             }
         }
