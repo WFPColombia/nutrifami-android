@@ -5,15 +5,15 @@ package org.pma.nutrifami.model;
  */
 
 public abstract class Unit {
-    protected GameType mGameType;
+    protected UnitType mUnitType;
     protected String mQuestion;
     protected String[] mAnswers;
     protected int mCorrectAnswer;
     protected String mAnswerExplanation;
     protected String mVoiceUri;
 
-    public GameType getGameType() {
-        return mGameType;
+    public UnitType getGameType() {
+        return mUnitType;
     }
 
     public String getQuestion() {

@@ -6,7 +6,7 @@ package org.pma.nutrifami.model;
 
 public class TextQuizUnit extends Unit {
     public TextQuizUnit(String question, String[] answers, int correctAnswer, String answerExplanation, String voiceUri) {
-        this.mGameType = GameType.TextQuiz;
+        this.mUnitType = UnitType.TextQuiz;
 
         this.mQuestion = question;
         this.mAnswers = answers;

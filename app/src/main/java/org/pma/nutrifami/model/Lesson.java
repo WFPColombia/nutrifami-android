@@ -9,9 +9,9 @@ public class Lesson {
     private String mTitle;
     private String mImage;
     private String mDescription;
-    private Unit[] mUnits;
+    private Unit[][] mUnits;
 
-    public Lesson(String id, String title, String image, String description, Unit[] units) {
+    public Lesson(String id, String title, String image, String description, Unit[][] units) {
         this.mId = id;
         this.mTitle = title;
         this.mImage = image;
@@ -35,7 +35,7 @@ public class Lesson {
         return mDescription;
     }
 
-    public Unit[] getUnits() {
+    public Unit[][] getUnits() {
         return mUnits;
     }
 }

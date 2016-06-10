@@ -22,7 +22,7 @@
             android:name=".activity.ModulesActivity"
             android:label="@string/modules_title" />
         <activity
-            android:name=".activity.ModuleActivity"
+            android:name=".activity.LectureActivity"
             android:label="@string/module_title" />
         <activity
             android:name=".activity.ProfileActivity"

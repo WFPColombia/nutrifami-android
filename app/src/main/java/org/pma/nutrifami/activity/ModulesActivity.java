@@ -23,12 +23,15 @@ public class ModulesActivity extends AppCompatActivity {
 
         Button firstModuleButton = (Button) findViewById(R.id.first_module_button);
         final ModulesActivity activity = this;
+        assert firstModuleButton != null;
+
         firstModuleButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Module module = ModuleManager.getInstance().getModules()[0];
+                final Module module = ModuleManager.getInstance().getModules()[0];
+                final Intent intent = new Intent(activity, LectureActivity.class);
 
-                Intent intent = new Intent(activity, ModuleActivity.class);
+                intent.putExtra(Constants.LESSON_OVERVIEW, true);
                 intent.putExtra(Constants.MODULE_ID, module.getId());
 
                 startActivity(intent);
@@ -38,7 +41,7 @@ public class ModulesActivity extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+        final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_modules, menu);
         return true;
     }

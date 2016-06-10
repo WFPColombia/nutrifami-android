@@ -4,7 +4,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import org.pma.nutrifami.activity.LessonPageFragment;
+import org.pma.nutrifami.fragments.LessonPageFragment;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;
 

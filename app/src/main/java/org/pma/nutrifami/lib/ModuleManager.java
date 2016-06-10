@@ -7,7 +7,7 @@ import org.pma.nutrifami.activity.game.PictureQuizActivity;
 import org.pma.nutrifami.activity.game.QuizActivity;
 import org.pma.nutrifami.activity.game.SwipeActivity;
 import org.pma.nutrifami.mock.MockModuleManager;
-import org.pma.nutrifami.model.GameType;
+import org.pma.nutrifami.model.UnitType;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;
 
@@ -33,8 +33,8 @@ public class ModuleManager {
         return mModules;
     }
 
-    private Class<? extends AppCompatActivity> resolveGameActivity(GameType gameType) {
-        switch (gameType) {
+    private Class<? extends AppCompatActivity> resolveGameActivity(UnitType unitType) {
+        switch (unitType) {
             case Pairs:
                 return PairsActivity.class;
             case PictureQuiz:
@@ -47,7 +47,7 @@ public class ModuleManager {
         return null;
     }
 
-    public Class<? extends AppCompatActivity> getGameActivity(String lessonId) {
+    public Class<? extends AppCompatActivity> getGameActivity(String lessonId, int position) {
         for (int i = 0; i < mModules.length; i++) {
             Lesson[] lessons = mModules[i].getLessons();
             for (int j = 0; j < lessons.length; j++) {

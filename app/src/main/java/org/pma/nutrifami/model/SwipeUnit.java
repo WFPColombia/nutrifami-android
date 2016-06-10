@@ -5,7 +5,7 @@ package org.pma.nutrifami.model;
  */
 public class SwipeUnit extends Unit{
         public SwipeUnit(String question, String[] answers, int correctAnswer, String answerExplanation, String voiceUri) {
-                this.mGameType = GameType.Swipe;
+                this.mUnitType = UnitType.Swipe;
 
                 this.mQuestion = question;
                 this.mAnswers = answers;
