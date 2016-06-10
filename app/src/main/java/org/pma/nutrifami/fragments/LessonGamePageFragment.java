@@ -25,7 +25,7 @@ import org.pma.nutrifami.util.Updateable;
  * Created by Peter Juras on 10.06.16.
  */
 
-public class LessonGamePageFragment extends Fragment implements Updateable {
+public class LessonGamePageFragment extends LessonProgressFragment {
     private final static String GAME_TYPE = "GAME_TYPE";
 
     private static Bundle getArguments(String lessonId, int unitsPosition, String gameType) {
@@ -92,11 +92,7 @@ public class LessonGamePageFragment extends Fragment implements Updateable {
         final int unitsPosition = args.getInt(Constants.UNITS_POSITION);
 
         if (SessionManager.getInstance().areUnitPackagesCompleted(getContext(), lesson, unitsPosition)) {
-            View completedImageView = getView().findViewById(R.id.card_completed_image_view);
-            if (completedImageView == null) {
-                return;
-            }
-            completedImageView.setVisibility(View.VISIBLE);
+            super.update();
         }
     }
 }

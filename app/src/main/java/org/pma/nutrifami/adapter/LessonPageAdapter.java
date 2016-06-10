@@ -9,9 +9,8 @@ import org.pma.nutrifami.util.Updateable;
  * Created by Peter Juras on 10.06.16.
  */
 
-public abstract class LessonPageAdapter extends FragmentStatePagerAdapter {
-
-    public LessonPageAdapter(FragmentManager fm) {
+abstract class LessonPageAdapter extends FragmentStatePagerAdapter {
+    LessonPageAdapter(FragmentManager fm) {
         super(fm);
     }
 
