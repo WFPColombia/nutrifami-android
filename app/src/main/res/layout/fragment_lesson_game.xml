@@ -43,6 +43,13 @@
             android:layout_below="@id/game_description"
             android:layout_height="wrap_content"
             android:text="@string/game_card_play_button" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:src="@mipmap/ic_check_circle_black_24dp"
+            android:layout_width="wrap_content"
+            android:visibility="invisible"
+            android:layout_height="wrap_content"
+            android:id="@+id/game_completed" />
     </RelativeLayout>
 
 </android.support.v7.widget.CardView>

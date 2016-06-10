@@ -10,12 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.GameTypeManager;
+import org.pma.nutrifami.lib.SessionManager;
+import org.pma.nutrifami.model.Lesson;
 
 /**
  * Created by Peter Juras on 10.06.16.
@@ -53,12 +56,18 @@ public class LessonGamePageFragment extends Fragment {
         final String gameType = args.getString(GAME_TYPE);
         final String lessonId = args.getString(Constants.LESSON_ID);
         final int unitsPosition = args.getInt(Constants.UNITS_POSITION);
+        final Lesson lesson = ModuleManager.getInstance().getLesson(lessonId);
 
         TextView titleTextView = (TextView) rootView.findViewById(R.id.game_title);
         titleTextView.setText(manager.getGameTitle(context, gameType));
 
         TextView descriptionTextView = (TextView) rootView.findViewById(R.id.game_description);
         descriptionTextView.setText(manager.getGameDescription(context, gameType));
+
+        if (SessionManager.getInstance().areUnitPackagesCompleted(context, lesson, unitsPosition)) {
+            ImageView completedImageView = (ImageView) rootView.findViewById(R.id.game_completed);
+            completedImageView.setVisibility(View.VISIBLE);
+        }
 
         Button playButton = (Button) rootView.findViewById(R.id.game_play_button);
         playButton.setOnClickListener(new View.OnClickListener() {

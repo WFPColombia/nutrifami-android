@@ -9,11 +9,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.activity.LectureActivity;
+import org.pma.nutrifami.lib.ModuleManager;
+import org.pma.nutrifami.lib.SessionManager;
+import org.pma.nutrifami.model.Lesson;
 
 /**
  * Created by Peter Juras on 01.06.16.
@@ -56,12 +60,20 @@ public class LessonOverviewPageFragment extends Fragment {
         TextView descriptionTextView = (TextView) rootView.findViewById(R.id.lesson_description);
         descriptionTextView.setText(args.getString(LESSON_DESCRIPTION));
 
+        final String lessonId = args.getString(Constants.LESSON_ID);
+        final Lesson lesson = ModuleManager.getInstance().getLesson(lessonId);
+
+        if (SessionManager.getInstance().areLessonsCompleted(context, lesson)) {
+            ImageView completedImageView = (ImageView) rootView.findViewById(R.id.lesson_card_completed);
+            completedImageView.setVisibility(View.VISIBLE);
+        }
+
         Button startButton = (Button) rootView.findViewById(R.id.lesson_play_button);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, LectureActivity.class);
-                intent.putExtra(Constants.LESSON_ID, args.getString(Constants.LESSON_ID));
+                intent.putExtra(Constants.LESSON_ID, lessonId);
                 intent.putExtra(Constants.LESSON_OVERVIEW, false);
                 startActivity(intent);
             }

@@ -1,5 +1,6 @@
 package org.pma.nutrifami.activity.game;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.lib.ModuleManager;
+import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.lib.UnitExplanationManager;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Unit;
@@ -22,6 +24,7 @@ public abstract class GameActivity extends AppCompatActivity {
     private Lesson mLesson;
     private ArrayList<Unit> mUnits;
     private int mCurrentUnit;
+    private int mUnitsPosition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +32,10 @@ public abstract class GameActivity extends AppCompatActivity {
 
         final Intent intent = getIntent();
         final String lessonId = intent.getStringExtra(Constants.LESSON_ID);
-        final int unitsPosition = intent.getIntExtra(Constants.UNITS_POSITION, 0);
 
+        this.mUnitsPosition = intent.getIntExtra(Constants.UNITS_POSITION, 0);
         this.mLesson = ModuleManager.getInstance().getLesson(lessonId);
-        this.mUnits = new ArrayList<>(Arrays.asList(this.mLesson.getUnits()[unitsPosition]));
+        this.mUnits = new ArrayList<>(Arrays.asList(this.mLesson.getUnits()[this.mUnitsPosition]));
         this.mCurrentUnit = 0;
         setTitle(getLesson().getTitle());
     }
@@ -51,14 +54,18 @@ public abstract class GameActivity extends AppCompatActivity {
 
     protected void answerSelected(boolean correctAnswer, DialogInterface.OnDismissListener dismiss, DialogInterface.OnDismissListener dismissLast) {
         if (dismissLast == null) {
+            final Context context = this;
+            final Lesson lesson = this.mLesson;
             dismissLast = new DialogInterface.OnDismissListener() {
                 @Override
                 public void onDismiss(DialogInterface dialog) {
+                    SessionManager.getInstance().setUnitPackageAsCompleted(context, lesson, mUnitsPosition);
                     finish();
                 }
             };
         }
 
+        final String answerExplanation = this.mUnits.get(this.mCurrentUnit).getAnswerExplanation();
         String feedbackText;
         if (correctAnswer) {
             // Answer was correct
@@ -81,7 +88,7 @@ public abstract class GameActivity extends AppCompatActivity {
         UnitExplanationManager.getInstance().showExplanation(
             this,
             feedbackText,
-            this.mUnits.get(this.mCurrentUnit).getAnswerExplanation(),
+            answerExplanation,
             dismissListener);
     }
 }

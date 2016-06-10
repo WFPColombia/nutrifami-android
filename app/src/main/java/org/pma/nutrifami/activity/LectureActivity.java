@@ -19,6 +19,7 @@ import me.crosswall.lib.coverflow.CoverFlow;
 
 public class LectureActivity extends FragmentActivity implements DialogInterface.OnClickListener {
     private boolean mIsLessonOverview;
+    private PagerAdapter mPagerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,25 +29,32 @@ public class LectureActivity extends FragmentActivity implements DialogInterface
         final ModuleManager moduleManager = ModuleManager.getInstance();
         final Intent intent = getIntent();
         this.mIsLessonOverview = intent.getBooleanExtra(Constants.LESSON_OVERVIEW, true);
-        PagerAdapter pagerAdapter;
         if (mIsLessonOverview) {
             final String moduleId = intent.getStringExtra(Constants.MODULE_ID);
             final Module module = moduleManager.getModule(moduleId);
-            pagerAdapter = new LessonPagePagerAdapter(getSupportFragmentManager(), module);
+            this.mPagerAdapter = new LessonPagePagerAdapter(getSupportFragmentManager(), module);
         } else {
             final String lessonId = intent.getStringExtra(Constants.LESSON_ID);
             final Lesson lesson = moduleManager.getLesson(lessonId);
-            pagerAdapter = new LessonUnitPagerAdapter(getSupportFragmentManager(), lesson);
+            this.mPagerAdapter = new LessonUnitPagerAdapter(getSupportFragmentManager(), lesson);
         }
 
         final ViewPager pager = (ViewPager) findViewById(R.id.lesson_page_pager);
         pager.setOffscreenPageLimit(2);
-        pager.setAdapter(pagerAdapter);
+        pager.setAdapter(this.mPagerAdapter);
 
         new CoverFlow.Builder()
                 .with(pager)
                 .scale(0.15f)
                 .build();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (this.mPagerAdapter != null) {
+            this.mPagerAdapter.notifyDataSetChanged();
+        }
     }
 
     @Override

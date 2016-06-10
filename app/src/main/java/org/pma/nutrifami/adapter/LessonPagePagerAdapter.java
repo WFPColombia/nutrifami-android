@@ -2,7 +2,6 @@ package org.pma.nutrifami.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 
 import org.pma.nutrifami.fragments.LessonOverviewPageFragment;
 import org.pma.nutrifami.model.Lesson;
@@ -12,7 +11,7 @@ import org.pma.nutrifami.model.Module;
  * Created by Peter Juras on 01.06.16.
  */
 
-public class LessonPagePagerAdapter extends FragmentStatePagerAdapter {
+public class LessonPagePagerAdapter extends LessonPageAdapter {
     private Module mModule;
 
     public LessonPagePagerAdapter(FragmentManager fragmentManager, Module module) {
