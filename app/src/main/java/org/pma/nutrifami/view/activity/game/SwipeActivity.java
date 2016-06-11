@@ -7,8 +7,8 @@ import android.widget.Button;
 import com.wenchao.cardstack.CardStack;
 
 import org.pma.nutrifami.R;
+import org.pma.nutrifami.model.unit.SwipeUnit;
 import org.pma.nutrifami.view.adapter.SwipeCardDataAdapter;
-import org.pma.nutrifami.model.SwipeUnit;
 
 public class SwipeActivity extends GameActivity implements CardStack.CardEventListener {
     private CardStack mCardStack;

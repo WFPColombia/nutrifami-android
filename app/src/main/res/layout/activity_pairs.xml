@@ -1,9 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_pairs"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.activity.game.PairsActivity">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:id="@+id/activity_pairs"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="horizontal"
+              tools:context=".view.activity.game.PairsActivity"
+    >
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/pairs_left_recycler_view"
+        android:layout_weight="0.5"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
 
-</android.support.constraint.ConstraintLayout>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/pairs_right_recycler_view"
+        android:layout_weight="0.5"
+        android:layout_width="0dp"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

@@ -12,7 +12,7 @@ import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.lib.UnitExplanationManager;
 import org.pma.nutrifami.model.Lesson;
-import org.pma.nutrifami.model.Unit;
+import org.pma.nutrifami.model.unit.Unit;
 
 import java.util.ArrayList;
 import java.util.Arrays;

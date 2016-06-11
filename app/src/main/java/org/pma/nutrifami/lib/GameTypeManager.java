@@ -3,7 +3,7 @@ package org.pma.nutrifami.lib;
 import android.content.Context;
 
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.model.UnitType;
+import org.pma.nutrifami.model.unit.UnitType;
 
 /**
  * Created by Peter Juras on 10.06.16.

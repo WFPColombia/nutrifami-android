@@ -2,14 +2,14 @@ package org.pma.nutrifami.lib;
 
 import android.support.v7.app.AppCompatActivity;
 
+import org.pma.nutrifami.mock.MockModuleManager;
+import org.pma.nutrifami.model.Lesson;
+import org.pma.nutrifami.model.Module;
+import org.pma.nutrifami.model.unit.UnitType;
 import org.pma.nutrifami.view.activity.game.PairsActivity;
 import org.pma.nutrifami.view.activity.game.PictureQuizActivity;
 import org.pma.nutrifami.view.activity.game.QuizActivity;
 import org.pma.nutrifami.view.activity.game.SwipeActivity;
-import org.pma.nutrifami.mock.MockModuleManager;
-import org.pma.nutrifami.model.Lesson;
-import org.pma.nutrifami.model.Module;
-import org.pma.nutrifami.model.UnitType;
 
 /**
  * Created by Peter Juras on 01.06.16.

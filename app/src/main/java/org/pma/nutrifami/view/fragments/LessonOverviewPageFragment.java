@@ -14,10 +14,10 @@ import android.widget.TextView;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.view.activity.LessonActivity;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.model.Lesson;
+import org.pma.nutrifami.view.activity.LessonActivity;
 
 /**
  * Created by Peter Juras on 01.06.16.

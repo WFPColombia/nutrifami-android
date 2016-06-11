@@ -3,7 +3,6 @@ package org.pma.nutrifami.view.viewholder;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
@@ -12,8 +11,8 @@ import android.widget.TextView;
 
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.lib.SessionManager;
-import org.pma.nutrifami.view.listener.ModuleClickListener;
 import org.pma.nutrifami.model.Module;
+import org.pma.nutrifami.view.listener.ModuleClickListener;
 
 /**
  * Created by pjura on 11-Jun-16.

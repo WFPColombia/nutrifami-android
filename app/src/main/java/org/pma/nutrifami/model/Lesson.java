@@ -1,5 +1,7 @@
 package org.pma.nutrifami.model;
 
+import org.pma.nutrifami.model.unit.Unit;
+
 /**
  * Created by Peter Juras on 01.06.16.
  */

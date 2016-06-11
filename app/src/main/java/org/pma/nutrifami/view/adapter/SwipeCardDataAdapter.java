@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.model.Unit;
+import org.pma.nutrifami.model.unit.Unit;
 
 /**
  * Created by Peter on 05.06.2016.

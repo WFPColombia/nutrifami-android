@@ -14,9 +14,9 @@ import android.view.View;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.view.adapter.ModulesDataAdapter;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
+import org.pma.nutrifami.view.adapter.ModulesDataAdapter;
 import org.pma.nutrifami.view.listener.ModuleClickListener;
 
 public class ModulesActivity extends AppCompatActivity implements ModuleClickListener {

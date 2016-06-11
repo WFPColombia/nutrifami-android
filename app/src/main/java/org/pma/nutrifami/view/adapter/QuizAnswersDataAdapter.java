@@ -8,8 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.view.viewholder.QuizAnswersViewHolder;
 import org.pma.nutrifami.view.listener.AnswerClickListener;
+import org.pma.nutrifami.view.viewholder.QuizAnswersViewHolder;
 
 /**
  * Created by Peter on 09.06.2016.

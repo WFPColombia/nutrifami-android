@@ -1,4 +1,4 @@
-package org.pma.nutrifami.model;
+package org.pma.nutrifami.model.unit;
 
 /**
  * Created by Peter on 05.06.2016.
