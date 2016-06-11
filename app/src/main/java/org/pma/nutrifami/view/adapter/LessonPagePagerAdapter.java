@@ -1,9 +1,9 @@
-package org.pma.nutrifami.adapter;
+package org.pma.nutrifami.view.adapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
-import org.pma.nutrifami.fragments.LessonOverviewPageFragment;
+import org.pma.nutrifami.view.fragments.LessonOverviewPageFragment;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;
 

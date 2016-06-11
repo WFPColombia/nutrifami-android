@@ -4,6 +4,6 @@
     android:id="@+id/activity_picture_quiz"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.pma.nutrifami.activity.game.PictureQuizActivity">
+    tools:context=".view.activity.game.PictureQuizActivity">
 
 </android.support.constraint.ConstraintLayout>

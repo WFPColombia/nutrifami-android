@@ -1,11 +1,11 @@
-package org.pma.nutrifami.adapter.viewholder;
+package org.pma.nutrifami.view.viewholder;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import org.pma.nutrifami.listener.AnswerClickListener;
+import org.pma.nutrifami.view.listener.AnswerClickListener;
 
 /**
  * Created by pjura on 11-Jun-16.

@@ -1,4 +1,4 @@
-package org.pma.nutrifami.adapter;
+package org.pma.nutrifami.view.adapter;
 
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;

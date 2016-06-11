@@ -1,4 +1,4 @@
-package org.pma.nutrifami.adapter;
+package org.pma.nutrifami.view.adapter;
 
 import android.content.Context;
 import android.view.View;

@@ -1,4 +1,4 @@
-package org.pma.nutrifami.activity;
+package org.pma.nutrifami.view.activity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -9,8 +9,8 @@ import android.support.v4.view.ViewPager;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.adapter.LessonPagePagerAdapter;
-import org.pma.nutrifami.adapter.LessonUnitPagerAdapter;
+import org.pma.nutrifami.view.adapter.LessonPagePagerAdapter;
+import org.pma.nutrifami.view.adapter.LessonUnitPagerAdapter;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;

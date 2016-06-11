@@ -1,4 +1,4 @@
-package org.pma.nutrifami.activity.game;
+package org.pma.nutrifami.view.activity.game;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -7,8 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.adapter.QuizAnswersDataAdapter;
-import org.pma.nutrifami.listener.AnswerClickListener;
+import org.pma.nutrifami.view.adapter.QuizAnswersDataAdapter;
+import org.pma.nutrifami.view.listener.AnswerClickListener;
 
 public class QuizActivity extends GameActivity implements AnswerClickListener {
 

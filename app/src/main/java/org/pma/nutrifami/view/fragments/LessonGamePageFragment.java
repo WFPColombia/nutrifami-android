@@ -1,4 +1,4 @@
-package org.pma.nutrifami.fragments;
+package org.pma.nutrifami.view.fragments;
 
 import android.content.Context;
 import android.content.Intent;

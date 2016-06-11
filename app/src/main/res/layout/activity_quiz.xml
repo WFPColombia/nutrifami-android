@@ -4,7 +4,7 @@
     android:id="@+id/activity_quiz"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.pma.nutrifami.activity.game.QuizActivity">
+    tools:context=".view.activity.game.QuizActivity">
 
     <android.support.v7.widget.CardView
         android:layout_width="match_parent"

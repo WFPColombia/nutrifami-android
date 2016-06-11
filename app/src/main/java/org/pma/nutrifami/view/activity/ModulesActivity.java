@@ -1,6 +1,5 @@
-package org.pma.nutrifami.activity;
+package org.pma.nutrifami.view.activity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,21 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.adapter.ModulesDataAdapter;
+import org.pma.nutrifami.view.adapter.ModulesDataAdapter;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
-import org.pma.nutrifami.listener.ModuleClickListener;
-import org.pma.nutrifami.model.Module;
-
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.List;
+import org.pma.nutrifami.view.listener.ModuleClickListener;
 
 public class ModulesActivity extends AppCompatActivity implements ModuleClickListener {
     private ModulesDataAdapter mDataAdapter;

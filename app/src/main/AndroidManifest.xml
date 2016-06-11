@@ -9,12 +9,12 @@
         android:fullBackupContent="true"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.StartActivity" />
+        <activity android:name=".view.activity.StartActivity" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".view.activity.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".activity.ModulesActivity"
+            android:name=".view.activity.ModulesActivity"
             >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,15 +22,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.LectureActivity"
+            android:name=".view.activity.LectureActivity"
             android:label="@string/module_title" />
         <activity
-            android:name=".activity.ProfileActivity"
+            android:name=".view.activity.ProfileActivity"
             android:label="@string/profile_title" />
-        <activity android:name=".activity.game.QuizActivity" />
-        <activity android:name=".activity.game.PictureQuizActivity" />
-        <activity android:name=".activity.game.SwipeActivity" />
-        <activity android:name=".activity.game.PairsActivity" />
+        <activity android:name=".view.activity.game.QuizActivity" />
+        <activity android:name=".view.activity.game.PictureQuizActivity" />
+        <activity android:name=".view.activity.game.SwipeActivity" />
+        <activity android:name=".view.activity.game.PairsActivity" />
     </application>
 
 </manifest>

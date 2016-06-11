@@ -4,6 +4,6 @@
     android:id="@+id/activity_pairs"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="org.pma.nutrifami.activity.game.PairsActivity">
+    tools:context=".view.activity.game.PairsActivity">
 
 </android.support.constraint.ConstraintLayout>

@@ -2,10 +2,10 @@ package org.pma.nutrifami.lib;
 
 import android.support.v7.app.AppCompatActivity;
 
-import org.pma.nutrifami.activity.game.PairsActivity;
-import org.pma.nutrifami.activity.game.PictureQuizActivity;
-import org.pma.nutrifami.activity.game.QuizActivity;
-import org.pma.nutrifami.activity.game.SwipeActivity;
+import org.pma.nutrifami.view.activity.game.PairsActivity;
+import org.pma.nutrifami.view.activity.game.PictureQuizActivity;
+import org.pma.nutrifami.view.activity.game.QuizActivity;
+import org.pma.nutrifami.view.activity.game.SwipeActivity;
 import org.pma.nutrifami.mock.MockModuleManager;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;

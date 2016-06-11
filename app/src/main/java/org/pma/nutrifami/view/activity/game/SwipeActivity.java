@@ -1,4 +1,4 @@
-package org.pma.nutrifami.activity.game;
+package org.pma.nutrifami.view.activity.game;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,7 +7,7 @@ import android.widget.Button;
 import com.wenchao.cardstack.CardStack;
 
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.adapter.SwipeCardDataAdapter;
+import org.pma.nutrifami.view.adapter.SwipeCardDataAdapter;
 import org.pma.nutrifami.model.SwipeUnit;
 
 public class SwipeActivity extends GameActivity implements CardStack.CardEventListener {

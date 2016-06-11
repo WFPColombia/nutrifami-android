@@ -1,4 +1,4 @@
-package org.pma.nutrifami.fragments;
+package org.pma.nutrifami.view.fragments;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.activity.LectureActivity;
+import org.pma.nutrifami.view.activity.LectureActivity;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.model.Lesson;

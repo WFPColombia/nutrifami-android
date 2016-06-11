@@ -1,4 +1,4 @@
-package org.pma.nutrifami.adapter.viewholder;
+package org.pma.nutrifami.view.viewholder;
 
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.pma.nutrifami.lib.SessionManager;
-import org.pma.nutrifami.listener.ModuleClickListener;
+import org.pma.nutrifami.view.listener.ModuleClickListener;
 import org.pma.nutrifami.model.Module;
 
 /**

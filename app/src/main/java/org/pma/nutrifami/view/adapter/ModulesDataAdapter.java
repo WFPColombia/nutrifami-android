@@ -1,4 +1,4 @@
-package org.pma.nutrifami.adapter;
+package org.pma.nutrifami.view.adapter;
 
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.adapter.viewholder.ModuleViewHolder;
-import org.pma.nutrifami.listener.ModuleClickListener;
+import org.pma.nutrifami.view.viewholder.ModuleViewHolder;
+import org.pma.nutrifami.view.listener.ModuleClickListener;
 import org.pma.nutrifami.model.Module;
 
 /**

@@ -1,4 +1,4 @@
-package org.pma.nutrifami.activity;
+package org.pma.nutrifami.view.activity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

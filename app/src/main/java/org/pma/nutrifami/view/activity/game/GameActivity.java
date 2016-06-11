@@ -1,4 +1,4 @@
-package org.pma.nutrifami.activity.game;
+package org.pma.nutrifami.view.activity.game;
 
 import android.content.Context;
 import android.content.DialogInterface;
