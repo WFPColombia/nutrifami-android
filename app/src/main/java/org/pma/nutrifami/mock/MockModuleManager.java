@@ -66,13 +66,31 @@ public class MockModuleManager extends ModuleManager {
                         )}
                 });
 
-        Module firstModule = new Module(
+        this.setModules(new Module[]{
+                new Module(
                 "module-1",
                 "The first module with a quite long title!",
                 "NOT_IMPLEMENTED",
-                new Lesson[]{tq1, tq1, tq1, tq1, tq1}
-        );
-
-        this.setModules(new Module[]{firstModule});
+                new Lesson[]{tq1, tq1, tq1, tq1, tq1},
+                true
+        ), new Module(
+                "module-1",
+                "The second module with a quite long title!",
+                "NOT_IMPLEMENTED",
+                new Lesson[]{tq1, tq1, tq1, tq1, tq1},
+                false
+        ), new Module(
+                "module-1",
+                "The third module with a quite long title!",
+                "NOT_IMPLEMENTED",
+                new Lesson[]{tq1, tq1, tq1, tq1, tq1},
+                false
+        ), new Module(
+                "module-1",
+                "The fourth module with a quite long title!",
+                "NOT_IMPLEMENTED",
+                new Lesson[]{tq1, tq1, tq1, tq1, tq1},
+                false
+        )});
     }
 }

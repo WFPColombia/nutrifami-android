@@ -10,11 +10,17 @@ public class Module {
     private final String mImage;
     private final Lesson[] mLessons;
 
-    public Module(String id, String title, String image, Lesson[] lessons) {
+    // The prototype will only have one module, the others will simply be decoration. Therefore
+    // we introduce a enabled field for modules. The real app should then decide whether all modules
+    // are accessible from the beginning, or based on progress.
+    private final boolean mEnabled;
+
+    public Module(String id, String title, String image, Lesson[] lessons, boolean enabled) {
         this.mId = id;
         this.mTitle = title;
         this.mImage = image;
         this.mLessons = lessons;
+        this.mEnabled = enabled;
     }
 
     public String getId() {
@@ -29,8 +35,11 @@ public class Module {
         return mImage;
     }
 
-
     public Lesson[] getLessons() {
         return mLessons;
+    }
+
+    public boolean getEnabled() {
+        return this.mEnabled;
     }
 }

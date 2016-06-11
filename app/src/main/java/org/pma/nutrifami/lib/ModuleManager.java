@@ -30,7 +30,7 @@ public class ModuleManager {
     private Module[] mModules;
 
     public Module[] getModules() {
-        return mModules;
+        return this.mModules;
     }
 
     private Class<? extends AppCompatActivity> resolveGameActivity(UnitType unitType) {

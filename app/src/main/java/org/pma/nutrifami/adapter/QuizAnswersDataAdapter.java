@@ -8,45 +8,14 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import org.pma.nutrifami.R;
+import org.pma.nutrifami.adapter.viewholder.QuizAnswersViewHolder;
 import org.pma.nutrifami.listener.AnswerClickListener;
 
 /**
  * Created by Peter on 09.06.2016.
  */
-public class QuizAnswersDataAdapter extends RecyclerView.Adapter<QuizAnswersDataAdapter.QuizAnswersViewHolder> {
-    public static class QuizAnswersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final TextView mTextView;
-        private final CardView mCardView;
-        private final AnswerClickListener mAnswerClickListener;
-        private int mPosition;
+public class QuizAnswersDataAdapter extends RecyclerView.Adapter<QuizAnswersViewHolder> {
 
-        public QuizAnswersViewHolder(CardView cardView, TextView textView, AnswerClickListener answerClickListener) {
-            super(cardView);
-
-            this.mCardView = cardView;
-            this.mCardView.setOnClickListener(this);
-
-            this.mTextView = textView;
-            this.mTextView.setOnClickListener(this);
-
-            this.mAnswerClickListener = answerClickListener;
-        }
-
-        public void setText(String text) {
-            if (this.mTextView != null) {
-                this.mTextView.setText(text);
-            }
-        }
-
-        public void setPosition(int position) {
-            this.mPosition = position;
-        }
-
-        @Override
-        public void onClick(View v) {
-            this.mAnswerClickListener.onAnswerClicked(this.mPosition);
-        }
-    }
 
     private final AnswerClickListener mAnswerClickListener;
     private String[] mAnswers;

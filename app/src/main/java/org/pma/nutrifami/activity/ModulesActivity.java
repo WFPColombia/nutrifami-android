@@ -1,8 +1,11 @@
 package org.pma.nutrifami.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -11,35 +14,39 @@ import android.widget.Button;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
+import org.pma.nutrifami.adapter.ModulesDataAdapter;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
+import org.pma.nutrifami.listener.ModuleClickListener;
 import org.pma.nutrifami.model.Module;
 
-public class ModulesActivity extends AppCompatActivity {
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+
+public class ModulesActivity extends AppCompatActivity implements ModuleClickListener {
+    private ModulesDataAdapter mDataAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modules);
 
-        final Button firstModuleButton = (Button) findViewById(R.id.first_module_button);
-        assert firstModuleButton != null;
-        final ModulesActivity activity = this;
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.modules_recycler_view);
+        assert recyclerView != null;
+
+        recyclerView.setHasFixedSize(true);
+
+        this.mDataAdapter = new ModulesDataAdapter(this, ModuleManager.getInstance().getModules());
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+
+        layoutManager.setReverseLayout(true);
+        recyclerView.setAdapter(this.mDataAdapter);
+        recyclerView.setLayoutManager(layoutManager);
+        // TODO: Focus based on progress
 
         setTitle(getString(R.string.modules_title));
-
-        firstModuleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                final Module module = ModuleManager.getInstance().getModules()[0];
-                final Intent intent = new Intent(activity, LectureActivity.class);
-
-                intent.putExtra(Constants.LESSON_OVERVIEW, true);
-                intent.putExtra(Constants.MODULE_ID, module.getId());
-
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
@@ -70,5 +77,24 @@ public class ModulesActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if (this.mDataAdapter != null) {
+            this.mDataAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    public void onClick(String moduleId) {
+        final Intent intent = new Intent(this, LectureActivity.class);
+
+        intent.putExtra(Constants.LESSON_OVERVIEW, true);
+        intent.putExtra(Constants.MODULE_ID, moduleId);
+
+        startActivity(intent);
     }
 }
