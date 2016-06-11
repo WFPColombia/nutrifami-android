@@ -49,7 +49,7 @@ public class SessionManager {
     }
 
     public void setUnitPackageAsCompleted(Context context, Lesson lesson, int unitPackage) {
-        Set<String> completedLessons = getCompletedLessons(context);
+        Set<String> completedLessons = new HashSet<>(getCompletedLessons(context));
         completedLessons.add(formatUnitPackage(lesson.getId(), unitPackage));
 
         SharedPreferences.Editor editor = getPreferences(context).edit();
