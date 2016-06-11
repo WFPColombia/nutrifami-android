@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activity.LectureActivity"
+            android:name=".view.activity.LessonActivity"
             android:label="@string/module_title" />
         <activity
             android:name=".view.activity.ProfileActivity"

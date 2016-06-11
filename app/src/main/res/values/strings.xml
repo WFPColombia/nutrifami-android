@@ -23,6 +23,7 @@
     <string name="lesson_card_description">Lesson description. Lesson description. Lesson description. Lesson description. Lesson description. Lesson description. Lesson description.</string>
     <string name="game_card_play_button">Play</string>
     <string name="lesson_card_start_button">Start</string>
+    <string name="mode_transition_name">Module transition</string>
 
     <!-- Profile activity -->
     <string name="profile_title">Profile</string>
@@ -43,4 +44,6 @@
     <string name="game_picture_quiz_title">Picture quiz!</string>
     <string name="game_picture_quiz_description">Look closely and answer the question based on what you see!</string>
     <string name="start_nutrifami_logo_description">Nutrifami logo</string>
+    <string name="module_icon_description">Module icon</string>
+
 </resources>

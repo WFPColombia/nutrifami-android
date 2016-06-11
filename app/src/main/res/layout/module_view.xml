@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:app="http://schemas.android.com/apk/res-auto"
-              xmlns:tools="http://schemas.android.com/tools"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"
               android:layout_marginBottom="50dp"
@@ -21,15 +20,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <android.support.design.widget.FloatingActionButton
+        <ImageButton
             android:id="@+id/module_button"
             android:layout_width="100dp"
+            android:background="@drawable/circle"
             android:layout_height="100dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="10dp"
+            android:scaleType="fitCenter"
+            android:padding="20dp"
             android:layout_gravity="center"
             app:srcCompat="@mipmap/circle_placeholder"
-            />
+            android:contentDescription="@string/module_icon_description"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/module_completed"
@@ -38,7 +40,7 @@
             android:src="@mipmap/ic_check_circle_black_24dp"
             android:layout_gravity="center"
             android:visibility="invisible"
-            android:translationY="-45dp"
-            android:translationX="45dp"/>
+            android:translationY="-30dp"
+            android:translationX="40dp"/>
     </FrameLayout>
 </LinearLayout>

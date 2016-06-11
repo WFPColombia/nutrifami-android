@@ -1,13 +1,16 @@
 package org.pma.nutrifami.view.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
@@ -80,12 +83,17 @@ public class ModulesActivity extends AppCompatActivity implements ModuleClickLis
     }
 
     @Override
-    public void onClick(String moduleId) {
-        final Intent intent = new Intent(this, LectureActivity.class);
+    public void onClick(View sender, String moduleId) {
+        final Intent intent = new Intent(this, LessonActivity.class);
 
         intent.putExtra(Constants.LESSON_OVERVIEW, true);
         intent.putExtra(Constants.MODULE_ID, moduleId);
 
-        startActivity(intent);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            ActivityOptionsCompat transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, sender, getString(R.string.mode_transition_name));
+            startActivity(intent, transitionActivityOptions.toBundle());
+        } else {
+            startActivity(intent);
+        }
     }
 }
