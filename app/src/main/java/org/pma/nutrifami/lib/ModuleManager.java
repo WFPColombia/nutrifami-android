@@ -7,9 +7,9 @@ import org.pma.nutrifami.activity.game.PictureQuizActivity;
 import org.pma.nutrifami.activity.game.QuizActivity;
 import org.pma.nutrifami.activity.game.SwipeActivity;
 import org.pma.nutrifami.mock.MockModuleManager;
-import org.pma.nutrifami.model.UnitType;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;
+import org.pma.nutrifami.model.UnitType;
 
 /**
  * Created by Peter Juras on 01.06.16.
@@ -48,38 +48,37 @@ public class ModuleManager {
     }
 
     public Class<? extends AppCompatActivity> getGameActivity(String lessonId, int position) {
-        for (int i = 0; i < mModules.length; i++) {
-            Lesson[] lessons = mModules[i].getLessons();
-            for (int j = 0; j < lessons.length; j++) {
-                Lesson lesson = lessons[j];
+        for (final Module mModule : mModules) {
+            Lesson[] lessons = mModule.getLessons();
+            for (final Lesson lesson : lessons) {
                 if (lesson.getId().equals(lessonId)) {
-                   return resolveGameActivity(lesson.getUnits()[position][0].getGameType());
+                    return resolveGameActivity(lesson.getUnits()[position][0].getGameType());
                 }
             }
         }
         return null;
     }
 
-    public void setModules(Module[] modules) {
+    protected void setModules(Module[] modules) {
         this.mModules = modules;
     }
 
     public Module getModule(String moduleId) {
-        for (int i = 0; i < mModules.length; i++) {
-            if (mModules[i].getId().equals(moduleId)) {
-                return mModules[i];
+        for (final Module mModule : mModules) {
+            if (mModule.getId().equals(moduleId)) {
+                return mModule;
             }
         }
         return null;
     }
 
     public Lesson getLesson(String lessonId) {
-        for (int i = 0; i < mModules.length; i++) {
-            Lesson[] lessons = mModules[i].getLessons();
-            for (int j = 0; j < lessons.length; j++) {
-               if (lessons[j].getId().equals(lessonId)) {
-                   return lessons[j];
-               }
+        for (final Module mModule : mModules) {
+            Lesson[] lessons = mModule.getLessons();
+            for (final Lesson lesson : lessons) {
+                if (lesson.getId().equals(lessonId)) {
+                    return lesson;
+                }
             }
         }
         return null;

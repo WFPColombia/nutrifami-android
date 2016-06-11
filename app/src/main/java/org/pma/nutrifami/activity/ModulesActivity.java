@@ -22,9 +22,11 @@ public class ModulesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modules);
 
-        Button firstModuleButton = (Button) findViewById(R.id.first_module_button);
-        final ModulesActivity activity = this;
+        final Button firstModuleButton = (Button) findViewById(R.id.first_module_button);
         assert firstModuleButton != null;
+        final ModulesActivity activity = this;
+
+        setTitle(getString(R.string.modules_title));
 
         firstModuleButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -51,7 +53,7 @@ public class ModulesActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.profile:
-                Intent intent = new Intent(this, ProfileActivity.class);
+                final Intent intent = new Intent(this, ProfileActivity.class);
                 startActivity(intent);
                 return true;
             default:
@@ -64,7 +66,7 @@ public class ModulesActivity extends AppCompatActivity {
         super.onResume();
 
         if (SessionManager.getInstance().isFirstLaunch(this)) {
-            Intent intent = new Intent(this, StartActivity.class);
+            final Intent intent = new Intent(this, StartActivity.class);
             startActivity(intent);
             finish();
         }

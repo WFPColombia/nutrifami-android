@@ -18,7 +18,6 @@ import org.pma.nutrifami.activity.LectureActivity;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.model.Lesson;
-import org.pma.nutrifami.util.Updateable;
 
 /**
  * Created by Peter Juras on 01.06.16.
@@ -30,7 +29,7 @@ public class LessonOverviewPageFragment extends LessonProgressFragment {
     private final static String LESSON_DESCRIPTION = "Lesson_Desc";
 
     private static Bundle getArguments(String id, String title, String image, String description) {
-        Bundle args = new Bundle();
+        final Bundle args = new Bundle();
         args.putString(Constants.LESSON_ID, id);
         args.putString(LESSON_TITLE, title);
         args.putString(LESSON_IMAGE, image);
@@ -39,8 +38,8 @@ public class LessonOverviewPageFragment extends LessonProgressFragment {
     }
 
     public static Fragment newInstance(String id, String title, String image, String description) {
-        Bundle args = getArguments(id, title, image, description);
-        LessonOverviewPageFragment fragment = new LessonOverviewPageFragment();
+        final Bundle args = getArguments(id, title, image, description);
+        final LessonOverviewPageFragment fragment = new LessonOverviewPageFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -48,28 +47,28 @@ public class LessonOverviewPageFragment extends LessonProgressFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        ViewGroup rootView =  (ViewGroup) inflater.inflate(
+        final ViewGroup rootView =  (ViewGroup) inflater.inflate(
                 R.layout.fragment_lesson_page, container, false
         );
 
         final Bundle args = getArguments();
         final Context context = getContext();
 
-        TextView titleTextView = (TextView) rootView.findViewById(R.id.lesson_title);
+        final TextView titleTextView = (TextView) rootView.findViewById(R.id.lesson_title);
         titleTextView.setText(args.getString(LESSON_TITLE));
 
-        TextView descriptionTextView = (TextView) rootView.findViewById(R.id.lesson_description);
+        final TextView descriptionTextView = (TextView) rootView.findViewById(R.id.lesson_description);
         descriptionTextView.setText(args.getString(LESSON_DESCRIPTION));
 
         final String lessonId = args.getString(Constants.LESSON_ID);
         final Lesson lesson = ModuleManager.getInstance().getLesson(lessonId);
 
         if (SessionManager.getInstance().areLessonsCompleted(context, lesson)) {
-            ImageView completedImageView = (ImageView) rootView.findViewById(R.id.card_completed_image_view);
+            final ImageView completedImageView = (ImageView) rootView.findViewById(R.id.card_completed_image_view);
             completedImageView.setVisibility(View.VISIBLE);
         }
 
-        Button startButton = (Button) rootView.findViewById(R.id.lesson_play_button);
+        final Button startButton = (Button) rootView.findViewById(R.id.lesson_play_button);
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

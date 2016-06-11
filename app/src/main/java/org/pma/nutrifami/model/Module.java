@@ -5,10 +5,10 @@ package org.pma.nutrifami.model;
  */
 
 public class Module {
-    private String mId;
-    private String mTitle;
-    private String mImage;
-    private Lesson[] mLessons;
+    private final String mId;
+    private final String mTitle;
+    private final String mImage;
+    private final Lesson[] mLessons;
 
     public Module(String id, String title, String image, Lesson[] lessons) {
         this.mId = id;

@@ -15,10 +15,10 @@ import org.pma.nutrifami.listener.AnswerClickListener;
  */
 public class QuizAnswersDataAdapter extends RecyclerView.Adapter<QuizAnswersDataAdapter.QuizAnswersViewHolder> {
     public static class QuizAnswersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private TextView mTextView;
-        private CardView mCardView;
+        private final TextView mTextView;
+        private final CardView mCardView;
+        private final AnswerClickListener mAnswerClickListener;
         private int mPosition;
-        private AnswerClickListener mAnswerClickListener;
 
         public QuizAnswersViewHolder(CardView cardView, TextView textView, AnswerClickListener answerClickListener) {
             super(cardView);
@@ -48,8 +48,8 @@ public class QuizAnswersDataAdapter extends RecyclerView.Adapter<QuizAnswersData
         }
     }
 
+    private final AnswerClickListener mAnswerClickListener;
     private String[] mAnswers;
-    private AnswerClickListener mAnswerClickListener;
 
     public QuizAnswersDataAdapter(AnswerClickListener answerClickListener) {
         this.mAnswerClickListener = answerClickListener;
@@ -62,16 +62,14 @@ public class QuizAnswersDataAdapter extends RecyclerView.Adapter<QuizAnswersData
 
     @Override
     public QuizAnswersViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater
+        final View view = LayoutInflater
             .from(parent.getContext())
             .inflate(R.layout.quiz_answer, parent, false);
 
-        CardView cardView = (CardView) view.findViewById(R.id.quiz_answer_card);
-        TextView textView = (TextView) view.findViewById(R.id.quiz_answer_text);
+        final CardView cardView = (CardView) view.findViewById(R.id.quiz_answer_card);
+        final TextView textView = (TextView) view.findViewById(R.id.quiz_answer_text);
 
-        final QuizAnswersViewHolder viewHolder = new QuizAnswersViewHolder(cardView, textView, this.mAnswerClickListener);
-
-        return viewHolder;
+        return new QuizAnswersViewHolder(cardView, textView, this.mAnswerClickListener);
     }
 
     @Override

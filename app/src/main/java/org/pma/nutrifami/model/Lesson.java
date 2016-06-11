@@ -5,11 +5,11 @@ package org.pma.nutrifami.model;
  */
 
 public class Lesson {
-    private String mId;
-    private String mTitle;
-    private String mImage;
-    private String mDescription;
-    private Unit[][] mUnits;
+    private final String mId;
+    private final String mTitle;
+    private final String mImage;
+    private final String mDescription;
+    private final Unit[][] mUnits;
 
     public Lesson(String id, String title, String image, String description, Unit[][] units) {
         this.mId = id;

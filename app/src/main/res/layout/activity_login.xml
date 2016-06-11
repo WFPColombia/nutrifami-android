@@ -74,7 +74,7 @@
                 android:text="@string/skip_underlined"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textAlignment="center"
+                android:gravity="center"
                 android:id="@+id/skip" />
 
         </LinearLayout>

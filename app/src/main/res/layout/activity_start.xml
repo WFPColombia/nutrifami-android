@@ -11,6 +11,7 @@
 
     <ImageView
         android:src="@mipmap/nutrifami_header"
+        android:contentDescription="@string/start_nutrifami_logo_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView"

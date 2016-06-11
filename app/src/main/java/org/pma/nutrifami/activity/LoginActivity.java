@@ -57,6 +57,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         Button signInButton = (Button) findViewById(R.id.sign_in_button);
+        assert signInButton != null;
+
         signInButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,6 +67,8 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         TextView skipTextView = (TextView) findViewById(R.id.skip);
+        assert skipTextView != null;
+
         skipTextView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {

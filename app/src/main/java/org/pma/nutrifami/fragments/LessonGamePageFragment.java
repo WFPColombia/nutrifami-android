@@ -15,11 +15,10 @@ import android.widget.TextView;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
-import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.GameTypeManager;
+import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.model.Lesson;
-import org.pma.nutrifami.util.Updateable;
 
 /**
  * Created by Peter Juras on 10.06.16.
@@ -29,7 +28,7 @@ public class LessonGamePageFragment extends LessonProgressFragment {
     private final static String GAME_TYPE = "GAME_TYPE";
 
     private static Bundle getArguments(String lessonId, int unitsPosition, String gameType) {
-        Bundle args = new Bundle();
+        final Bundle args = new Bundle();
         args.putString(Constants.LESSON_ID, lessonId);
         args.putInt(Constants.UNITS_POSITION, unitsPosition);
         args.putString(GAME_TYPE, gameType);
@@ -37,8 +36,8 @@ public class LessonGamePageFragment extends LessonProgressFragment {
     }
 
     public static Fragment newInstance(String id, int unitsPosition, String gameType) {
-        Bundle args = getArguments(id, unitsPosition, gameType);
-        LessonGamePageFragment fragment = new LessonGamePageFragment();
+        final Bundle args = getArguments(id, unitsPosition, gameType);
+        final LessonGamePageFragment fragment = new LessonGamePageFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -46,7 +45,7 @@ public class LessonGamePageFragment extends LessonProgressFragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        ViewGroup rootView = (ViewGroup) inflater.inflate(
+        final ViewGroup rootView = (ViewGroup) inflater.inflate(
                 R.layout.fragment_lesson_game, container, false
         );
 
@@ -59,18 +58,18 @@ public class LessonGamePageFragment extends LessonProgressFragment {
         final int unitsPosition = args.getInt(Constants.UNITS_POSITION);
         final Lesson lesson = ModuleManager.getInstance().getLesson(lessonId);
 
-        TextView titleTextView = (TextView) rootView.findViewById(R.id.game_title);
+        final TextView titleTextView = (TextView) rootView.findViewById(R.id.game_title);
         titleTextView.setText(manager.getGameTitle(context, gameType));
 
-        TextView descriptionTextView = (TextView) rootView.findViewById(R.id.game_description);
+        final TextView descriptionTextView = (TextView) rootView.findViewById(R.id.game_description);
         descriptionTextView.setText(manager.getGameDescription(context, gameType));
 
         if (SessionManager.getInstance().areUnitPackagesCompleted(context, lesson, unitsPosition)) {
-            ImageView completedImageView = (ImageView) rootView.findViewById(R.id.card_completed_image_view);
+            final ImageView completedImageView = (ImageView) rootView.findViewById(R.id.card_completed_image_view);
             completedImageView.setVisibility(View.VISIBLE);
         }
 
-        Button playButton = (Button) rootView.findViewById(R.id.game_play_button);
+        final Button playButton = (Button) rootView.findViewById(R.id.game_play_button);
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

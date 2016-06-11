@@ -12,7 +12,7 @@ import org.pma.nutrifami.model.Module;
  */
 
 public class LessonPagePagerAdapter extends LessonPageAdapter {
-    private Module mModule;
+    private final Module mModule;
 
     public LessonPagePagerAdapter(FragmentManager fragmentManager, Module module) {
         super(fragmentManager);
@@ -21,7 +21,7 @@ public class LessonPagePagerAdapter extends LessonPageAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        Lesson lesson = getModule().getLessons()[position];
+        final Lesson lesson = getModule().getLessons()[position];
         return LessonOverviewPageFragment.newInstance(lesson.getId(), lesson.getTitle(), lesson.getImage(), lesson.getDescription());
     }
 
@@ -30,7 +30,7 @@ public class LessonPagePagerAdapter extends LessonPageAdapter {
         return getModule().getLessons().length;
     }
 
-    public Module getModule() {
+    private Module getModule() {
         return mModule;
     }
 }

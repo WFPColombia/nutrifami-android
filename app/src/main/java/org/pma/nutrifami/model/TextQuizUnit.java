@@ -6,12 +6,6 @@ package org.pma.nutrifami.model;
 
 public class TextQuizUnit extends Unit {
     public TextQuizUnit(String question, String[] answers, int correctAnswer, String answerExplanation, String voiceUri) {
-        this.mUnitType = UnitType.TextQuiz;
-
-        this.mQuestion = question;
-        this.mAnswers = answers;
-        this.mCorrectAnswer = correctAnswer;
-        this.mAnswerExplanation = answerExplanation;
-        this.mVoiceUri = voiceUri;
+        super(UnitType.TextQuiz, question, answers, correctAnswer, answerExplanation, voiceUri);
     }
 }

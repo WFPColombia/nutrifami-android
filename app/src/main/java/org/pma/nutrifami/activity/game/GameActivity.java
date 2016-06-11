@@ -40,30 +40,29 @@ public abstract class GameActivity extends AppCompatActivity {
         setTitle(getLesson().getTitle());
     }
 
-    protected Unit getCurrentUnit() {
+    Unit getCurrentUnit() {
         return this.mUnits.get(this.mCurrentUnit);
     }
 
-    protected Lesson getLesson() {
+    private Lesson getLesson() {
         return this.mLesson;
     }
 
-    protected ArrayList<Unit> getUnits() {
+    ArrayList<Unit> getUnits() {
         return this.mUnits;
     }
 
-    protected void answerSelected(boolean correctAnswer, DialogInterface.OnDismissListener dismiss, DialogInterface.OnDismissListener dismissLast) {
-        if (dismissLast == null) {
-            final Context context = this;
-            final Lesson lesson = this.mLesson;
-            dismissLast = new DialogInterface.OnDismissListener() {
-                @Override
-                public void onDismiss(DialogInterface dialog) {
-                    SessionManager.getInstance().setUnitPackageAsCompleted(context, lesson, mUnitsPosition);
-                    finish();
-                }
-            };
-        }
+    void answerSelected(boolean correctAnswer, DialogInterface.OnDismissListener dismiss) {
+        final Context context = this;
+        final Lesson lesson = this.mLesson;
+        DialogInterface.OnDismissListener dismissLast = new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialog) {
+                SessionManager.getInstance().setUnitPackageAsCompleted(context, lesson, mUnitsPosition);
+                finish();
+            }
+        };
+
 
         final String answerExplanation = this.mUnits.get(this.mCurrentUnit).getAnswerExplanation();
         String feedbackText;
@@ -76,7 +75,7 @@ public abstract class GameActivity extends AppCompatActivity {
             this.mUnits.add(this.mUnits.get(this.mCurrentUnit));
         }
 
-        DialogInterface.OnDismissListener dismissListener = null;
+        DialogInterface.OnDismissListener dismissListener;
         if (this.mCurrentUnit == this.mUnits.size() - 1) {
             // This was the last unit -> game is over
             dismissListener = dismissLast;
@@ -86,9 +85,9 @@ public abstract class GameActivity extends AppCompatActivity {
         }
 
         UnitExplanationManager.getInstance().showExplanation(
-            this,
-            feedbackText,
-            answerExplanation,
-            dismissListener);
+                this,
+                feedbackText,
+                answerExplanation,
+                dismissListener);
     }
 }

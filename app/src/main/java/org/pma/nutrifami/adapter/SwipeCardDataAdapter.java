@@ -14,14 +14,14 @@ import org.pma.nutrifami.model.Unit;
  */
 public class SwipeCardDataAdapter extends ArrayAdapter<Unit>{
 
-    public SwipeCardDataAdapter(Context context, int resource) {
-        super(context, resource);
+    public SwipeCardDataAdapter(Context context) {
+        super(context, 0);
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Unit unit = getItem(position);
-        TextView questionView = (TextView) convertView.findViewById(R.id.swipe_card_text);
+        final Unit unit = getItem(position);
+        final TextView questionView = (TextView) convertView.findViewById(R.id.swipe_card_text);
         questionView.setText(unit.getQuestion());
         return convertView;
     }

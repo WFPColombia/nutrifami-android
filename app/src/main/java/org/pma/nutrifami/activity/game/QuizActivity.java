@@ -2,24 +2,13 @@ package org.pma.nutrifami.activity.game;
 
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.RecyclerView;
 import android.widget.TextView;
 
-import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.adapter.QuizAnswersDataAdapter;
-import org.pma.nutrifami.lib.ModuleManager;
-import org.pma.nutrifami.lib.UnitExplanationManager;
 import org.pma.nutrifami.listener.AnswerClickListener;
-import org.pma.nutrifami.model.Lesson;
-import org.pma.nutrifami.model.Unit;
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 public class QuizActivity extends GameActivity implements AnswerClickListener {
 
@@ -31,7 +20,7 @@ public class QuizActivity extends GameActivity implements AnswerClickListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.text_quiz_answers);
+        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.text_quiz_answers);
         assert recyclerView != null;
 
         recyclerView.setHasFixedSize(true);
@@ -40,7 +29,7 @@ public class QuizActivity extends GameActivity implements AnswerClickListener {
 
         // Initialize adapter with first answers
         this.mQuizAnswersDataAdapter = new QuizAnswersDataAdapter(this);
-        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         updateViewWithCurrentUnit();
 
@@ -63,7 +52,6 @@ public class QuizActivity extends GameActivity implements AnswerClickListener {
             }
         };
 
-        answerSelected(correctAnswer, dismiss, null);
-
+        answerSelected(correctAnswer, dismiss);
     }
 }

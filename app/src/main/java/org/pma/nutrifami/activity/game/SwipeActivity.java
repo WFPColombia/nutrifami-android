@@ -8,6 +8,7 @@ import com.wenchao.cardstack.CardStack;
 
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.adapter.SwipeCardDataAdapter;
+import org.pma.nutrifami.model.SwipeUnit;
 
 public class SwipeActivity extends GameActivity implements CardStack.CardEventListener {
     private CardStack mCardStack;
@@ -25,7 +26,7 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
         mCardStack.setStackMargin(20);
         mCardStack.setListener(this);
 
-        mSwipeCardDataAdapter = new SwipeCardDataAdapter(getApplicationContext(), 0);
+        mSwipeCardDataAdapter = new SwipeCardDataAdapter(getApplicationContext());
         // Add questions to cardDataAdapter
 
         mSwipeCardDataAdapter.addAll(getUnits());
@@ -57,11 +58,6 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
     public boolean swipeEnd(int section, float distance) {
         return distance > 300;
     }
@@ -78,15 +74,13 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
 
     @Override
     public void discarded(int mIndex, int direction) {
-        final int correctAnswer = getCurrentUnit().getCorrectAnswer();
-        final boolean correct =
-            (direction % 2 == 0 && correctAnswer == 0) ||
-            (direction % 2 == 1 && correctAnswer == 1);
+        final boolean isTrue = ((SwipeUnit) getCurrentUnit()).isTrue();
+        final boolean correct = (direction % 2 == 0 && !isTrue) || (direction % 2 == 1 && isTrue);
         if (!correct) {
             mSwipeCardDataAdapter.add(getCurrentUnit());
         }
 
-        answerSelected(correct, null, null);
+        answerSelected(correct, null);
     }
 
     @Override

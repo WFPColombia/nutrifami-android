@@ -5,34 +5,43 @@ package org.pma.nutrifami.model;
  */
 
 public abstract class Unit {
-    protected UnitType mUnitType;
-    protected String mQuestion;
-    protected String[] mAnswers;
-    protected int mCorrectAnswer;
-    protected String mAnswerExplanation;
-    protected String mVoiceUri;
+    private final UnitType mUnitType;
+    private final String mQuestion;
+    private final String[] mAnswers;
+    private final int mCorrectAnswer;
+    private final String mAnswerExplanation;
+    private final String mVoiceUri;
+
+    Unit(UnitType unitType, String question, String[] answers, int correctAnswer, String answerExplanation, String voiceUri) {
+        this.mUnitType = unitType;
+        this.mQuestion = question;
+        this.mAnswers = answers;
+        this.mCorrectAnswer = correctAnswer;
+        this.mAnswerExplanation = answerExplanation;
+        this.mVoiceUri = voiceUri;
+    }
 
     public UnitType getGameType() {
-        return mUnitType;
+        return this.mUnitType;
     }
 
     public String getQuestion() {
-        return mQuestion;
+        return this.mQuestion;
     }
 
     public String[] getAnswers() {
-        return mAnswers;
+        return this.mAnswers;
     }
 
     public int getCorrectAnswer() {
-        return mCorrectAnswer;
+        return this.mCorrectAnswer;
     }
 
     public String getAnswerExplanation() {
-        return mAnswerExplanation;
+        return this.mAnswerExplanation;
     }
 
     public String getVoiceUri() {
-        return mVoiceUri;
+        return this.mVoiceUri;
     }
 }

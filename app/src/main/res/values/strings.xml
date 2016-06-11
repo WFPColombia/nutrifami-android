@@ -30,7 +30,6 @@
     <string name="swipe_card_text_dummy">This is a question which will be presented on a swipeable card. Of what I have seen, it could be quite long but who knows at this point! =)</string>
 
     <!-- Explanation dialogue -->
-    <string name="explanation_ok">Ok</string>
     <string name="explanation_correct">Correct</string>
     <string name="explanation_false">Not correct</string>
 
@@ -43,4 +42,5 @@
     <string name="game_quiz_description">Answer the following questions to see if you are the best quiz master in town!</string>
     <string name="game_picture_quiz_title">Picture quiz!</string>
     <string name="game_picture_quiz_description">Look closely and answer the question based on what you see!</string>
+    <string name="start_nutrifami_logo_description">Nutrifami logo</string>
 </resources>

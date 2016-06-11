@@ -4,12 +4,11 @@ package org.pma.nutrifami.model;
  * Created by Peter on 10.06.2016.
  */
 public class IntroductionUnit extends Unit {
-    private String mTitle;
-    private String mDescription;
+    private final String mTitle;
+    private final String mDescription;
 
     public IntroductionUnit(String title, String description) {
-        this.mUnitType = UnitType.Introduction;
-
+        super(UnitType.Introduction, null, null, -1, null, null);
         this.mTitle = title;
         this.mDescription = description;
     }

@@ -18,7 +18,6 @@ import org.pma.nutrifami.model.Module;
 import me.crosswall.lib.coverflow.CoverFlow;
 
 public class LectureActivity extends FragmentActivity implements DialogInterface.OnClickListener {
-    private boolean mIsLessonOverview;
     private PagerAdapter mPagerAdapter;
 
     @Override
@@ -28,8 +27,8 @@ public class LectureActivity extends FragmentActivity implements DialogInterface
 
         final ModuleManager moduleManager = ModuleManager.getInstance();
         final Intent intent = getIntent();
-        this.mIsLessonOverview = intent.getBooleanExtra(Constants.LESSON_OVERVIEW, true);
-        if (mIsLessonOverview) {
+        final boolean isLessonOverview = intent.getBooleanExtra(Constants.LESSON_OVERVIEW, true);
+        if (isLessonOverview) {
             final String moduleId = intent.getStringExtra(Constants.MODULE_ID);
             final Module module = moduleManager.getModule(moduleId);
             this.mPagerAdapter = new LessonPagePagerAdapter(getSupportFragmentManager(), module);

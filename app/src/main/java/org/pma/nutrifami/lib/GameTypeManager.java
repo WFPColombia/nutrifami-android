@@ -19,7 +19,7 @@ public class GameTypeManager {
     }
 
     public String getGameDescription(Context context, String gameType) {
-        UnitType type = UnitType.valueOf(gameType);
+        final UnitType type = UnitType.valueOf(gameType);
         switch (type) {
             case Pairs:
                 return context.getString(R.string.game_pairs_description);
@@ -35,7 +35,7 @@ public class GameTypeManager {
     }
 
     public String getGameTitle(Context context, String gameType) {
-        UnitType type = UnitType.valueOf(gameType);
+        final UnitType type = UnitType.valueOf(gameType);
         switch (type) {
             case Pairs:
                 return context.getString(R.string.game_pairs_title);
