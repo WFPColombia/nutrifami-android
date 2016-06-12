@@ -17,7 +17,7 @@ import org.pma.nutrifami.view.viewholder.PairViewHolder;
 
 public class PairDataAdapter extends RecyclerView.Adapter<PairViewHolder> {
     private final PairClickListener mOnClickListener;
-    private final PairDataContainer[] mPairDataContainers;
+    private PairDataContainer[] mPairDataContainers;
 
     public PairDataAdapter(String[] pairParts, PairClickListener onClickListener) {
         this.mPairDataContainers = new PairDataContainer[pairParts.length];
@@ -26,6 +26,11 @@ public class PairDataAdapter extends RecyclerView.Adapter<PairViewHolder> {
         }
 
         this.mOnClickListener = onClickListener;
+    }
+
+    public void updatePairs(PairDataContainer[] pairDataContainers) {
+        this.mPairDataContainers = pairDataContainers;
+        notifyDataSetChanged();
     }
 
     @Override

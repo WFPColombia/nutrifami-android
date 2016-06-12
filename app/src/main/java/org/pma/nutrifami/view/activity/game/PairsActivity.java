@@ -16,6 +16,8 @@ public class PairsActivity extends GameActivity implements PairClickListener {
     private PairDataAdapter mLeftDataAdapter;
     private PairDataAdapter mRightDataAdapter;
     private Map<String, Integer> mAnswerMap;
+    private RecyclerView mLeftRecyclerView;
+    private RecyclerView mRightRecyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,23 +25,31 @@ public class PairsActivity extends GameActivity implements PairClickListener {
         setContentView(R.layout.activity_pairs);
         setTitle(getString(R.string.game_pairs_title));
 
-        final RecyclerView leftRecyclerView = (RecyclerView) findViewById(R.id.pairs_left_recycler_view);
-        final RecyclerView rightRecyclerView = (RecyclerView) findViewById(R.id.pairs_right_recycler_view);
-        assert leftRecyclerView != null;
-        assert rightRecyclerView != null;
+        this.mLeftRecyclerView = (RecyclerView) findViewById(R.id.pairs_left_recycler_view);
+        this.mRightRecyclerView = (RecyclerView) findViewById(R.id.pairs_right_recycler_view);
 
+        mLeftRecyclerView.setHasFixedSize(true);
+        mRightRecyclerView.setHasFixedSize(true);
+        mLeftRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mRightRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+        updateWithCurrentUnit();
+    }
+
+    private void updateWithCurrentUnit() {
         final PairLogicResolver pairLogicResolver = new PairLogicResolver();
         final PairDataAdapter[] dataAdapters = pairLogicResolver.initializePairDataAdapters(this, (PairUnit) getCurrentUnit());
 
         this.mAnswerMap = pairLogicResolver.getAnswerMap();
-        this.mLeftDataAdapter = dataAdapters[0];
-        this.mRightDataAdapter = dataAdapters[1];
-
-        leftRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        rightRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        leftRecyclerView.setAdapter(this.mLeftDataAdapter);
-        rightRecyclerView.setAdapter(this.mRightDataAdapter);
+        if (this.mLeftDataAdapter == null) {
+            this.mLeftDataAdapter = dataAdapters[0];
+            this.mRightDataAdapter = dataAdapters[1];
+            this.mLeftRecyclerView.setAdapter(this.mLeftDataAdapter);
+            this.mRightRecyclerView.setAdapter(this.mRightDataAdapter);
+        } else {
+            this.mLeftDataAdapter.updatePairs(dataAdapters[0].getDataContainers());
+            this.mRightDataAdapter.updatePairs(dataAdapters[1].getDataContainers());
+        }
     }
 
     @Override
@@ -49,7 +59,12 @@ public class PairsActivity extends GameActivity implements PairClickListener {
         this.mLeftDataAdapter.notifyDataSetChanged();
         this.mRightDataAdapter.notifyDataSetChanged();
         if (pairLogicResolver.areAllCorrect(this.mLeftDataAdapter)) {
-            finish();
+            if (isLastUnit()) {
+                saveAndFinish(this, getLesson());
+            } else {
+                increaseUnitCounter();
+                updateWithCurrentUnit();
+            }
         }
     }
 }

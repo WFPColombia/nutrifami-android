@@ -66,45 +66,45 @@ public class MockModuleManager extends ModuleManager {
                                 "Apples are fruits!",
                                 "NOT_IMPLEMENTED"
                         )
-                }, new Unit[] {
-                 new PairUnit(
-                          new String[][] { new String[] { "Football for life1", "Football for life2" },
-                            new String[] { "Food is important1", "Food is important2" },
-                                  new String[] { "What you didn't know this?", "What you did though" }
-                          }, "This is an explanation for the unit.",
-                                "NOT_IMPLEMENTED"
-                        ),
+                }, new Unit[]{
                         new PairUnit(
-                                new String[][] { new String[] { "Football for life", "Football for life" },
-                                        new String[] { "Food is important", "Food is important" },
-                                        new String[] { "What you didn't know this?", "What you did though" }
+                                new String[][]{new String[]{"Football for life1", "Football for life2"},
+                                        new String[]{"Food is important1", "Food is important2"},
+                                        new String[]{"What you didn't know this?", "What you did though"}
                                 }, "This is an explanation for the unit.",
                                 "NOT_IMPLEMENTED"
                         ),
                         new PairUnit(
-                                new String[][] { new String[] { "Football for life", "Football for life" },
-                                        new String[] { "Food is important", "Food is important" },
-                                        new String[] { "What you didn't know this?", "What you did though" }
+                                new String[][]{new String[]{"Football for life1", "Football for life2"},
+                                        new String[]{"Food is important1", "Food is important2"},
+                                        new String[]{"What you didn't know this?", "What you did though"}
                                 }, "This is an explanation for the unit.",
                                 "NOT_IMPLEMENTED"
                         ),
                         new PairUnit(
-                                new String[][] { new String[] { "Football for life", "Football for life" },
-                                        new String[] { "Food is important", "Food is important" },
-                                        new String[] { "What you didn't know this?", "What you did though" }
+                                new String[][]{new String[]{"Football for life1", "Football for life2"},
+                                        new String[]{"Food is important1", "Food is important2"},
+                                        new String[]{"What you didn't know this?", "What you did though"}
                                 }, "This is an explanation for the unit.",
                                 "NOT_IMPLEMENTED"
-                        )
-        }});
+                        ),
+                        new PairUnit(
+                                new String[][]{new String[]{"Football for life1", "Football for life2"},
+                                        new String[]{"Food is important1", "Food is important2"},
+                                        new String[]{"What you didn't know this?", "What you did though"}
+                                }, "This is an explanation for the unit.",
+                                "NOT_IMPLEMENTED"
+                        ),
+                }});
 
         this.setModules(new Module[]{
                 new Module(
-                "module-1",
-                "The first module with a quite long title!",
-                "NOT_IMPLEMENTED",
-                new Lesson[]{tq1, tq1, tq1, tq1, tq1},
-                true
-        ), new Module(
+                        "module-1",
+                        "The first module with a quite long title!",
+                        "NOT_IMPLEMENTED",
+                        new Lesson[]{tq1, tq1, tq1, tq1, tq1},
+                        true
+                ), new Module(
                 "module-1",
                 "The second module with a quite long title!",
                 "NOT_IMPLEMENTED",

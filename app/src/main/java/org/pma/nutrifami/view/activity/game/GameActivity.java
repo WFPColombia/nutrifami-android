@@ -44,12 +44,17 @@ public abstract class GameActivity extends AppCompatActivity {
         return this.mUnits.get(this.mCurrentUnit);
     }
 
-    private Lesson getLesson() {
+    protected Lesson getLesson() {
         return this.mLesson;
     }
 
     ArrayList<Unit> getUnits() {
         return this.mUnits;
+    }
+
+    protected void saveAndFinish(Context context, Lesson lesson) {
+        SessionManager.getInstance().setUnitPackageAsCompleted(context, lesson, mUnitsPosition);
+        finish();
     }
 
     void answerSelected(boolean correctAnswer, DialogInterface.OnDismissListener dismiss) {
@@ -58,8 +63,7 @@ public abstract class GameActivity extends AppCompatActivity {
         DialogInterface.OnDismissListener dismissLast = new DialogInterface.OnDismissListener() {
             @Override
             public void onDismiss(DialogInterface dialog) {
-                SessionManager.getInstance().setUnitPackageAsCompleted(context, lesson, mUnitsPosition);
-                finish();
+                saveAndFinish(context, lesson);
             }
         };
 
@@ -76,11 +80,11 @@ public abstract class GameActivity extends AppCompatActivity {
         }
 
         DialogInterface.OnDismissListener dismissListener;
-        if (this.mCurrentUnit == this.mUnits.size() - 1) {
+        if (isLastUnit()) {
             // This was the last unit -> game is over
             dismissListener = dismissLast;
         } else {
-            this.mCurrentUnit++;
+            increaseUnitCounter();
             dismissListener = dismiss;
         }
 
@@ -89,5 +93,13 @@ public abstract class GameActivity extends AppCompatActivity {
                 feedbackText,
                 answerExplanation,
                 dismissListener);
+    }
+
+    protected boolean isLastUnit() {
+        return this.mCurrentUnit == this.mUnits.size() - 1;
+    }
+
+    protected void increaseUnitCounter() {
+        this.mCurrentUnit++;
     }
 }
