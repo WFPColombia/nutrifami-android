@@ -19,12 +19,8 @@ public class PairDataAdapter extends RecyclerView.Adapter<PairViewHolder> {
     private final PairClickListener mOnClickListener;
     private PairDataContainer[] mPairDataContainers;
 
-    public PairDataAdapter(String[] pairParts, PairClickListener onClickListener) {
-        this.mPairDataContainers = new PairDataContainer[pairParts.length];
-        for (int i = 0; i < pairParts.length; i++) {
-            this.mPairDataContainers[i] = new PairDataContainer(pairParts[i]);
-        }
-
+    public PairDataAdapter(PairClickListener onClickListener) {
+        this.mPairDataContainers = new PairDataContainer[0];
         this.mOnClickListener = onClickListener;
     }
 

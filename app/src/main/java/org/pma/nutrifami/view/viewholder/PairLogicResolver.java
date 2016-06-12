@@ -4,7 +4,6 @@ import org.pma.nutrifami.model.unit.PairUnit;
 import org.pma.nutrifami.view.adapter.PairDataAdapter;
 import org.pma.nutrifami.view.container.PairDataContainer;
 import org.pma.nutrifami.view.container.PairPartState;
-import org.pma.nutrifami.view.listener.PairClickListener;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,8 +22,8 @@ public class PairLogicResolver {
     private int mLeftPartIndex;
     private int mRightPartIndex;
 
-    private PairDataAdapter mLeftDataAdapter;
-    private PairDataAdapter mRightDataAdapter;
+    private PairDataContainer[] mLeftPairData;
+    private PairDataContainer[] mRightPairData;
     private Map<String, Integer> mAnswerMap;
 
     public PairLogicResolver() {
@@ -36,7 +35,7 @@ public class PairLogicResolver {
         this.mRightPartIndex = -1;
     }
 
-    public PairDataAdapter[] initializePairDataAdapters(PairClickListener pairClickListener, PairUnit currentUnit) {
+    public PairDataContainer[][] createPairDataContainers(PairUnit currentUnit) {
         final String[][] pairs = currentUnit.getPairs();
         final String[] leftPairParts = new String[pairs.length];
         final String[] rightPairParts = new String[pairs.length];
@@ -62,12 +61,21 @@ public class PairLogicResolver {
             rightPairParts[i] = rightPart;
         }
 
-        return new PairDataAdapter[] { new PairDataAdapter(leftPairParts, pairClickListener), new PairDataAdapter(rightPairParts, pairClickListener) };
+        PairDataContainer[][] pairDataContainers = new PairDataContainer[2][];
+        pairDataContainers[0] = new PairDataContainer[leftPairParts.length];
+        pairDataContainers[1] = new PairDataContainer[rightPairParts.length];
+
+        for (int i = 0; i < leftPairParts.length; i++) {
+            pairDataContainers[0][i] = new PairDataContainer(leftPairParts[i]);
+            pairDataContainers[1][i] = new PairDataContainer(rightPairParts[i]);
+        }
+
+        return pairDataContainers;
     }
 
-    public void switchPartState(String pairPart, PairDataAdapter leftDataAdapter, PairDataAdapter rightDataAdapter, Map<String, Integer> answerMap) {
-        this.mLeftDataAdapter = leftDataAdapter;
-        this.mRightDataAdapter = rightDataAdapter;
+    public void switchPartState(String pairPart, PairDataContainer[] leftPairData, PairDataContainer[] rightPairData, Map<String, Integer> answerMap) {
+        this.mLeftPairData = leftPairData;
+        this.mRightPairData = rightPairData;
         this.mAnswerMap = answerMap;
 
         PairPartState currentState = getCurrentState(pairPart);
@@ -113,88 +121,79 @@ public class PairLogicResolver {
     }
 
     private PairPartState getCurrentState(String pairPart) {
-        final PairDataContainer[] leftPairDataContainers = this.mLeftDataAdapter.getDataContainers();
-        final PairDataContainer[] rightPairDataContainers = this.mRightDataAdapter.getDataContainers();
-
         PairPartState currentState = null;
-        for (int i = 0; i < leftPairDataContainers.length; i++) {
-            final PairDataContainer leftContainer = leftPairDataContainers[i];
-            final PairDataContainer rightContainer = rightPairDataContainers[i];
+        for (int i = 0; i < this.mLeftPairData.length; i++) {
+            final PairDataContainer leftContainer = this.mLeftPairData[i];
+            final PairDataContainer rightContainer = this.mRightPairData[i];
             final PairPartState leftPairState = leftContainer.getPairPartState();
             final PairPartState rightPairState = rightContainer.getPairPartState();
 
             if (leftPairState == PairPartState.Selected) {
-                mLeftSelectedIndex = i;
-                mLeftSelectedPart = leftContainer.getPairPart();
+                this.mLeftSelectedIndex = i;
+                this.mLeftSelectedPart = leftContainer.getPairPart();
             } else if (leftPairState == PairPartState.Incorrect) {
                 leftContainer.setPairPartState(PairPartState.Unselected);
             }
             if (rightPairState == PairPartState.Selected) {
-                mRightSelectedIndex = i;
-                mRightSelectedPart = rightContainer.getPairPart();
+                this.mRightSelectedIndex = i;
+                this.mRightSelectedPart = rightContainer.getPairPart();
             } else if (rightPairState == PairPartState.Incorrect) {
                 rightContainer.setPairPartState(PairPartState.Unselected);
             }
             if (leftContainer.getPairPart().equals(pairPart)) {
                 currentState = leftPairState;
-                mLeftPartIndex = i;
+                this.mLeftPartIndex = i;
             } else if (rightContainer.getPairPart().equals(pairPart)) {
                 currentState = rightPairState;
-                mRightPartIndex = i;
+                this.mRightPartIndex = i;
             }
         }
         return currentState;
     }
 
     private void selectPart(String pairPart) {
-        final PairDataContainer[] leftPairDataContainers = this.mLeftDataAdapter.getDataContainers();
-        final PairDataContainer[] rightPairDataContainers = this.mRightDataAdapter.getDataContainers();
-
         PairPartState newState;
         // Check if two pair parts are selected
         final int currentPartIndex = this.mAnswerMap.get(pairPart);
-        if (mLeftPartIndex >= 0 && mRightSelectedIndex >= 0) {
+        if (this.mLeftPartIndex >= 0 && this.mRightSelectedIndex >= 0) {
             // Two things are selected, lets check if they are correct
-            if (currentPartIndex == this.mAnswerMap.get(mRightSelectedPart)) {
+            if (currentPartIndex == this.mAnswerMap.get(this.mRightSelectedPart)) {
                 newState = PairPartState.Correct;
             } else {
                 newState = PairPartState.Incorrect;
             }
-            leftPairDataContainers[mLeftPartIndex].setPairPartState(newState);
-            rightPairDataContainers[mRightSelectedIndex].setPairPartState(newState);
-            enableSelectableFields(leftPairDataContainers, rightPairDataContainers);
-        } else if (mRightPartIndex >= 0 && mLeftSelectedIndex >= 0) {
-            if (currentPartIndex == this.mAnswerMap.get(mLeftSelectedPart)) {
+            this.mLeftPairData[this.mLeftPartIndex].setPairPartState(newState);
+            this.mRightPairData[this.mRightSelectedIndex].setPairPartState(newState);
+            enableSelectableFields(this.mLeftPairData, this.mRightPairData);
+        } else if (this.mRightPartIndex >= 0 && this.mLeftSelectedIndex >= 0) {
+            if (currentPartIndex == this.mAnswerMap.get(this.mLeftSelectedPart)) {
                 newState = PairPartState.Correct;
             } else {
                 newState = PairPartState.Incorrect;
             }
-            leftPairDataContainers[mLeftSelectedIndex].setPairPartState(newState);
-            rightPairDataContainers[mRightPartIndex].setPairPartState(newState);
-            enableSelectableFields(leftPairDataContainers, rightPairDataContainers);
+            this.mLeftPairData[this.mLeftSelectedIndex].setPairPartState(newState);
+            this.mRightPairData[this.mRightPartIndex].setPairPartState(newState);
+            enableSelectableFields(this.mLeftPairData, this.mRightPairData);
         } else {
             // Only this part is selected now
-            if (mLeftPartIndex >= 0) {
-                leftPairDataContainers[mLeftPartIndex].setPairPartState(PairPartState.Selected);
-                disableNonSelectedFields(leftPairDataContainers);
+            if (this.mLeftPartIndex >= 0) {
+                this.mLeftPairData[this.mLeftPartIndex].setPairPartState(PairPartState.Selected);
+                disableNonSelectedFields(this.mLeftPairData);
             } else {
-                rightPairDataContainers[mRightPartIndex].setPairPartState(PairPartState.Selected);
-                disableNonSelectedFields(rightPairDataContainers);
+                this.mRightPairData[this.mRightPartIndex].setPairPartState(PairPartState.Selected);
+                disableNonSelectedFields(this.mRightPairData);
             }
         }
     }
 
     private void unselectCurrentPart() {
-        final PairDataContainer[] leftPairDataContainers = this.mLeftDataAdapter.getDataContainers();
-        final PairDataContainer[] rightPairDataContainers = this.mRightDataAdapter.getDataContainers();
-
         // Unselect the current part
-        if (mLeftPartIndex >= 0) {
-            leftPairDataContainers[mLeftPartIndex].setPairPartState(PairPartState.Unselected);
-            enableSelectableFields(leftPairDataContainers);
+        if (this.mLeftPartIndex >= 0) {
+            this.mLeftPairData[this.mLeftPartIndex].setPairPartState(PairPartState.Unselected);
+            enableSelectableFields(this.mLeftPairData);
         } else {
-            rightPairDataContainers[mRightPartIndex].setPairPartState(PairPartState.Unselected);
-            enableSelectableFields(rightPairDataContainers);
+            this.mRightPairData[this.mRightPartIndex].setPairPartState(PairPartState.Unselected);
+            enableSelectableFields(this.mRightPairData);
         }
     }
 
