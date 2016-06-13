@@ -5,5 +5,5 @@ package org.pma.nutrifami.view.listener;
  */
 
 public interface PairClickListener {
-    void onClick(String pairPart);
+    void onClick(String pairPart, int index);
 }

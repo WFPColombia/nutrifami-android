@@ -25,7 +25,7 @@ public class PairViewHolder extends RecyclerView.ViewHolder{
         this.mOnClickListener = onClickListener;
     }
 
-    public void update(PairDataContainer pairDataContainer) {
+    public void update(PairDataContainer pairDataContainer, final int index) {
         if (this.mTextView == null || this.mCardView == null) {
             return;
         }
@@ -40,7 +40,7 @@ public class PairViewHolder extends RecyclerView.ViewHolder{
                 onClickListener = new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        mOnClickListener.onClick(pairPart);
+                        mOnClickListener.onClick(pairPart, index);
                     }
                 };
                 break;

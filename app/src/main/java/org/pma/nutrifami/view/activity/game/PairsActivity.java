@@ -12,11 +12,12 @@ import org.pma.nutrifami.view.listener.PairClickListener;
 import org.pma.nutrifami.view.viewholder.PairLogicResolver;
 
 import java.util.Map;
+import java.util.Set;
 
 public class PairsActivity extends GameActivity implements PairClickListener {
     private PairDataAdapter mLeftDataAdapter;
     private PairDataAdapter mRightDataAdapter;
-    private Map<String, Integer> mAnswerMap;
+    private Map<String, Set<String>> mAnswerMap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,10 +54,11 @@ public class PairsActivity extends GameActivity implements PairClickListener {
     }
 
     @Override
-    public void onClick(String pairPart) {
+    public void onClick(String pairPart, int index) {
         final PairLogicResolver pairLogicResolver = new PairLogicResolver();
         pairLogicResolver.switchPartState(
                 pairPart,
+                index,
                 this.mLeftDataAdapter.getDataContainers(),
                 this.mRightDataAdapter.getDataContainers(),
                 this.mAnswerMap);

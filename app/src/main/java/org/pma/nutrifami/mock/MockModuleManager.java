@@ -68,14 +68,14 @@ public class MockModuleManager extends ModuleManager {
                         )
                 }, new Unit[]{
                         new PairUnit(
-                                new String[][]{new String[]{"Football for life1", "Football for life2"},
-                                        new String[]{"Food is important1", "Food is important2"},
+                                new String[][]{new String[]{"Football for life", "Football for life2"},
+                                        new String[]{"Football for life", "Food is important2"},
                                         new String[]{"What you didn't know this?", "What you did though"}
                                 }, "This is an explanation for the unit.",
                                 "NOT_IMPLEMENTED"
                         ),
                         new PairUnit(
-                                new String[][]{new String[]{"Football for life1", "Football for life2"},
+                                new String[][]{new String[]{"Football for life1", "Food is important2"},
                                         new String[]{"Food is important1", "Food is important2"},
                                         new String[]{"What you didn't know this?", "What you did though"}
                                 }, "This is an explanation for the unit.",

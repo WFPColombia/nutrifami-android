@@ -41,7 +41,7 @@ public class PairDataAdapter extends RecyclerView.Adapter<PairViewHolder> {
 
     @Override
     public void onBindViewHolder(PairViewHolder holder, int position) {
-        holder.update(this.mPairDataContainers[position]);
+        holder.update(this.mPairDataContainers[position], position);
     }
 
     @Override

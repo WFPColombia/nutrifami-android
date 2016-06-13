@@ -8,7 +8,9 @@ import org.pma.nutrifami.view.container.PairPartState;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 /**
  * Created by juras on 12-Jun-16.
@@ -24,7 +26,7 @@ public class PairLogicResolver {
 
     private PairDataContainer[] mLeftPairData;
     private PairDataContainer[] mRightPairData;
-    private Map<String, Integer> mAnswerMap;
+    private Map<String, Set<String>> mAnswerMap;
 
     public PairLogicResolver() {
         this.mLeftSelectedIndex = -1;
@@ -55,8 +57,27 @@ public class PairLogicResolver {
             final String leftPart = leftPairList.get(i);
             final String rightPart = rightPairList.get(i);
 
-            this.mAnswerMap.put(pairs[i][0], i);
-            this.mAnswerMap.put(pairs[i][1], i);
+            final String leftAnswer = pairs[i][0];
+            final String rightAnswer = pairs[i][1];
+            Set<String> leftAnswerSet = null;
+            Set<String> rightAnswerSet = null;
+
+            if (this.mAnswerMap.containsKey(leftAnswer)) {
+                leftAnswerSet = this.mAnswerMap.get(leftAnswer);
+            } else {
+                leftAnswerSet = new HashSet<>();
+                this.mAnswerMap.put(leftAnswer, leftAnswerSet);
+            }
+            leftAnswerSet.add(rightAnswer);
+
+            if (this.mAnswerMap.containsKey(rightAnswer)) {
+                rightAnswerSet = this.mAnswerMap.get(rightAnswer);
+            } else {
+                rightAnswerSet = new HashSet<>();
+                this.mAnswerMap.put(rightAnswer, rightAnswerSet);
+            }
+            rightAnswerSet.add(leftAnswer);
+
             leftPairParts[i] = leftPart;
             rightPairParts[i] = rightPart;
         }
@@ -73,12 +94,12 @@ public class PairLogicResolver {
         return pairDataContainers;
     }
 
-    public void switchPartState(String pairPart, PairDataContainer[] leftPairData, PairDataContainer[] rightPairData, Map<String, Integer> answerMap) {
+    public void switchPartState(String pairPart, int index, PairDataContainer[] leftPairData, PairDataContainer[] rightPairData, Map<String, Set<String>> answerMap) {
         this.mLeftPairData = leftPairData;
         this.mRightPairData = rightPairData;
         this.mAnswerMap = answerMap;
 
-        PairPartState currentState = getCurrentState(pairPart);
+        PairPartState currentState = getCurrentState(pairPart, index);
         switch (currentState) {
             case Incorrect:
             case Unselected:
@@ -120,7 +141,7 @@ public class PairLogicResolver {
         }
     }
 
-    private PairPartState getCurrentState(String pairPart) {
+    private PairPartState getCurrentState(String pairPart, int index) {
         PairPartState currentState = null;
         for (int i = 0; i < this.mLeftPairData.length; i++) {
             final PairDataContainer leftContainer = this.mLeftPairData[i];
@@ -140,10 +161,10 @@ public class PairLogicResolver {
             } else if (rightPairState == PairPartState.Incorrect) {
                 rightContainer.setPairPartState(PairPartState.Unselected);
             }
-            if (leftContainer.getPairPart().equals(pairPart)) {
+            if (leftContainer.getPairPart().equals(pairPart) && index == i) {
                 currentState = leftPairState;
                 this.mLeftPartIndex = i;
-            } else if (rightContainer.getPairPart().equals(pairPart)) {
+            } else if (rightContainer.getPairPart().equals(pairPart) && index == i) {
                 currentState = rightPairState;
                 this.mRightPartIndex = i;
             }
@@ -154,10 +175,10 @@ public class PairLogicResolver {
     private void selectPart(String pairPart) {
         PairPartState newState;
         // Check if two pair parts are selected
-        final int currentPartIndex = this.mAnswerMap.get(pairPart);
+        final Set<String> pairPartAnswers = this.mAnswerMap.get(pairPart);
         if (this.mLeftPartIndex >= 0 && this.mRightSelectedIndex >= 0) {
             // Two things are selected, lets check if they are correct
-            if (currentPartIndex == this.mAnswerMap.get(this.mRightSelectedPart)) {
+            if (pairPartAnswers.contains(this.mRightSelectedPart)) {
                 newState = PairPartState.Correct;
             } else {
                 newState = PairPartState.Incorrect;
@@ -166,7 +187,7 @@ public class PairLogicResolver {
             this.mRightPairData[this.mRightSelectedIndex].setPairPartState(newState);
             enableSelectableFields(this.mLeftPairData, this.mRightPairData);
         } else if (this.mRightPartIndex >= 0 && this.mLeftSelectedIndex >= 0) {
-            if (currentPartIndex == this.mAnswerMap.get(this.mLeftSelectedPart)) {
+            if (pairPartAnswers.contains(this.mLeftSelectedPart)) {
                 newState = PairPartState.Correct;
             } else {
                 newState = PairPartState.Incorrect;
@@ -197,7 +218,7 @@ public class PairLogicResolver {
         }
     }
 
-    public Map<String, Integer> getAnswerMap() {
+    public Map<String, Set<String>> getAnswerMap() {
         return this.mAnswerMap;
     }
 }
