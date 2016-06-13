@@ -1,5 +1,7 @@
 package org.pma.nutrifami.model;
 
+import com.google.gson.annotations.SerializedName;
+
 import org.pma.nutrifami.model.unit.Unit;
 
 /**
@@ -7,10 +9,15 @@ import org.pma.nutrifami.model.unit.Unit;
  */
 
 public class Lesson {
+    @SerializedName("id")
     private final String mId;
+    @SerializedName("title")
     private final String mTitle;
+    @SerializedName("image")
     private final String mImage;
+    @SerializedName("description")
     private final String mDescription;
+    @SerializedName("units")
     private final Unit[][] mUnits;
 
     public Lesson(String id, String title, String image, String description, Unit[][] units) {

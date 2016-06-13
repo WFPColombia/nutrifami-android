@@ -14,33 +14,44 @@ import android.view.View;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
+import org.pma.nutrifami.data.ModulesDownloadTask;
+import org.pma.nutrifami.data.OnModulesLoadedListener;
 import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
+import org.pma.nutrifami.model.Module;
 import org.pma.nutrifami.view.adapter.ModulesDataAdapter;
 import org.pma.nutrifami.view.listener.ModuleClickListener;
 
-public class ModulesActivity extends AppCompatActivity implements ModuleClickListener {
+public class ModulesActivity extends AppCompatActivity implements ModuleClickListener, OnModulesLoadedListener {
     private ModulesDataAdapter mDataAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modules);
+        setTitle(getString(R.string.modules_title));
 
+        ModuleManager.getInstance().loadModules(this, this);
+        // TODO: Show progress
+    }
+
+    public void onModulesLoaded(Module[] modules) {
+        // TODO: Hide progress
+        initializeRecyclerView(modules);
+    }
+
+    private void initializeRecyclerView(Module[] modules) {
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.modules_recycler_view);
         assert recyclerView != null;
 
         recyclerView.setHasFixedSize(true);
 
-        this.mDataAdapter = new ModulesDataAdapter(this, ModuleManager.getInstance().getModules());
+        this.mDataAdapter = new ModulesDataAdapter(this, modules);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
 
         layoutManager.setReverseLayout(true);
         recyclerView.setAdapter(this.mDataAdapter);
         recyclerView.setLayoutManager(layoutManager);
-        // TODO: Focus based on progress
-
-        setTitle(getString(R.string.modules_title));
     }
 
     @Override
@@ -97,3 +108,4 @@ public class ModulesActivity extends AppCompatActivity implements ModuleClickLis
         }
     }
 }
+

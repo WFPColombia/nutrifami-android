@@ -1,0 +1,120 @@
+[{
+    "id": "m1",
+    "title": "lo esencial",
+    "lessons": [{
+        "id": "m1l1",
+        "title": "Introduccion",
+        "description": "",
+        "units": [
+            [{
+                "type": "Introduction",
+                "title": "Introduccion",
+                "description": "Por qué debemos preocuparnos por tener una alimentación saludable?\nLa alimentación saludable es aquella que permite alcanzar y mantener un funcionamiento óptimodel organismo, conservar o restablecer la salud, disminuir el riesgo de padecer enfermedades y que promueve un crecimiento y desarrollo óptimos.\n\nLa alimentación es saludable y nutritiva cuando se incluyen diferentes tipos de alimentos en cada comida. La alimentación diaria debe incluir: frutas, verduras, cereales leguminosas (frijol, lenteja, garbanzo), o carne, pescado, pollo y lácteos.\n\nDe esta forma la alimentación saludable es la que aporta todos los nutrientes y la energía que cada persona necesita para mantenerse sana."
+            }],
+            [{
+                "type": "Swipe",
+                "question": "Las grasas también proporcionan energía y contribuyen a la absorción de algunas vitaminas.",
+                "answers": ["No", "Si"],
+                "correctAnswer": 1,
+                "answer-explanation": "Las grasas se encuentran en alimentos como: aceite vegetal, mantequilla, margarina, leche, queso, maní, aguacate, ..."
+            }, {
+                "type": "Swipe",
+                "question": "Necesitamos consumir proteínas, carbohidratos y proteínas.",
+                "answers": ["No", "Si"],
+                "correctAnswer": 1,
+                "answer-explanation": "Proteína, grasa y carbohidratos son los nutrientes que aportan la energía necesaria para el funcionamiento del cuerpo humano."
+            }, {
+                "type": "Swipe",
+                "question": "Vitaminas y minerales son los nutrientes que aportan la energía necesaria para el funcionamiento del cuerpo humano.",
+                "answers": ["No", "Si"],
+                "correctAnswer": 0,
+                "answer-explanation": "Las vitaminas y los minerales son las sustancias que necesariamos para el crecimiento, la vitalidad y el bienestar general de nuestro cuerpo. Sin ellos no tendrían lugar los procesos de crecimiento y devproducción de energía, al igual que otras muchas funciones indispensables en el organismo."
+            }, {
+                "type": "Swipe",
+                "question": "Cada vitamina se encuentra en diversos alimentos y en cantidades diferentes.",
+                "answers": ["No", "Si"],
+                "correctAnswer": 1,
+                "answer-explanation": "Las vitaminas se encuentra en granos enteros (cereales y arroz), frutas y hortalizas, productos lácteos, carnes magra de cerdo, vísceras, carne roja, frutos secos, huevos, arvejas, frijoles, pescados o aves de corral."
+            }, {
+                "type": "Swipe",
+                "question": "Los minerales son: minerales, A, B, C, D, E y K.",
+                "answers": ["No", "Si"],
+                "correctAnswer": 1,
+                "answer-explanation": "Los minerales son calcio, magnesio, fósforo, azufre, cloro, sodio y potasio. Leche y productos lácteos, vegetales de hojas verdes, carnes, algas, frutas o cereales son algunos alimentos ricos en minerales."
+            }]
+        ]
+    }, {
+      "id": "m1l2",
+      "title": "Agua",
+      "description": "",
+      "units": [[{
+          "type": "Introduction",
+          "title": "Agua",
+          "description": ""
+        }]]
+      }, {
+      "id": "m1l3",
+      "title": "Alimentación balanceada",
+      "description": "",
+      "units": [[{
+          "type": "Introduction",
+          "title": "Alimentación balanceada",
+          "description": ""
+        }]]
+      }, {
+      "id": "m1l4",
+      "title": "Alimentación saludable",
+      "description": "",
+      "units": [[{
+          "type": "Introduction",
+          "title": "Alimentación saludable",
+          "description": ""
+        }]]
+      }, {
+      "id": "m1l5",
+      "title": "Hábitos saludables",
+      "description": "",
+      "units": [[{
+          "type": "Introduction",
+          "title": "Hábitos saludables",
+          "description": ""
+        }]]
+      }, {
+      "id": "m1l6",
+      "title": "Mantener la Salud",
+      "description": "",
+      "units": [[{
+          "type": "Introduction",
+          "title": "Mantener la Salud",
+          "description": ""
+        }]]
+      }, {
+      "id": "m1l7",
+      "title": "Preparacion de alimentos",
+      "description": "",
+      "units": [[{
+          "type": "Introduction",
+          "title": "Preparacion de alimentos",
+          "description": ""
+        }]]
+      }],
+    "enabled": true
+}, {
+    "id": "l2",
+    "title": "avanzado"
+}, {
+    "id": "l3",
+    "title": "avanzado"
+}, {
+    "id": "l4",
+    "title": "avanzado"
+}, {
+    "id": "l5",
+    "title": "avanzado"
+}, {
+    "id": "l6",
+    "title": "avanzado"
+}, {
+    "id": "l7",
+    "title": "avanzado"
+}]

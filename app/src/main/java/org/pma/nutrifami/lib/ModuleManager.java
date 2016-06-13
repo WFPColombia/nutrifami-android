@@ -1,8 +1,20 @@
 package org.pma.nutrifami.lib;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
-import org.pma.nutrifami.mock.MockModuleManager;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+
+import org.pma.nutrifami.Constants;
+import org.pma.nutrifami.data.FileReadTask;
+import org.pma.nutrifami.data.FileWriteTask;
+import org.pma.nutrifami.data.GsonContainer;
+import org.pma.nutrifami.data.GsonUnitDeserializer;
+import org.pma.nutrifami.data.ModulesDownloadTask;
+import org.pma.nutrifami.data.OnFileReadListener;
+import org.pma.nutrifami.data.OnModulesLoadedListener;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;
 import org.pma.nutrifami.model.unit.UnitType;
@@ -20,18 +32,12 @@ public class ModuleManager {
 
     public static ModuleManager getInstance() {
         if (mInstance == null) {
-            // TODO Change to real modules
-            mInstance = new MockModuleManager();
-//            mInstance = new ModuleManager();
+            mInstance = new ModuleManager();
         }
         return mInstance;
     }
 
     private Module[] mModules;
-
-    public Module[] getModules() {
-        return this.mModules;
-    }
 
     private Class<? extends AppCompatActivity> resolveGameActivity(UnitType unitType) {
         switch (unitType) {
@@ -45,6 +51,44 @@ public class ModuleManager {
                 return QuizActivity.class;
         }
         return null;
+    }
+
+    public void loadModules(final Context context, final OnModulesLoadedListener onModulesLoadedListener) {
+        if (this.mModules != null) {
+            onModulesLoadedListener.onModulesLoaded(this.mModules);
+            return;
+        }
+        new FileReadTask(context, new OnFileReadListener() {
+            @Override
+            public void onFileRead(String contents) {
+                if (Constants.LOCAL_CACHE && contents != null) {
+                    serveModules(
+                            GsonUnitDeserializer.createGson().fromJson(contents, Module[].class),
+                            onModulesLoadedListener
+                    );
+                } else {
+                    // File is empty, we have to download things first.
+                    new ModulesDownloadTask().download(context, new Response.Listener<GsonContainer<Module[]>>() {
+                        @Override
+                        public void onResponse(GsonContainer<Module[]> response) {
+                            serveModules(response.getData(), onModulesLoadedListener);
+                            new FileWriteTask(context, null)
+                                    .execute(Constants.MODULES_FILE_NAME, response.getJson());
+                        }
+                    }, new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.e("ModuleManager", "Module download went wrong: " + error.toString());
+                        }
+                    });
+                }
+            }
+        }).execute(Constants.MODULES_FILE_NAME);
+    }
+
+    private void serveModules(Module[] modules, OnModulesLoadedListener onModulesLoadedListener) {
+        this.mModules = modules;
+        onModulesLoadedListener.onModulesLoaded(this.mModules);
     }
 
     public Class<? extends AppCompatActivity> getGameActivity(String lessonId, int position) {
