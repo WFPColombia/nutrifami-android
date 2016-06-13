@@ -1,14 +1,21 @@
 package org.pma.nutrifami.model.unit;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Peter Juras on 01.06.16.
  */
 
 public abstract class Unit {
+    @SerializedName("type")
     private final UnitType mUnitType;
+    @SerializedName("question")
     private final String mQuestion;
+    @SerializedName("answers")
     private final String[] mAnswers;
+    @SerializedName("correctAnswer")
     private final int mCorrectAnswer;
+    @SerializedName("answer-explanation")
     private final String mAnswerExplanation;
     private final String mVoiceUri;
 
