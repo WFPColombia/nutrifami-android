@@ -30,6 +30,7 @@
             android:id="@+id/swipe_no_button"
             android:layout_width="0dp"
             android:layout_weight="0.5"
+            android:backgroundTint="@color/colorAccent"
             android:textColor="@android:color/white"
             android:layout_height="wrap_content" />
 
@@ -37,6 +38,7 @@
             android:id="@+id/swipe_yes_button"
             android:layout_width="0dp"
             android:layout_weight="0.5"
+            android:backgroundTint="@color/colorAccent"
             android:textColor="@android:color/white"
             android:layout_height="wrap_content" />
     </LinearLayout>
