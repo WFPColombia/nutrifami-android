@@ -41,63 +41,124 @@
                 "answers": ["No", "Si"],
                 "correctAnswer": 1,
                 "answer-explanation": "Los minerales son calcio, magnesio, fósforo, azufre, cloro, sodio y potasio. Leche y productos lácteos, vegetales de hojas verdes, carnes, algas, frutas o cereales son algunos alimentos ricos en minerales."
+            }],
+            [{
+                "type": "TextQuiz",
+                "question": "Cuáles son nutritientes?",
+                "answers": ["proteínas", "azúcar", "papas", "aciete"],
+                "correctAnswer": 0,
+                "answer-explanation": "Los nutrientes que los alimentos aportan son: proteínas, carbohidratos, grasas, vitaminas y minerales."
+            }, {
+                "type": "TextQuiz",
+                "question": "La alimentación debe ser _______",
+                "answers": ["dulce", "equilibriada", "con grasa", "con aciete"],
+                "correctAnswer": 1,
+                "answer-explanation": "La alimentación debe ser:\n\nCompleta: es decir que aporte todos nutrientes en la cantidad que se requieren.\nEquilibrada: que contenga alimentos de cada grupo de alimentos de manera proporcionada y equilibrada, para aportar la cantidad suficiente de nutrientes.\nSuficiente: que proporcione la cantidades de energía y nutrientes acorde a las necesidades de la persona.\nAdecuada: debe adecuarse a la actividad, la edad, el estado de salud y entorno de la persona."
+            }, {
+                "type": "TextQuiz",
+                "question": "Cuáles tienen carbohidratos?",
+                "answers": ["las harinas y los plátanos", "la carne", "el agua", "avacado"],
+                "correctAnswer": 0,
+                "answer-explanation": "Los carbohidratos se encuentran en las harinas, avena, cebada, maíz, plátanos, tubérculos como la papa y la yuca."
+            }, {
+                "type": "TextQuiz",
+                "question": "Qué hacen carbohidratos?",
+                "answers": ["le dan energía", "ayudar a caminar", "se engorden", "dolor de cabeza"],
+                "correctAnswer": 0,
+                "answer-explanation": "Sirven para hacer funcionar a nuestro cuerpo. Son el combustible necesario para desarrollar las funciones como respirar, estudiar y trabajar. Proporcionan energía."
+            }, {
+                "type": "TextQuiz",
+                "question": "Cuáles tienen grasas?",
+                "answers": ["el agua", "limón", "yuca", "queso"],
+                "correctAnswer": 3,
+                "answer-explanation": "Se encuentran en alimentos como: aceite vegetal, mantequilla, margarina, leche, queso, maní, aguacate."
+            }, {
+                "type": "TextQuiz",
+                "question": "Qué hacen grasas?",
+                "answers": ["enfermedades", "cancer", "se puede engorden", "ayudan con functiones del cuerpo"],
+                "correctAnswer": 3,
+                "answer-explanation": "Las grasas también proporcionan energía y contribuyen a la absorción de algunas vitaminas. Proveen más del doble de la energía aportada por una cantidad equivalente de proteínas o carbohidratos."
+            }, {
+                "type": "TextQuiz",
+                "question": "Cuáles tienen proteinas?",
+                "answers": ["naranja", "limón", "huevos y frijoles", "papas"],
+                "correctAnswer": 2,
+                "answer-explanation": "Se encuentran en alimentos de origen animal como: carne, pescado, pollo, huevos, leche, queso,  yogurt, que son las mejores fuentes de proteínas. También las proteínas se encuentran en las leguminosas como frijol, lentejas, garbanzos, arvejas secas."
+            }, {
+                "type": "TextQuiz",
+                "question": "Porqué son vitaminas & minerales importantes?",
+                "answers": ["para el creciemiento y la vitalidad", "para ser menos inteligente", "para ser menos atractivo", "para ser amable"],
+                "correctAnswer": 0,
+                "answer-explanation": "Las vitaminas son sustancias necesarias para el crecimiento, la vitalidad y el bienestar general de nuestro cuerpo. Los Minerales son elementos químicos imprescindibles para el normal funcionamiento del organismo. El agua circula entre los distintos compartimentos corporales llevando electrolitos, que son partículas minerales en solución."
             }]
         ]
     }, {
-      "id": "m1l2",
-      "title": "Agua",
-      "description": "",
-      "units": [[{
-          "type": "Introduction",
-          "title": "Agua",
-          "description": ""
-        }]]
-      }, {
-      "id": "m1l3",
-      "title": "Alimentación balanceada",
-      "description": "",
-      "units": [[{
-          "type": "Introduction",
-          "title": "Alimentación balanceada",
-          "description": ""
-        }]]
-      }, {
-      "id": "m1l4",
-      "title": "Alimentación saludable",
-      "description": "",
-      "units": [[{
-          "type": "Introduction",
-          "title": "Alimentación saludable",
-          "description": ""
-        }]]
-      }, {
-      "id": "m1l5",
-      "title": "Hábitos saludables",
-      "description": "",
-      "units": [[{
-          "type": "Introduction",
-          "title": "Hábitos saludables",
-          "description": ""
-        }]]
-      }, {
-      "id": "m1l6",
-      "title": "Mantener la Salud",
-      "description": "",
-      "units": [[{
-          "type": "Introduction",
-          "title": "Mantener la Salud",
-          "description": ""
-        }]]
-      }, {
-      "id": "m1l7",
-      "title": "Preparacion de alimentos",
-      "description": "",
-      "units": [[{
-          "type": "Introduction",
-          "title": "Preparacion de alimentos",
-          "description": ""
-        }]]
-      }],
+        "id": "m1l2",
+        "title": "Agua",
+        "description": "",
+        "units": [
+            [{
+                "type": "Introduction",
+                "title": "Agua",
+                "description": ""
+            }]
+        ]
+    }, {
+        "id": "m1l3",
+        "title": "Alimentación balanceada",
+        "description": "",
+        "units": [
+            [{
+                "type": "Introduction",
+                "title": "Alimentación balanceada",
+                "description": ""
+            }]
+        ]
+    }, {
+        "id": "m1l4",
+        "title": "Alimentación saludable",
+        "description": "",
+        "units": [
+            [{
+                "type": "Introduction",
+                "title": "Alimentación saludable",
+                "description": ""
+            }]
+        ]
+    }, {
+        "id": "m1l5",
+        "title": "Hábitos saludables",
+        "description": "",
+        "units": [
+            [{
+                "type": "Introduction",
+                "title": "Hábitos saludables",
+                "description": ""
+            }]
+        ]
+    }, {
+        "id": "m1l6",
+        "title": "Mantener la Salud",
+        "description": "",
+        "units": [
+            [{
+                "type": "Introduction",
+                "title": "Mantener la Salud",
+                "description": ""
+            }]
+        ]
+    }, {
+        "id": "m1l7",
+        "title": "Preparacion de alimentos",
+        "description": "",
+        "units": [
+            [{
+                "type": "Introduction",
+                "title": "Preparacion de alimentos",
+                "description": ""
+            }]
+        ]
+    }],
     "enabled": true
 }, {
     "id": "l2",

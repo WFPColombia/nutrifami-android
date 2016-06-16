@@ -3,6 +3,7 @@ package org.pma.nutrifami.view.viewholder;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.pma.nutrifami.view.listener.AnswerClickListener;
@@ -12,26 +13,22 @@ import org.pma.nutrifami.view.listener.AnswerClickListener;
  */
 
 public class QuizAnswersViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        private final TextView mTextView;
-        private final CardView mCardView;
+        private final Button mButton;
         private final AnswerClickListener mAnswerClickListener;
         private int mPosition;
 
-        public QuizAnswersViewHolder(CardView cardView, TextView textView, AnswerClickListener answerClickListener) {
-            super(cardView);
+        public QuizAnswersViewHolder(Button button, AnswerClickListener answerClickListener) {
+            super(button);
 
-            this.mCardView = cardView;
-            this.mCardView.setOnClickListener(this);
-
-            this.mTextView = textView;
-            this.mTextView.setOnClickListener(this);
+            this.mButton = button;
+            this.mButton.setOnClickListener(this);
 
             this.mAnswerClickListener = answerClickListener;
         }
 
         public void setText(String text) {
-            if (this.mTextView != null) {
-                this.mTextView.setText(text);
+            if (this.mButton != null) {
+                this.mButton.setText(text);
             }
         }
 

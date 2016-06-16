@@ -40,7 +40,8 @@
         <Button
             android:layout_width="match_parent"
             android:id="@+id/lesson_play_button"
-            android:layout_below="@id/lesson_description"
+            android:layout_marginBottom="20dp"
+            android:layout_alignParentBottom="true"
             android:layout_height="wrap_content"
             android:text="@string/lesson_card_start_button" />
 

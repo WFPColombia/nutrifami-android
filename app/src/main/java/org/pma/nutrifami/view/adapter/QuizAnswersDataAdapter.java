@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import org.pma.nutrifami.R;
@@ -35,10 +36,9 @@ public class QuizAnswersDataAdapter extends RecyclerView.Adapter<QuizAnswersView
             .from(parent.getContext())
             .inflate(R.layout.quiz_answer, parent, false);
 
-        final CardView cardView = (CardView) view.findViewById(R.id.quiz_answer_card);
-        final TextView textView = (TextView) view.findViewById(R.id.quiz_answer_text);
+        final Button button = (Button) view.findViewById(R.id.quiz_answer_text);
 
-        return new QuizAnswersViewHolder(cardView, textView, this.mAnswerClickListener);
+        return new QuizAnswersViewHolder(button, this.mAnswerClickListener);
     }
 
     @Override
