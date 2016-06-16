@@ -18,7 +18,11 @@
         android:id="@+id/imageView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-
+    <FrameLayout
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:id="@+id/start_qr_layout"
+        />
     <Button
         android:text="@string/get_started"
         android:layout_width="wrap_content"
