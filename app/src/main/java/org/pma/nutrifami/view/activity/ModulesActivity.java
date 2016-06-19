@@ -74,17 +74,6 @@ public class ModulesActivity extends AppCompatActivity implements ModuleClickLis
     }
 
     @Override
-    protected void onResume() {
-        super.onResume();
-
-        if (SessionManager.getInstance().isFirstLaunch(this)) {
-            final Intent intent = new Intent(this, StartActivity.class);
-            startActivity(intent);
-            finish();
-        }
-    }
-
-    @Override
     protected void onStart() {
         super.onStart();
 
