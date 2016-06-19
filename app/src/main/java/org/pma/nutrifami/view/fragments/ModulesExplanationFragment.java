@@ -3,6 +3,7 @@ package org.pma.nutrifami.view.fragments;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.app.Fragment;
@@ -46,6 +47,20 @@ public class ModulesExplanationFragment extends Fragment {
         return fragment;
     }
 
+    public static void scrollModules() {
+        if (recyclerView != null) {
+            recyclerView.smoothScrollToPosition(5);
+            final Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    recyclerView.smoothScrollToPosition(0);
+                }
+            }, 2000);
+        }
+    }
+    private static RecyclerView recyclerView;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,9 +78,8 @@ public class ModulesExplanationFragment extends Fragment {
         titleText.setText(args.getString(EXPLANATION_TITLE));
         descriptionText.setText(args.getString(EXPLANATION_DESCRIPTION));
 
-        final RecyclerView recyclerView = (RecyclerView) inflater.inflate(R.layout.activity_modules, null, false);
+        recyclerView = (RecyclerView) inflater.inflate(R.layout.activity_modules, null, false);
         modulesFrame.addView(recyclerView);
-
         ModuleManager.getInstance().loadModules(
                 getContext(),
                 new OnModulesLoadedListener() {
@@ -80,10 +94,10 @@ public class ModulesExplanationFragment extends Fragment {
                         recyclerView.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
                             @Override
                             public void onChildViewAttachedToWindow(View view) {
-//                                ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
-//                                lp.setMargins(0, 0, 0, 0);
-                                TextView moduleTitle = ((TextView) ((LinearLayout)view).getChildAt(0));
-                                if (moduleTitle.getText().equals("Introduction")) {
+                                ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) view.getLayoutParams();
+                                lp.setMargins(0, -200, 0, -200);
+                                TextView moduleTitle = ((TextView) ((LinearLayout)view).getChildAt(2));
+                                if (moduleTitle.getText().equals("Introduction to Healthy Nutrition")) {
                                     ModulesExplanationFragment.sharedElement = ((LinearLayout) view).getChildAt(1);
                                 }
                                 view.setScaleX(0.5f);

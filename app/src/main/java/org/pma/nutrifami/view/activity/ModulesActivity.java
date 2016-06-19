@@ -21,6 +21,7 @@ import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.model.Module;
 import org.pma.nutrifami.view.adapter.ModulesDataAdapter;
+import org.pma.nutrifami.view.custom.CustomLayoutManager;
 import org.pma.nutrifami.view.listener.ModuleClickListener;
 
 public class ModulesActivity extends AppCompatActivity implements ModuleClickListener, OnModulesLoadedListener {
@@ -48,7 +49,7 @@ public class ModulesActivity extends AppCompatActivity implements ModuleClickLis
         recyclerView.setHasFixedSize(true);
 
         final ModulesDataAdapter dataAdapter = new ModulesDataAdapter(moduleClickListener, modules);
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(context);
+        final LinearLayoutManager layoutManager = new CustomLayoutManager(context);
 
         layoutManager.setReverseLayout(true);
         recyclerView.setAdapter(dataAdapter);

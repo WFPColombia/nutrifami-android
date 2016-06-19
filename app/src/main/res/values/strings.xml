@@ -37,8 +37,8 @@
     <!-- Game types -->
     <string name="game_pairs_title">Form pairs!</string>
     <string name="game_pairs_description">Select the corresponding pairs to win the game!</string>
-    <string name="game_swipe_title">Swipey Wipey!</string>
-    <string name="game_swipe_description">Swipe your way to your luck!</string>
+    <string name="game_swipe_title">SWIPE!</string>
+    <string name="game_swipe_description">In this game you will be given statements and have to decide if they are true or false. If you think the statement is true then either click on "Yes" or swipe the card to the right. If you think the statement is false then click on "No" or swipe the card to the left.</string>
     <string name="game_quiz_title">Quizmaster!</string>
     <string name="game_quiz_description">Answer the following questions to see if you are the best quiz master in town!</string>
     <string name="game_picture_quiz_title">Picture quiz!</string>

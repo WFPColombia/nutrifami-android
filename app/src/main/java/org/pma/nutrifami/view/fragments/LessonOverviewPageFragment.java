@@ -28,16 +28,16 @@ public class LessonOverviewPageFragment extends LessonProgressFragment {
     private final static String LESSON_IMAGE = "Lesson_Image";
     private final static String LESSON_DESCRIPTION = "Lesson_Desc";
 
-    private static Bundle getArguments(String id, String title, String image, String description) {
+    private static Bundle getArguments(String id, String title, int image, String description) {
         final Bundle args = new Bundle();
         args.putString(Constants.LESSON_ID, id);
         args.putString(LESSON_TITLE, title);
-        args.putString(LESSON_IMAGE, image);
+        args.putInt(LESSON_IMAGE, image);
         args.putString(LESSON_DESCRIPTION, description);
         return args;
     }
 
-    public static Fragment newInstance(String id, String title, String image, String description) {
+    public static Fragment newInstance(String id, String title, int image, String description) {
         final Bundle args = getArguments(id, title, image, description);
         final LessonOverviewPageFragment fragment = new LessonOverviewPageFragment();
         fragment.setArguments(args);

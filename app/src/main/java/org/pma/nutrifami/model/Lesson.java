@@ -14,13 +14,13 @@ public class Lesson {
     @SerializedName("title")
     private final String mTitle;
     @SerializedName("image")
-    private final String mImage;
+    private final int mImage;
     @SerializedName("description")
     private final String mDescription;
     @SerializedName("units")
     private final Unit[][] mUnits;
 
-    public Lesson(String id, String title, String image, String description, Unit[][] units) {
+    public Lesson(String id, String title, int image, String description, Unit[][] units) {
         this.mId = id;
         this.mTitle = title;
         this.mImage = image;
@@ -36,7 +36,7 @@ public class Lesson {
         return mTitle;
     }
 
-    public String getImage() {
+    public int getImage() {
         return mImage;
     }
 

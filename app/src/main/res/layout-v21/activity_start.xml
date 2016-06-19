@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
         android:gravity="center"
-        android:text="NUTRITION TRAINING\nBY THE UNITED NATIONS WORLD FOOD PROGRAMME"
+        android:text="DIGITAL NUTRITION TRAINING\nBY THE UNITED NATIONS WORLD FOOD PROGRAMME"
         android:textColor="@android:color/white" />
 
     <TextView

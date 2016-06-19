@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -32,11 +33,12 @@ public class ModulesDataAdapter extends RecyclerView.Adapter<ModuleViewHolder>{
             .from(parent.getContext())
             .inflate(R.layout.module_view, parent, false);
 
-        final ImageButton button = (ImageButton) view.findViewById(R.id.module_button);
+        final Button button = (Button) view.findViewById(R.id.module_button);
         final TextView titleTextView = (TextView) view.findViewById(R.id.module_title);
+        final ImageView imageView = (ImageView) view.findViewById(R.id.module_image);
         final ImageView completedImageView = (ImageView) view.findViewById(R.id.module_completed);
 
-        return new ModuleViewHolder(view, button, titleTextView, completedImageView, this.mOnClickListener);
+        return new ModuleViewHolder(view, button, titleTextView, completedImageView, imageView, this.mOnClickListener);
     }
 
     @Override

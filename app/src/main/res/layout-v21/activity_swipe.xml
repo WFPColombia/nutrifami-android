@@ -30,7 +30,7 @@
             android:id="@+id/swipe_no_button"
             android:layout_width="0dp"
             android:layout_weight="0.5"
-            android:backgroundTint="@color/colorAccent"
+            android:backgroundTint="@color/colorRedSwipe"
             android:textColor="@android:color/white"
             android:layout_height="wrap_content" />
 

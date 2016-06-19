@@ -1,5 +1,6 @@
 package org.pma.nutrifami.view.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -18,6 +19,8 @@ import org.pma.nutrifami.view.adapter.LessonPagePagerAdapter;
 import org.pma.nutrifami.view.adapter.LessonUnitPagerAdapter;
 
 import me.crosswall.lib.coverflow.CoverFlow;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class LessonActivity extends FragmentActivity {
     private PagerAdapter mPagerAdapter;
@@ -25,6 +28,10 @@ public class LessonActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/century_gothic.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
         setContentView(R.layout.activity_module_carousel);
         setupWindow();
 
@@ -66,5 +73,9 @@ public class LessonActivity extends FragmentActivity {
         if (this.mPagerAdapter != null) {
             this.mPagerAdapter.notifyDataSetChanged();
         }
+    }
+
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext((CalligraphyContextWrapper.wrap(newBase)));
     }
 }

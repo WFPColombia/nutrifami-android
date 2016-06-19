@@ -4,6 +4,7 @@ import android.content.res.ColorStateList;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -21,18 +22,20 @@ import static org.pma.nutrifami.util.Color.*;
  */
 
 public class ModuleViewHolder extends RecyclerView.ViewHolder {
-    private final ImageButton mButton;
+    private final Button mButton;
     private final TextView mTitleTextView;
     private final ModuleClickListener mModuleClickListener;
     private String mModuleId;
     private final ImageView mCompletedImageView;
+    private final ImageView mModuleImageView;
 
-    public ModuleViewHolder(View itemView, ImageButton button, TextView titleTextView, ImageView completedImageView, ModuleClickListener moduleClickListener) {
+    public ModuleViewHolder(View itemView, Button button, TextView titleTextView, ImageView completedImageView, ImageView moduleImageView, ModuleClickListener moduleClickListener) {
         super(itemView);
         this.mButton = button;
         this.mModuleClickListener = moduleClickListener;
         this.mTitleTextView = titleTextView;
         this.mCompletedImageView = completedImageView;
+        this.mModuleImageView = moduleImageView;
 
         this.mButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +48,8 @@ public class ModuleViewHolder extends RecyclerView.ViewHolder {
     public void initialize(Module module) {
         this.mModuleId = module.getId();
         this.mTitleTextView.setText(module.getTitle());
+        this.mButton.setText(module.getOrder() + "");
+        this.mModuleImageView.setImageResource(module.getImage());
 
         if (!module.getEnabled()) {
             this.mButton.setEnabled(false);

@@ -8,12 +8,14 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Window;
 
 import com.badoualy.stepperindicator.StepperIndicator;
 
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.view.adapter.ExplanationPagerAdapter;
+import org.pma.nutrifami.view.fragments.ModulesExplanationFragment;
 
 import me.crosswall.lib.coverflow.CoverFlow;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -42,6 +44,28 @@ public class ExplanationActivity extends AppCompatActivity {
         final ViewPager pager = (ViewPager) findViewById(R.id.lesson_page_pager);
         pager.setOffscreenPageLimit(3);
         pager.setAdapter(mPagerAdapter);
+
+        final ViewPager.OnPageChangeListener listener = new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position == 2) {
+                    ModulesExplanationFragment.scrollModules();
+                    Log.d("Hi", "hi");
+                }
+
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        };
+        pager.addOnPageChangeListener(listener);
 
         new CoverFlow.Builder()
                 .with(pager)

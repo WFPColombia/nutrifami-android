@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.pma.nutrifami.R;
@@ -45,6 +46,9 @@ public class LessonIntroductionPageFragment extends Fragment {
 
         final TextView introductionTextView = (TextView) rootView.findViewById(R.id.introduction_text);
         introductionTextView.setText(args.getString(INTRODUCTION_TEXT));
+
+        final ImageView introductionImageView = (ImageView) rootView.findViewById(R.id.introduction_image);
+        introductionImageView.setImageResource(R.mipmap.m1);
 
         return rootView;
     }

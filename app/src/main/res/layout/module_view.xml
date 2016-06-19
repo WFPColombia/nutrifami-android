@@ -1,35 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              xmlns:app="http://schemas.android.com/apk/res-auto"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:layout_marginBottom="125dp"
-              android:layout_marginTop="50dp"
-              android:orientation="vertical"
-    >
-    <TextView
-        android:id="@+id/module_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        />
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="175dp"
+            android:id="@+id/module_image"
+            android:scaleType="fitXY"
+            android:layout_gravity="center"
+            tools:src="@mipmap/m2"
+            />
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
-        <ImageButton
+
+        <Button
             android:id="@+id/module_button"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
             android:transitionName="@string/mode_transition_name"
             android:layout_marginTop="10dp"
             android:background="@drawable/circle"
+            android:text="1"
+            android:textColor="@android:color/white"
+            android:textSize="32sp"
             android:contentDescription="@string/module_icon_description"
             android:padding="20dp"
             android:scaleType="fitCenter"
-            app:srcCompat="@mipmap/circle_placeholder"/>
+            />
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/module_completed"
             android:layout_width="wrap_content"
@@ -40,4 +44,12 @@
             android:translationY="-30dp"
             android:visibility="invisible"/>
     </FrameLayout>
+    <TextView
+        android:id="@+id/module_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Introduction"
+        android:gravity="center_horizontal"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        />
 </LinearLayout>

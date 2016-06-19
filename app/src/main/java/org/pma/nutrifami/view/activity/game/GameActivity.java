@@ -12,6 +12,7 @@ import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.lib.UnitExplanationManager;
 import org.pma.nutrifami.model.Lesson;
+import org.pma.nutrifami.model.unit.SwipeUnit;
 import org.pma.nutrifami.model.unit.Unit;
 
 import java.util.ArrayList;
@@ -68,6 +69,12 @@ public abstract class GameActivity extends AppCompatActivity {
         };
 
 
+        int currentExplanationImage = R.mipmap.m1;
+        try {
+            currentExplanationImage = ((SwipeUnit) this.mUnits.get(this.mCurrentUnit)).getExplanationImage();
+        } catch (Exception e) {
+
+        }
         final String answerExplanation = this.mUnits.get(this.mCurrentUnit).getAnswerExplanation();
         String feedbackText;
         if (correctAnswer) {
@@ -92,6 +99,7 @@ public abstract class GameActivity extends AppCompatActivity {
                 this,
                 feedbackText,
                 answerExplanation,
+                currentExplanationImage,
                 dismissListener);
     }
 

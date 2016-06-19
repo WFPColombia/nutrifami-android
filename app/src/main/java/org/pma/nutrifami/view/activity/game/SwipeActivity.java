@@ -1,5 +1,6 @@
 package org.pma.nutrifami.view.activity.game;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,9 @@ import org.pma.nutrifami.R;
 import org.pma.nutrifami.model.unit.SwipeUnit;
 import org.pma.nutrifami.view.adapter.SwipeCardDataAdapter;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class SwipeActivity extends GameActivity implements CardStack.CardEventListener {
     private CardStack mCardStack;
     private SwipeCardDataAdapter mSwipeCardDataAdapter;
@@ -17,6 +21,11 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/century_gothic.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
+
         setContentView(R.layout.activity_swipe);
 
         this.mCardStack = (CardStack) findViewById(R.id.swipe_card_stack);
@@ -50,11 +59,14 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
             }
         });
         yesButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 mCardStack.discardTop(3);
             }
         });
+
+        setTitle("1. Introduction");
     }
 
     @Override
@@ -81,10 +93,20 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
         }
 
         answerSelected(correct, null);
+        if (correct) {
+            mTotalCorrect++;
+        }
+        setTitle("1. Introduction: " + mTotalCorrect + "/" + getLesson().getUnits()[1].length);
     }
+
+    private int mTotalCorrect = 0;
 
     @Override
     public void topCardTapped() {
 
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext((CalligraphyContextWrapper.wrap(newBase)));
     }
 }

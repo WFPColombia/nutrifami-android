@@ -42,7 +42,7 @@ public class ScreenshotExplanation extends Explanation {
     public static ScreenshotExplanation getTrainingExplanation() {
         return new ScreenshotExplanation(
                 "TRAINING",
-                "LEARN HOW TO EAT IN A FUN WAY",
+                "LEARN HOW TO EAT HEALTHY IN A FUN WAY",
                 R.mipmap.modules,
                 true
         );
