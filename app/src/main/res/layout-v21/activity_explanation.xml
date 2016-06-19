@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+    >
+
+    <!--<View-->
+        <!--android:scaleY="2"-->
+        <!--android:scaleX="2"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:background="@drawable/circle"-->
+        <!--android:transitionName="@string/mode_transition_name"-->
+        <!--/>-->
+
+    <me.crosswall.lib.coverflow.core.PagerContainer
+        android:id="@+id/pager_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="75dp"
+        >
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/lesson_page_pager"
+            android:layout_width="match_parent"
+            android:layout_marginRight="35dp"
+            android:layout_marginLeft="35dp"
+            android:layout_height="match_parent" />
+
+
+
+    </me.crosswall.lib.coverflow.core.PagerContainer>
+    <com.badoualy.stepperindicator.StepperIndicator
+        android:layout_width="match_parent"
+        android:id="@+id/stepper_indicator"
+        android:layout_alignParentBottom="true"
+        app:layout_marginLeftPercent="10%"
+        app:stpi_lineDoneColor="@color/colorAccent"
+        app:stpi_indicatorColor="@color/colorAccent"
+        app:layout_marginRightPercent="10%"
+        app:layout_marginBottomPercent="5%"
+        android:layout_height="wrap_content"
+        app:stpi_stepCount="3"/>
+</android.support.percent.PercentRelativeLayout>

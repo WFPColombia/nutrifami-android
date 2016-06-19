@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+                                    xmlns:tools="http://schemas.android.com/tools"
+                                    android:id="@+id/explanation_card"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:backgroundTint="@color/colorAccent"
+                                    android:orientation="vertical"
+                                    card_view:cardCornerRadius="4dp"
+                                    card_view:cardUseCompatPadding="true"
+                                    card_view:contentPadding="10dp">
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/explanation_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:textSize="22sp"
+            app:layout_marginTopPercent="10%"
+            tools:text="EXPLANATION TITLE"
+            />
+
+        <Button
+            android:id="@+id/explanation_play_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:backgroundTint="@android:color/white"
+            android:text="PLAY NOW"
+            android:textColor="@color/colorAccent"
+            android:visibility="invisible"
+            tools:visibility="visible"
+            />
+
+        <TextView
+            android:id="@+id/explanation_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/explanation_play_button"
+            android:gravity="center_horizontal"
+            android:textColor="@android:color/white"
+            app:layout_marginBottomPercent="5%"
+            app:layout_marginTopPercent="5%"
+            tools:text="THIS IS THE DESCRIPTION OF WHAT YOU ARE GOING TO SEE HERE, ISN'T IT WONDERFUL"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/explanation_screenshot"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/explanation_description"
+            android:layout_below="@id/explanation_title"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            tools:src="@mipmap/perfil"
+            />
+
+
+    </android.support.percent.PercentRelativeLayout>
+
+</android.support.v7.widget.CardView>

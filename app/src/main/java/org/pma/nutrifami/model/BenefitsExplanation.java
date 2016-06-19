@@ -1,5 +1,7 @@
 package org.pma.nutrifami.model;
 
+import org.pma.nutrifami.R;
+
 public class BenefitsExplanation extends Explanation {
     private String mFirstExplanation;
     private int mFirstExplanationIcon;
@@ -18,6 +20,12 @@ public class BenefitsExplanation extends Explanation {
             int thirdExplanationIcon
     ) {
         super(title);
+        this.mFirstExplanation = firstExplanation;
+        this.mSecondExplanation = secondExplanation;
+        this.mThirdExplanation = thirdExplanation;
+        this.mFirstExplanationIcon = firstExplanationIcon;
+        this.mSecondExplanationIcon = secondExplanationIcon;
+        this.mThirdExplanationIcon = thirdExplanationIcon;
     }
 
     public String getFirstExplanation() {
@@ -46,13 +54,13 @@ public class BenefitsExplanation extends Explanation {
 
     public static BenefitsExplanation getBenefits() {
         return new BenefitsExplanation(
-            "BENEFITS",
-            "EARN CREDITS FOR YOUR VOUCHER",
-            0,
-            "GAIN NUTRITION KNOWLEDGE",
-            0,
-            "BECOME HAPPY AND HEALTHY",
-            0
+                "BENEFITS",
+                "EARN CREDITS FOR YOUR VOUCHER",
+                R.mipmap.coins_banknotes_white,
+                "GAIN NUTRITION KNOWLEDGE",
+                R.mipmap.books_with_apple_white,
+                "BECOME HAPPY AND HEALTHY",
+                R.mipmap.healthy_lifestyle_white
         );
     }
 }

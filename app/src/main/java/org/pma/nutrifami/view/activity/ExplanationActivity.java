@@ -1,5 +1,6 @@
 package org.pma.nutrifami.view.activity;
 
+import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.PersistableBundle;
@@ -9,31 +10,46 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 
+import com.badoualy.stepperindicator.StepperIndicator;
+
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.view.adapter.ExplanationPagerAdapter;
 
 import me.crosswall.lib.coverflow.CoverFlow;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by Peter on 18.06.2016.
  */
 public class ExplanationActivity extends AppCompatActivity {
+    public static ExplanationActivity currentInstance;
+
     @Override
-    public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
-        super.onCreate(savedInstanceState, persistentState);
-        setContentView(R.layout.activity_module_carousel);
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        currentInstance = this;
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/century_gothic.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
+
+        setContentView(R.layout.activity_explanation);
         setupWindow();
 
         PagerAdapter mPagerAdapter = new ExplanationPagerAdapter(getSupportFragmentManager());
 
         final ViewPager pager = (ViewPager) findViewById(R.id.lesson_page_pager);
-        pager.setOffscreenPageLimit(2);
+        pager.setOffscreenPageLimit(3);
         pager.setAdapter(mPagerAdapter);
 
         new CoverFlow.Builder()
                 .with(pager)
                 .scale(0.15f)
                 .build();
+
+        final StepperIndicator indicator = (StepperIndicator) findViewById(R.id.stepper_indicator);
+        indicator.setViewPager(pager);
     }
 
     private void setupWindow() {
@@ -43,5 +59,10 @@ public class ExplanationActivity extends AppCompatActivity {
             window.setStatusBarColor(accentColor);
             window.setNavigationBarColor(accentColor);
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext((CalligraphyContextWrapper.wrap(newBase)));
     }
 }

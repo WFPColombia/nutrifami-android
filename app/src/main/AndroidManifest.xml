@@ -31,6 +31,7 @@
             android:name=".view.activity.ProfileActivity"
             android:label="@string/profile_title" />
         <activity android:name=".view.activity.game.QuizActivity" />
+        <activity android:name=".view.activity.ExplanationActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
         <activity android:name=".view.activity.game.PictureQuizActivity" />
         <activity android:name=".view.activity.game.SwipeActivity" />
         <activity android:name=".view.activity.game.PairsActivity" />

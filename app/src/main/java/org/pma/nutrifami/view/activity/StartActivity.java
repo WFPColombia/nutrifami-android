@@ -75,8 +75,9 @@ public class StartActivity extends AppCompatActivity implements ZXingScannerView
         this.mScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getCameraPermission();
-                animateToQRView();
+//                getCameraPermission();
+//                animateToQRView();
+                handleResult(null);
             }
         });
 
@@ -253,8 +254,12 @@ public class StartActivity extends AppCompatActivity implements ZXingScannerView
     @Override
     public void handleResult(Result result) {
         this.mExplanationText.setText("LOGIN SUCCESSFUL");
-        this.mBarFrame.setVisibility(View.INVISIBLE);
-        this.mScannerView.setVisibility(View.INVISIBLE);
+        if (this.mBarFrame != null) {
+            this.mBarFrame.setVisibility(View.INVISIBLE);
+        }
+        if (this.mScannerView != null) {
+            this.mScannerView.setVisibility(View.INVISIBLE);
+        }
 
         final View welcomeView = findViewById(R.id.barcode_success_welcome_text);
         welcomeView.startAnimation(createAlphaAnimation());
@@ -268,49 +273,5 @@ public class StartActivity extends AppCompatActivity implements ZXingScannerView
                 startActivity(intent);
             }
         }, 3000);
-    }
-
-    private static class CustomViewFinderView extends ViewFinderView {
-        public static final String TRADE_MARK_TEXT = "ZXing";
-        public static final int TRADE_MARK_TEXT_SIZE_SP = 40;
-        public final Paint PAINT = new Paint();
-
-        public CustomViewFinderView(Context context) {
-            super(context);
-            init();
-        }
-
-        public CustomViewFinderView(Context context, AttributeSet attrs) {
-            super(context, attrs);
-            init();
-        }
-
-        private void init() {
-            PAINT.setColor(Color.WHITE);
-            PAINT.setAntiAlias(true);
-            float textPixelSize = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP,
-                    TRADE_MARK_TEXT_SIZE_SP, getResources().getDisplayMetrics());
-            PAINT.setTextSize(textPixelSize);
-        }
-
-        @Override
-        public void onDraw(Canvas canvas) {
-            super.onDraw(canvas);
-            drawTradeMark(canvas);
-        }
-
-        private void drawTradeMark(Canvas canvas) {
-            Rect framingRect = getFramingRect();
-            float tradeMarkTop;
-            float tradeMarkLeft;
-            if (framingRect != null) {
-                tradeMarkTop = framingRect.bottom + PAINT.getTextSize() + 10;
-                tradeMarkLeft = framingRect.left;
-            } else {
-                tradeMarkTop = 10;
-                tradeMarkLeft = canvas.getHeight() - PAINT.getTextSize() - 10;
-            }
-            canvas.drawText(TRADE_MARK_TEXT, tradeMarkLeft, tradeMarkTop, PAINT);
-        }
     }
 }

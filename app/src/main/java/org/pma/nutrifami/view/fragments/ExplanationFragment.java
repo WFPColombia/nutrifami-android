@@ -16,18 +16,22 @@ import org.pma.nutrifami.model.BenefitsExplanation;
  * Created by Peter on 18.06.2016.
  */
 public class ExplanationFragment extends Fragment {
-    private TextView mTitleTextView;
-    private TextView mFirstExplanationText;
-    private TextView mSecondExplanationText;
-    private TextView mThirdExplanationText;
+    public static final String EXPLANATION_TITLE = "EXPLANATION_TITLE";
+    private static final String EXPLANATION_TEXT = "EXPLANATION_TEXT";
+    private static final String EXPLANATION_ICON = "EXPLANATION_ICON";
 
-    private ImageView mFirstExplanationIcon;
-    private ImageView mSecondExplanationIcon;
-    private ImageView mThirdExplanationIcon;
-
-
-    public static Fragment createInstance() {
-        return new ExplanationFragment();
+    public static Fragment createInstance(BenefitsExplanation benefits) {
+        final ExplanationFragment fragment = new ExplanationFragment();
+        final Bundle args = new Bundle();
+        args.putString(EXPLANATION_TITLE, benefits.getTitle());
+        args.putString(EXPLANATION_TEXT + 1, benefits.getFirstExplanation());
+        args.putString(EXPLANATION_TEXT + 2, benefits.getSecondExplanation());
+        args.putString(EXPLANATION_TEXT + 3, benefits.getThirdExplanation());
+        args.putInt(EXPLANATION_ICON + 1, benefits.getFirstExplanationIcon());
+        args.putInt(EXPLANATION_ICON + 2, benefits.getSecondExplanationIcon());
+        args.putInt(EXPLANATION_ICON + 3, benefits.getThirdExplanationIcon());
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @Nullable
@@ -37,19 +41,27 @@ public class ExplanationFragment extends Fragment {
                 R.layout.explanation_fragment, container, false
         );
 
-        this.mFirstExplanationIcon = (ImageView) rootView.findViewById(R.id.first_explanation_icon);
-        this.mSecondExplanationIcon = (ImageView) rootView.findViewById(R.id.second_explanation_icon);
-        this.mThirdExplanationIcon = (ImageView) rootView.findViewById(R.id.third_explanation_icon);
+        final ImageView firstExplanationIcon = (ImageView) rootView.findViewById(R.id.first_explanation_icon);
+        final ImageView secondExplanationIcon = (ImageView) rootView.findViewById(R.id.second_explanation_icon);
+        final ImageView thirdExplanationIcon = (ImageView) rootView.findViewById(R.id.third_explanation_icon);
 
-        this.mTitleTextView = (TextView) rootView.findViewById(R.id.explanation_title);
-        this.mFirstExplanationText = (TextView) rootView.findViewById(R.id.first_explanation_text);
-        this.mSecondExplanationText = (TextView) rootView.findViewById(R.id.second_explanation_text);
-        this.mThirdExplanationText = (TextView) rootView.findViewById(R.id.third_explanation_text);
+        final TextView titleTextView = (TextView) rootView.findViewById(R.id.explanation_title);
+        final TextView firstExplanationText = (TextView) rootView.findViewById(R.id.first_explanation_text);
+        final TextView secondExplanationText = (TextView) rootView.findViewById(R.id.second_explanation_text);
+        final TextView thirdExplanationText = (TextView) rootView.findViewById(R.id.third_explanation_text);
+
+        final Bundle args = getArguments();
+
+        titleTextView.setText(args.getString(EXPLANATION_TITLE));
+
+        firstExplanationText.setText(args.getString(EXPLANATION_TEXT + 1));
+        secondExplanationText.setText(args.getString(EXPLANATION_TEXT + 2));
+        thirdExplanationText.setText(args.getString(EXPLANATION_TEXT + 3));
+
+        firstExplanationIcon.setImageResource(args.getInt(EXPLANATION_ICON + 1));
+        secondExplanationIcon.setImageResource(args.getInt(EXPLANATION_ICON + 2));
+        thirdExplanationIcon.setImageResource(args.getInt(EXPLANATION_ICON + 3));
 
         return rootView;
-    }
-
-    public void bindToExplanation(BenefitsExplanation benefits) {
-
     }
 }

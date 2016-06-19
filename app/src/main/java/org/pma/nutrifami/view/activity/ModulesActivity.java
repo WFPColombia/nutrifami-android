@@ -1,5 +1,6 @@
 package org.pma.nutrifami.view.activity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -23,8 +24,6 @@ import org.pma.nutrifami.view.adapter.ModulesDataAdapter;
 import org.pma.nutrifami.view.listener.ModuleClickListener;
 
 public class ModulesActivity extends AppCompatActivity implements ModuleClickListener, OnModulesLoadedListener {
-    private ModulesDataAdapter mDataAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,20 +36,22 @@ public class ModulesActivity extends AppCompatActivity implements ModuleClickLis
 
     public void onModulesLoaded(Module[] modules) {
         // TODO: Hide progress
-        initializeRecyclerView(modules);
+        initializeRecyclerView(modules, (RecyclerView) findViewById(R.id.modules_recycler_view), this, this);
     }
 
-    private void initializeRecyclerView(Module[] modules) {
-        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.modules_recycler_view);
-        assert recyclerView != null;
-
+    public static void initializeRecyclerView(
+            Module[] modules,
+            RecyclerView recyclerView,
+            ModuleClickListener moduleClickListener,
+            Context context
+    ) {
         recyclerView.setHasFixedSize(true);
 
-        this.mDataAdapter = new ModulesDataAdapter(this, modules);
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        final ModulesDataAdapter dataAdapter = new ModulesDataAdapter(moduleClickListener, modules);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(context);
 
         layoutManager.setReverseLayout(true);
-        recyclerView.setAdapter(this.mDataAdapter);
+        recyclerView.setAdapter(dataAdapter);
         recyclerView.setLayoutManager(layoutManager);
     }
 
@@ -70,15 +71,6 @@ public class ModulesActivity extends AppCompatActivity implements ModuleClickLis
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        if (this.mDataAdapter != null) {
-            this.mDataAdapter.notifyDataSetChanged();
         }
     }
 
