@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,6 +51,10 @@ public class LessonIntroductionPageFragment extends Fragment {
 
         final ImageView introductionImageView = (ImageView) rootView.findViewById(R.id.introduction_image);
         introductionImageView.setImageResource(R.mipmap.m1);
+
+        final Animation fadeAnimation = AnimationUtils.loadAnimation(rootView.getContext(), R.anim.fade);
+        fadeAnimation.setStartOffset(0);
+        rootView.startAnimation(fadeAnimation);
 
         return rootView;
     }
