@@ -40,9 +40,12 @@
         <activity android:name=".view.activity.game.PairsActivity"/>
         <activity
             android:name=".view.activity.FeedbackActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
+        <activity
+            android:name=".view.activity.ScanVoucherActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"
             >
-
         </activity>
     </application>
 

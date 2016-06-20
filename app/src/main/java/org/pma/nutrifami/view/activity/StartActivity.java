@@ -12,10 +12,12 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.content.PermissionChecker;
 import android.support.v7.app.AppCompatActivity;
@@ -72,12 +74,18 @@ public class StartActivity extends AppCompatActivity implements ZXingScannerView
         this.mVideoScreenView = (ImageView) findViewById(R.id.video_view_screenshot);
         this.mExplanationText = (TextView) findViewById(R.id.barcode_explanation_text);
 
+        final StartActivity activity = this;
         this.mScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getCameraPermission();
-                animateToQRView();
+//                getCameraPermission();
+//                animateToQRView();
 //                handleResult(null);
+                final Intent intent = new Intent(activity, ScanVoucherActivity.class);
+                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(activity, mScanButton, getString(R.string.qr_transition));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+                    startActivity(intent, options.toBundle());
+                }
             }
         });
 
