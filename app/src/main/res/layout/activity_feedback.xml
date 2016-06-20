@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_feedback"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.pma.nutrifami.view.activity.FeedbackActivity">
+    <VideoView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/feedback_video"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        />
+
+    <View
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:background="@android:color/black"
+        android:alpha="0.5"
+        />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/star"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="25dp"
+        android:id="@+id/feedback_star"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_below="@id/feedback_star"
+        android:layout_height="wrap_content"
+        android:id="@+id/feedback_voucher_text"
+        android:textSize="28sp"
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="You received voucher credits"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/feedback_voucher_text"
+        android:textColor="@android:color/white"
+        android:id="@+id/feedback_healthy_text"
+        android:layout_height="wrap_content"
+        android:text="You came one step closer to a healthy life"
+        />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:id="@+id/feedback_finish_button"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="25dp"
+        android:text="AWESOME"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@color/colorAccent"
+        />
+
+</RelativeLayout>

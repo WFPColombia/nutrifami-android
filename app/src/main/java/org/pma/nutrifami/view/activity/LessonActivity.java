@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
@@ -35,6 +36,16 @@ public class LessonActivity extends FragmentActivity {
         setContentView(R.layout.activity_module_carousel);
         setupWindow();
 
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                prepareView();
+            }
+        }, 250);
+    }
+
+    private void prepareView() {
         final ModuleManager moduleManager = ModuleManager.getInstance();
         final Intent intent = getIntent();
         final boolean isLessonOverview = intent.getBooleanExtra(Constants.LESSON_OVERVIEW, true);

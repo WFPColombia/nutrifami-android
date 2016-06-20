@@ -45,6 +45,9 @@ public abstract class GameActivity extends AppCompatActivity {
         return this.mUnits.get(this.mCurrentUnit);
     }
 
+    protected int getUnitsPosition() {
+        return this.mUnitsPosition;
+    }
     protected Lesson getLesson() {
         return this.mLesson;
     }
@@ -58,16 +61,17 @@ public abstract class GameActivity extends AppCompatActivity {
         finish();
     }
 
-    void answerSelected(boolean correctAnswer, DialogInterface.OnDismissListener dismiss) {
+    void answerSelected(boolean correctAnswer, DialogInterface.OnDismissListener dismiss, DialogInterface.OnDismissListener dismissLast) {
         final Context context = this;
         final Lesson lesson = this.mLesson;
-        DialogInterface.OnDismissListener dismissLast = new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                saveAndFinish(context, lesson);
-            }
-        };
-
+        if (dismissLast == null) {
+            dismissLast = new DialogInterface.OnDismissListener() {
+                @Override
+                public void onDismiss(DialogInterface dialog) {
+                    saveAndFinish(context, lesson);
+                }
+            };
+        }
 
         int currentExplanationImage = R.mipmap.m1;
         try {

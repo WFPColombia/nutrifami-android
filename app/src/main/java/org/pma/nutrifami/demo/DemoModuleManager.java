@@ -49,7 +49,7 @@ public class DemoModuleManager extends ModuleManager {
                                         "Proteins are found mainly in flour, oats, barley, corn, bananas and root vegetables like potatoes and yuca.",
                                         new String[]{"No", "Yes"},
                                         0,
-                                        "Scientific studies all around the world showed that food and nutritional status have a strong influence on the health of people.",
+                                        "Protein is found mainly in food coming from animals such as beef, fish, chicken, eggs, milk, cheese and yogurt. Also, proteins are found in legumes such as beans, lentils, chickpeas and dried peas.",
                                         R.mipmap.swipe_3,
                                         R.mipmap.swipe_3_explanation
                                 ), new SwipeUnit(
@@ -57,7 +57,7 @@ public class DemoModuleManager extends ModuleManager {
                                         new String[]{"No", "Yes"},
                                         0,
                                         "Carbohydrates are found mainly in flour, oats, barley, corn, bananas and root vegetables like potatoes and yuca.",
-                                        R.mipmap.swipe_3,
+                                        R.mipmap.swipe_3_butter,
                                         R.mipmap.swipe_3
                                 ), new SwipeUnit(
                                         "I should eat one portion of fruit or vegetables per day.",

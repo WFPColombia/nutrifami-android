@@ -49,9 +49,10 @@
             tools:text="THIS IS THE DESCRIPTION OF WHAT YOU ARE GOING TO SEE HERE, ISN'T IT WONDERFUL"
             android:gravity="center_horizontal"
             app:layout_marginTopPercent="5%"
+            app:layout_marginBottomPercent="2%"
             />
 
-        <FrameLayout
+        <android.support.v7.widget.CardView
             android:id="@+id/explanation_modules_frame"
             android:layout_above="@id/explanation_description"
             android:layout_below="@id/explanation_title"

@@ -52,6 +52,6 @@ public class QuizActivity extends GameActivity implements AnswerClickListener {
             }
         };
 
-        answerSelected(correctAnswer, dismiss);
+        answerSelected(correctAnswer, dismiss, null);
     }
 }

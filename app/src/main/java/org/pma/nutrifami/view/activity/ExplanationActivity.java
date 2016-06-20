@@ -3,6 +3,7 @@ package org.pma.nutrifami.view.activity;
 import android.content.Context;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.PersistableBundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
@@ -54,8 +55,13 @@ public class ExplanationActivity extends AppCompatActivity {
             @Override
             public void onPageSelected(int position) {
                 if (position == 2) {
-                    ModulesExplanationFragment.scrollModules();
-                    Log.d("Hi", "hi");
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            ModulesExplanationFragment.scrollModules();
+                        }
+                    }, 250);
                 }
 
             }

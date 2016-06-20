@@ -75,9 +75,9 @@ public class StartActivity extends AppCompatActivity implements ZXingScannerView
         this.mScanButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                getCameraPermission();
-//                animateToQRView();
-                handleResult(null);
+                getCameraPermission();
+                animateToQRView();
+//                handleResult(null);
             }
         });
 
@@ -144,6 +144,16 @@ public class StartActivity extends AppCompatActivity implements ZXingScannerView
 
 
         final ImageView wfpImage = (ImageView) findViewById(R.id.wfp_image_view);
+        wfpImage.setOnClickListener(new View.OnClickListener() {
+            private int clickCount = 0;
+            @Override
+            public void onClick(View view) {
+               clickCount++;
+                if (clickCount >= 5) {
+                    handleResult(null);
+                }
+            }
+        });
         this.mBarFrame = (ViewGroup) findViewById(R.id.start_qr_layout);
 
         final Animation alphaAnim = createAlphaAnimation();

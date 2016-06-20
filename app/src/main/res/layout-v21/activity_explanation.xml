@@ -38,6 +38,7 @@
         android:id="@+id/stepper_indicator"
         android:layout_alignParentBottom="true"
         app:layout_marginLeftPercent="10%"
+        app:stpi_animDuration="1000"
         app:stpi_lineDoneColor="@color/colorAccent"
         app:stpi_indicatorColor="@color/colorAccent"
         app:layout_marginRightPercent="10%"

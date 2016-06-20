@@ -1,6 +1,8 @@
 package org.pma.nutrifami.view.activity.game;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,7 +10,9 @@ import android.widget.Button;
 import com.wenchao.cardstack.CardStack;
 
 import org.pma.nutrifami.R;
+import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.model.unit.SwipeUnit;
+import org.pma.nutrifami.view.activity.FeedbackActivity;
 import org.pma.nutrifami.view.adapter.SwipeCardDataAdapter;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -92,7 +96,12 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
             mSwipeCardDataAdapter.add(getCurrentUnit());
         }
 
-        answerSelected(correct, null);
+        answerSelected(correct, null, new DialogInterface.OnDismissListener() {
+            @Override
+            public void onDismiss(DialogInterface dialogInterface) {
+                saveAndPresentFeedback();
+            }
+        });
         if (correct) {
             mTotalCorrect++;
         }
@@ -105,6 +114,14 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
     public void topCardTapped() {
 
     }
+
+    private void saveAndPresentFeedback() {
+        SessionManager.getInstance().setUnitPackageAsCompleted(this, getLesson(), getUnitsPosition());
+        final Intent intent = new Intent(this, FeedbackActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext((CalligraphyContextWrapper.wrap(newBase)));

@@ -71,7 +71,7 @@ public class ModulesExplanationFragment extends Fragment {
         final Bundle args = getArguments();
         final TextView titleText = (TextView) rootView.findViewById(R.id.explanation_title);
         final TextView descriptionText = (TextView) rootView.findViewById(R.id.explanation_description);
-        final FrameLayout modulesFrame = (FrameLayout) rootView.findViewById(R.id.explanation_modules_frame);
+        final ViewGroup modulesFrame = (ViewGroup) rootView.findViewById(R.id.explanation_modules_frame);
         final Button playButton = (Button) rootView.findViewById(R.id.explanation_play_button);
         playButton.setVisibility(View.VISIBLE);
 

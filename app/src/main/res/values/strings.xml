@@ -31,8 +31,8 @@
     <string name="swipe_card_text_dummy">This is a question which will be presented on a swipeable card. Of what I have seen, it could be quite long but who knows at this point! =)</string>
 
     <!-- Explanation dialogue -->
-    <string name="explanation_correct">Correct</string>
-    <string name="explanation_false">Not correct</string>
+    <string name="explanation_correct">CORRECT</string>
+    <string name="explanation_false">NOT CORRECT</string>
 
     <!-- Game types -->
     <string name="game_pairs_title">Form pairs!</string>

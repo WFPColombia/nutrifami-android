@@ -31,7 +31,6 @@
             android:textColor="@android:color/white"
             android:textSize="32sp"
             android:contentDescription="@string/module_icon_description"
-            android:padding="20dp"
             android:scaleType="fitCenter"
             />
         <android.support.v7.widget.AppCompatImageView

@@ -55,10 +55,10 @@ public class BenefitsExplanation extends Explanation {
     public static BenefitsExplanation getBenefits() {
         return new BenefitsExplanation(
                 "BENEFITS",
-                "EARN CREDITS FOR YOUR VOUCHER",
-                R.mipmap.coins_banknotes_white,
                 "GAIN NUTRITION KNOWLEDGE",
                 R.mipmap.books_with_apple_white,
+                "EARN CREDITS FOR YOUR VOUCHER",
+                R.mipmap.coins_banknotes_white,
                 "BECOME HAPPY AND HEALTHY",
                 R.mipmap.healthy_lifestyle_white
         );
