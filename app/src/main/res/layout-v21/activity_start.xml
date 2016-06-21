@@ -30,21 +30,14 @@
         android:alpha="0.5"
         android:background="@android:color/black" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/start_nutrifami_logo_description"
-        android:src="@mipmap/nutrifami_header" />
-
     <TextView
         fontPath="fonts/century_gothic.ttf"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView"
+        android:layout_marginTop="-30dp"
         android:gravity="center"
+        android:textSize="18sp"
         android:text="DIGITAL NUTRITION TRAINING\nBY THE UNITED NATIONS WORLD FOOD PROGRAMME"
         android:textColor="@android:color/white" />
 
@@ -56,7 +49,7 @@
         android:gravity="center"
         android:text="YOUR\nHEALTHY LIFE\nSTARTS NOW!"
         android:textColor="@android:color/white"
-        android:textSize="22sp" />
+        android:textSize="36sp"/>
 
     <Button
         android:id="@+id/get_started_button"
@@ -66,6 +59,7 @@
         android:transitionName="@string/qr_transition"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="31dp"
+        android:textSize="18sp"
         android:backgroundTint="@color/colorAccent"
         android:text="SCAN YOUR VOUCHER"
         android:textColor="@android:color/white" />
@@ -111,9 +105,18 @@
         android:textColor="@android:color/white"
         android:id="@+id/barcode_success_welcome_text"
         android:visibility="invisible"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:gravity="center_horizontal"
         android:layout_marginTop="50dp"
         android:layout_below="@id/wfp_image_view"
         />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:contentDescription="@string/start_nutrifami_logo_description"
+        android:src="@mipmap/nutrifami_header"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"/>
 </android.support.percent.PercentRelativeLayout>

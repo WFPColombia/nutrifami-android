@@ -87,7 +87,8 @@ public class LessonGamePageFragment extends LessonProgressFragment {
         });
 
         final Animation fadeAnimation = AnimationUtils.loadAnimation(rootView.getContext(), R.anim.fade);
-        fadeAnimation.setStartOffset(0);
+        fadeAnimation.setStartOffset(250);
+        fadeAnimation.setDuration(250);
         rootView.startAnimation(fadeAnimation);
         return rootView;
     }

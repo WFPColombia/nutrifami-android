@@ -31,4 +31,15 @@
 
     </me.crosswall.lib.coverflow.core.PagerContainer>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Voucher Credits: 2000"
+        android:id="@+id/voucher_credits_text"
+        android:gravity="end"
+        android:layout_marginTop="20dp"
+        android:textColor="@android:color/white"
+        android:textSize="22sp"
+        android:layout_marginEnd="20dp"
+        />
 </RelativeLayout>

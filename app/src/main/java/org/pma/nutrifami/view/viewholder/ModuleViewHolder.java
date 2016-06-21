@@ -1,6 +1,7 @@
 package org.pma.nutrifami.view.viewholder;
 
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -60,6 +61,8 @@ public class ModuleViewHolder extends RecyclerView.ViewHolder {
             this.mButton.setEnabled(true);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 this.mButton.setBackgroundTintList(ColorStateList.valueOf(getAccentColor(this.mButton.getContext())));
+                // ffffbb33
+//                this.mButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(255, 187, 51)));
             }
 
             if (SessionManager.getInstance().isModuleCompleted(this.mCompletedImageView.getContext(), module)) {

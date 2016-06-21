@@ -38,23 +38,25 @@
         android:layout_below="@id/feedback_star"
         android:layout_height="wrap_content"
         android:id="@+id/feedback_voucher_text"
-        android:textSize="28sp"
+        android:textSize="36sp"
         android:textColor="@android:color/white"
         android:gravity="center"
         android:layout_marginTop="50dp"
-        android:text="You received voucher credits"
+        android:text="GREAT JOB!"
         />
 
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
-        android:textSize="20sp"
+        android:textSize="22sp"
         android:layout_marginTop="50dp"
         android:layout_below="@id/feedback_voucher_text"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:textColor="@android:color/white"
         android:id="@+id/feedback_healthy_text"
         android:layout_height="wrap_content"
-        android:text="You came one step closer to a healthy life"
+        android:text="You received 10 credits that are directly loaded on your Voucher and came one step closer to a healthy life."
         />
 
     <Button
@@ -65,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="25dp"
-        android:text="AWESOME"
+        android:text="CONTINUE PLAYING"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/colorAccent"
         />

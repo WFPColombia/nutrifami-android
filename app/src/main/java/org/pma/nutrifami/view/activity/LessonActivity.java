@@ -12,6 +12,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
@@ -27,6 +28,8 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class LessonActivity extends FragmentActivity {
     private PagerAdapter mPagerAdapter;
+    private TextView mVoucherCreditsText;
+    public static int voucherCredits = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,12 @@ public class LessonActivity extends FragmentActivity {
                 .build());
         setContentView(R.layout.activity_module_carousel);
         setupWindow();
+
+        this.mVoucherCreditsText = (TextView) findViewById(R.id.voucher_credits_text);
+        final Animation fade = AnimationUtils.loadAnimation(this, R.anim.fade);
+        fade.setStartOffset(250);
+        fade.setDuration(250);
+        this.mVoucherCreditsText.startAnimation(fade);
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -85,6 +94,14 @@ public class LessonActivity extends FragmentActivity {
         super.onStart();
         if (this.mPagerAdapter != null) {
             this.mPagerAdapter.notifyDataSetChanged();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (this.mVoucherCreditsText != null) {
+            this.mVoucherCreditsText.setText("Voucher Credits: " + voucherCredits);
         }
     }
 

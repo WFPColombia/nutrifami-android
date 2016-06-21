@@ -64,19 +64,7 @@
                 app:layout_marginTopPercent="5%"
                 />
 
-            <TextView
-                android:id="@+id/barcode_success_welcome_text"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/wfp_image_view"
-                android:layout_marginTop="50dp"
-                android:gravity="center_horizontal"
-                android:text="WELCOME\nTO\nNUTRIFAMI!"
-                android:textColor="@android:color/white"
-                android:textSize="22sp"
-                android:visibility="invisible"
-                tools:visibility="visible"
-                />
+
 
             <TextView
                 android:layout_width="match_parent"
@@ -87,9 +75,22 @@
                 android:textSize="72sp"
                 tools:visibility="visible"
                 android:visibility="invisible"
+                android:layout_centerInParent="true"
                 android:id="@+id/qr_check_text"
-                android:layout_below="@id/barcode_success_welcome_text"
                 android:gravity="center"
+                />
+            <TextView
+                android:id="@+id/barcode_success_welcome_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="WELCOME\nANNAMARIA"
+                android:textColor="@android:color/white"
+                android:layout_marginBottom="20dp"
+                android:layout_above="@id/qr_check_text"
+                android:textSize="22sp"
+                android:visibility="invisible"
+                tools:visibility="visible"
                 />
         </android.support.percent.PercentRelativeLayout>
 
