@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="WELCOME\nANNAMARIA"
+                android:text="WELCOME\nTO\nNUTRIFAMI"
                 android:textColor="@android:color/white"
                 android:layout_marginBottom="20dp"
                 android:layout_above="@id/qr_check_text"
