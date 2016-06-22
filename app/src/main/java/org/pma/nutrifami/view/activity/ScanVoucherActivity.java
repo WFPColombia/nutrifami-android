@@ -72,14 +72,19 @@ public class ScanVoucherActivity extends AppCompatActivity implements ZXingScann
             ActivityCompat.requestPermissions(this,
                     new String[]{Manifest.permission.CAMERA}, 1);
         } else {
-            this.mScannerView.startCamera();
+            startCamera();
         }
+    }
+
+    private void startCamera() {
+        this.mScannerView.setFlash(true);
+        this.mScannerView.startCamera();
     }
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        this.mScannerView.startCamera();
+        startCamera();
     }
 
     @Override
@@ -95,6 +100,12 @@ public class ScanVoucherActivity extends AppCompatActivity implements ZXingScann
         }
         if (this.mScannerView != null) {
             this.mScannerView.setVisibility(View.INVISIBLE);
+        }
+
+        try {
+            this.mScannerView.stopCamera();
+        } catch (Exception e) {
+
         }
 
         final View welcomeView = findViewById(R.id.barcode_success_welcome_text);
