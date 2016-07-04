@@ -15,7 +15,6 @@ import org.pma.nutrifami.data.GsonUnitDeserializer;
 import org.pma.nutrifami.data.ModulesDownloadTask;
 import org.pma.nutrifami.data.OnFileReadListener;
 import org.pma.nutrifami.data.OnModulesLoadedListener;
-import org.pma.nutrifami.demo.DemoModuleManager;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;
 import org.pma.nutrifami.model.unit.UnitType;
@@ -33,8 +32,7 @@ public class ModuleManager {
 
     public static ModuleManager getInstance() {
         if (mInstance == null) {
-//            mInstance = new ModuleManager();
-            mInstance = new DemoModuleManager();
+            mInstance = new ModuleManager();
         }
         return mInstance;
     }

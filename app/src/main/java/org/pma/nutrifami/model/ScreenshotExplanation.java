@@ -1,5 +1,7 @@
 package org.pma.nutrifami.model;
 
+import android.content.Context;
+
 import org.pma.nutrifami.R;
 
 /**
@@ -30,19 +32,19 @@ public class ScreenshotExplanation extends Explanation {
         return this.mActionable;
     }
 
-    public static ScreenshotExplanation getProfileExplanation() {
+    public static ScreenshotExplanation getProfileExplanation(Context context) {
         return new ScreenshotExplanation(
-                "PROFILE",
-                "RECEIVE SHOPPING RECOMMENDATIONS BASED ON YOUR LAST PURCHASES",
+                context.getString(R.string.explanation_profile_title),
+                context.getString(R.string.explanation_profile_description),
                 R.mipmap.perfil,
                 false
         );
     }
 
-    public static ScreenshotExplanation getTrainingExplanation() {
+    public static ScreenshotExplanation getTrainingExplanation(Context context) {
         return new ScreenshotExplanation(
-                "TRAINING",
-                "LEARN HOW TO EAT HEALTHY IN A FUN WAY",
+                context.getString(R.string.explanation_training_title),
+                context.getString(R.string.explanation_training_description),
                 R.mipmap.modules,
                 true
         );

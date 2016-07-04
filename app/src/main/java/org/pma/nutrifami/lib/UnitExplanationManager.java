@@ -42,7 +42,7 @@ public class UnitExplanationManager {
                 .title(title)
                 .customView(view, true)
                 .dismissListener(callback)
-                .positiveText("Ok");
+                .positiveText(R.string.explanation_positive_text);
         if (title.equals(context.getString(R.string.explanation_correct))) {
             builder.titleColorRes(R.color.colorAccent);
         } else {

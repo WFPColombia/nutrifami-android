@@ -46,5 +46,14 @@
     <string name="start_nutrifami_logo_description">Nutrifami logo</string>
     <string name="module_icon_description">Module icon</string>
     <string name="qr_transition">QR Transition</string>
+    <string name="explanation_positive_text">Ok</string>
+    <string name="explanation_benefits_title">BENEFITS</string>
+    <string name="explanation_benefits_nutrition_knowledge">GAIN NUTRITION KNOWLEDGE</string>
+    <string name="explanation_benefits_play">HAVE FUN BY PLAYING DIFFERENT GAMES</string>
+    <string name="explanation_benefits_happy">BECOME HAPPY AND HEALTHY</string>
+    <string name="explanation_profile_title">PROFILE</string>
+    <string name="explanation_profile_description">RECEIVE SHOPPING RECOMMENDATIONS BASED ON YOUR LAST PURCHASES</string>
+    <string name="explanation_training_title">TRAINING</string>
+    <string name="explanation_training_description">LEARN HOW TO EAT HEALTHY IN A FUN WAY</string>
 
 </resources>
