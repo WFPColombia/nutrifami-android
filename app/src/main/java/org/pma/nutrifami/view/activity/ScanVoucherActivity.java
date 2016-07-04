@@ -48,11 +48,11 @@ public class ScanVoucherActivity extends AppCompatActivity implements ZXingScann
 
         final ImageView wfpImage = (ImageView) findViewById(R.id.wfp_image_view);
         wfpImage.setOnClickListener(new View.OnClickListener() {
-            private int clickCount = 0;
+            private boolean clicked = false;
             @Override
             public void onClick(View view) {
-                clickCount++;
-                if (clickCount >= 5) {
+                if (!clicked) {
+                    clicked = true;
                     handleResult(null);
                 }
             }

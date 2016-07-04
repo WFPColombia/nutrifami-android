@@ -22,15 +22,15 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/lesson_card_title"
-            android:textSize="22sp"/>
+            android:textSize="28sp"/>
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/game_image"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:layout_below="@+id/game_title"
-            android:layout_centerHorizontal="true"
+            android:layout_height="300dp"
+            android:layout_centerInParent="true"
             android:src="@mipmap/circle_placeholder"/>
+
 
         <Button
             android:id="@+id/game_play_button"
@@ -38,6 +38,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="20dp"
+
+            android:textStyle="bold"
+            android:textSize="24sp"
             android:backgroundTint="@color/colorAccent"
             android:text="@string/game_card_play_button"
             android:textColor="@android:color/white"/>
@@ -55,9 +58,10 @@
         <TextView
             android:id="@+id/game_description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="1dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:textSize="22sp"
             android:text="@string/lesson_card_description"
             android:layout_below="@+id/game_image"
             android:layout_centerHorizontal="true"/>

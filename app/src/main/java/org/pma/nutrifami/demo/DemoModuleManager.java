@@ -162,30 +162,37 @@ public class DemoModuleManager extends ModuleManager {
                                                 "There is a positive link between health and food",
                                                 new String[]{"No", "Yes"},
                                                 1,
-                                                "Scientific studies all around the world showed that food and nutritional status have a strong influence on the health of people.",
+                                                "Scientific studies all around the world showed that food and nutritional status have a strong influence on the health of people",
                                                 R.mipmap.swipe_1,
                                                 R.mipmap.swipe_1
                                         ), new SwipeUnit(
-                                        "I should eat one portion of fruit or vegetables per day.",
+                                        "I should eat one portion of fruit or vegetables per day",
                                         new String[]{"No", "Yes"},
                                         0,
-                                        "I should consume at least 5 servings of fruits and vegetables per day.",
+                                        "I should consume at least 5 servings of fruits and vegetables per day",
                                         R.mipmap.swipe_5,
                                         R.mipmap.swipe_5_explanation
                                 ), new SwipeUnit(
-                                        "It is important to eat together with the family.",
+                                        "Eating nuts is good for my brain",
                                         new String[]{"No", "Yes"},
                                         1,
-                                        "Eating with the family is ideal to form proper eating habits. This way one can show children how to eat healthy.",
-                                        R.mipmap.swipe_8,
-                                        R.mipmap.swipe_8
-                                ), new SwipeUnit(
-                                        "Carbohydrates are found mainly in vegetable oil, butter, margarine, milk, cheese, peanuts and avocados.",
-                                        new String[]{"No", "Yes"},
-                                        0,
-                                        "Carbohydrates are found mainly in flour, oats, barley, corn, bananas and root vegetables like potatoes and yuca.",
-                                        R.mipmap.swipe_3_butter,
-                                        R.mipmap.swipe_3
+                                        "You should eat a handful of nuts every day to maintain brain function",
+                                        R.mipmap.walnut,
+                                        R.mipmap.walnut
+//                                ), new SwipeUnit(
+//                                        "It is important to eat together with the family.",
+//                                        new String[]{"No", "Yes"},
+//                                        1,
+//                                        "Eating with the family is ideal to form proper eating habits. This way one can show children how to eat healthy.",
+//                                        R.mipmap.swipe_8,
+//                                        R.mipmap.swipe_8
+//                                ), new SwipeUnit(
+//                                        "Carbohydrates are found mainly in vegetable oil, butter, margarine, milk, cheese, peanuts and avocados.",
+//                                        new String[]{"No", "Yes"},
+//                                        0,
+//                                        "Carbohydrates are found mainly in flour, oats, barley, corn, bananas and root vegetables like potatoes and yuca.",
+//                                        R.mipmap.swipe_3_butter,
+//                                        R.mipmap.swipe_3
                                 )
                                 }
                                 }

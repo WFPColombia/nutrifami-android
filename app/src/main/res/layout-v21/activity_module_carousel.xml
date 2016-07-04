@@ -34,7 +34,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Voucher Credits: 2000"
+        android:text="Voucher Credit: 10000 COP$"
         android:id="@+id/voucher_credits_text"
         android:gravity="end"
         android:layout_marginTop="20dp"

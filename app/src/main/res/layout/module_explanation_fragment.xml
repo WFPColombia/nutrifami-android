@@ -23,7 +23,7 @@
             android:textColor="@android:color/white"
             android:layout_alignParentTop="true"
             app:layout_marginTopPercent="10%"
-            android:textSize="22sp"
+            android:textSize="28sp"
             android:gravity="center"
             tools:text="EXPLANATION TITLE"
             />
@@ -34,15 +34,18 @@
             android:text="PLAY NOW"
             android:backgroundTint="@android:color/holo_orange_light"
             android:layout_alignParentBottom="true"
+            android:textSize="28dp"
+            fontPath="fonts/century_bold.ttf"
             android:id="@+id/explanation_play_button"
             android:textColor="@android:color/white"
             android:visibility="invisible"
+
             tools:visibility="visible"
             />
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="1dp"
             android:textColor="@android:color/white"
             android:layout_above="@id/explanation_play_button"
             android:id="@+id/explanation_description"

@@ -37,7 +37,8 @@
         android:layout_below="@id/imageView"
         android:layout_marginTop="-30dp"
         android:gravity="center"
-        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textSize="22sp"
         android:text="DIGITAL NUTRITION TRAINING\nBY THE UNITED NATIONS WORLD FOOD PROGRAMME"
         android:textColor="@android:color/white" />
 
@@ -58,9 +59,10 @@
         android:layout_alignParentBottom="true"
         android:transitionName="@string/qr_transition"
         android:layout_centerHorizontal="true"
+        fontPath="fonts/century_bold.ttf"
         android:layout_marginBottom="31dp"
-        android:textSize="18sp"
-        android:backgroundTint="@color/colorAccent"
+        android:textSize="24sp"
+        android:backgroundTint="@android:color/holo_orange_light"
         android:text="SCAN YOUR VOUCHER"
         android:textColor="@android:color/white" />
 

@@ -24,7 +24,7 @@
             android:gravity="center"
             android:text="Explanation title"
             android:textColor="@android:color/white"
-            android:textSize="22sp"
+            android:textSize="28sp"
             app:layout_marginTopPercent="10%"/>
 
         <LinearLayout
@@ -47,6 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="25dp"
+                android:textSize="22sp"
                 android:text="First benefit text"
                 android:textColor="@android:color/white"
                 />
@@ -71,6 +72,7 @@
                 android:id="@+id/second_explanation_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="22sp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="23dp"
                 android:text="First benefit text"
@@ -95,6 +97,7 @@
                 android:id="@+id/third_explanation_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="22sp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="25dp"
                 android:text="First benefit text"

@@ -63,7 +63,7 @@ public class FeedbackActivity extends AppCompatActivity {
         finishButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LessonActivity.voucherCredits += 10;
+                LessonActivity.voucherCredits += 10000;
                 finish();
             }
         });

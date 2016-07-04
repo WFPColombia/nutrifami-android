@@ -48,15 +48,17 @@
     <TextView
         android:layout_width="match_parent"
         android:gravity="center"
-        android:textSize="22sp"
-        android:layout_marginTop="50dp"
+        android:textSize="26sp"
+        android:layout_marginTop="30dp"
         android:layout_below="@id/feedback_voucher_text"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
         android:textColor="@android:color/white"
+        android:textStyle="bold"
         android:id="@+id/feedback_healthy_text"
         android:layout_height="wrap_content"
-        android:text="You received 10 credits that are directly loaded on your Voucher and came one step closer to a healthy life."
+        android:hyphenationFrequency="none"
+        android:text="You received \n10000 COL$\n that are directly loaded on your Voucher and came one step closer\nto a healthy life."
         />
 
     <Button
@@ -67,9 +69,12 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="25dp"
+        android:textSize="24sp"
         android:text="CONTINUE PLAYING"
+        fontPath="fonts/century_bold.ttf"
         android:textColor="@android:color/white"
-        android:backgroundTint="@color/colorAccent"
+
+        android:backgroundTint="@android:color/holo_orange_light"
         />
 
 </RelativeLayout>

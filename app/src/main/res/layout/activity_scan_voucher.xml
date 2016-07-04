@@ -49,8 +49,9 @@
                 android:layout_alignParentBottom="true"
                 android:gravity="center_horizontal"
                 android:text="SCAN THE BARCODE OF YOUR VOUCHER"
+                android:textSize="22sp"
                 android:textColor="@android:color/white"
-                app:layout_marginBottomPercent="15%"
+                app:layout_marginBottomPercent="10%"
                 />
 
             <ImageView
@@ -84,11 +85,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="WELCOME\nTO\nNUTRIFAMI"
+                android:text="WELCOME\nANA MARIA"
                 android:textColor="@android:color/white"
                 android:layout_marginBottom="20dp"
                 android:layout_above="@id/qr_check_text"
-                android:textSize="22sp"
+                android:textSize="28sp"
                 android:visibility="invisible"
                 tools:visibility="visible"
                 />

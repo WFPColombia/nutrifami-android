@@ -23,7 +23,7 @@
             android:layout_alignParentTop="true"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:textSize="22sp"
+            android:textSize="28sp"
             app:layout_marginTopPercent="10%"
             tools:text="EXPLANATION TITLE"
             />
@@ -45,9 +45,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_above="@id/explanation_play_button"
+            android:hyphenationFrequency="none"
             android:gravity="center_horizontal"
             android:textColor="@android:color/white"
             app:layout_marginBottomPercent="5%"
+            android:textSize="22sp"
             app:layout_marginTopPercent="5%"
             tools:text="THIS IS THE DESCRIPTION OF WHAT YOU ARE GOING TO SEE HERE, ISN'T IT WONDERFUL"
             />

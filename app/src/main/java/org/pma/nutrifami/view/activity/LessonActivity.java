@@ -29,7 +29,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 public class LessonActivity extends FragmentActivity {
     private PagerAdapter mPagerAdapter;
     private TextView mVoucherCreditsText;
-    public static int voucherCredits = 2000;
+    public static int voucherCredits = 10000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +101,7 @@ public class LessonActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
         if (this.mVoucherCreditsText != null) {
-            this.mVoucherCreditsText.setText("Voucher Credits: " + voucherCredits);
+            this.mVoucherCreditsText.setText("Voucher Credit: " + voucherCredits + " COL$");
         }
     }
 

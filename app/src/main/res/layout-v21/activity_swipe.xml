@@ -32,12 +32,18 @@
             android:layout_weight="0.5"
             android:backgroundTint="@color/colorRedSwipe"
             android:textColor="@android:color/white"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="NO"
             android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/swipe_yes_button"
             android:layout_width="0dp"
             android:layout_weight="0.5"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            tools:text="YES"
             android:backgroundTint="@color/colorAccent"
             android:textColor="@android:color/white"
             android:layout_height="wrap_content" />
