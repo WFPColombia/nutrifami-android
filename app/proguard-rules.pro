@@ -15,3 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
+
+ -keep public class org.pma.nutrifami.model.unit.** {
+     public protected *;
+ }
