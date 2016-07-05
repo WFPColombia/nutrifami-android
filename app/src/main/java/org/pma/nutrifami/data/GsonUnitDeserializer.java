@@ -8,6 +8,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParseException;
 
 import org.pma.nutrifami.model.unit.IntroductionUnit;
+import org.pma.nutrifami.model.unit.PairUnit;
 import org.pma.nutrifami.model.unit.SwipeUnit;
 import org.pma.nutrifami.model.unit.TextQuizUnit;
 import org.pma.nutrifami.model.unit.Unit;
@@ -37,6 +38,8 @@ public class GsonUnitDeserializer implements JsonDeserializer<Unit> {
                 return new Gson().fromJson(json, SwipeUnit.class);
             case TextQuiz:
                 return new Gson().fromJson(json, TextQuizUnit.class);
+            case Pairs:
+                return new Gson().fromJson(json, PairUnit.class);
             default:
                 return null;
         }
