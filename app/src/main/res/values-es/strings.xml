@@ -1,66 +1,66 @@
 <resources>
     <string name="app_name">Nutrifami</string>
-    <string name="get_started">Get started</string>
-    <string name="title_activity_login">Sign in</string>
+    <string name="get_started">Empieza</string>
+    <string name="title_activity_login">Registrese</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_passport">Document</string>
-    <string name="prompt_voucher_id">Voucher Id</string>
-    <string name="action_sign_in">Sign in</string>
-    <string name="error_invalid_passport">This passport id is invalid</string>
-    <string name="error_invalid_voucher_id">This voucher id is invalid</string>
-    <string name="error_login">We couldn\'t log you in. Double check your passport and voucher id.</string>
-    <string name="error_field_required">This field is required</string>
-    <!--<string name="skip_underlined"><u>Skip</u></string>-->
+    <string name="prompt_passport">Documento</string>
+    <string name="prompt_voucher_id">Codigo</string>
+    <string name="action_sign_in">Registrese</string>
+    <string name="error_invalid_passport">Esta identificación del pasaporte no es válido</string>
+    <string name="error_invalid_voucher_id">Este Identificación del vale no es válido</string>
+    <string name="error_login">No podíamos iniciar la sesión. Consulte de nuevo la identificación de tu pasaporte y del vale.</string>
+    <string name="error_field_required">Este campo es requerido.</string>
+    <string name="skip_underlined"><u>Skip</u></string>
 
     <!-- Modules activity -->
-    <string name="modules_title">Modules</string>
-    <string name="menu_profile_title">Profile</string>
+    <string name="modules_title">Módulos</string>
+    <string name="menu_profile_title">Perfil</string>
 
     <!-- Module activity -->
-    <string name="module_title">Module</string>
+    <string name="module_title">Módulo</string>
     <string name="lesson_card_title">Lesson title</string>
     <string name="lesson_card_description">Lesson description. Lesson description. Lesson description. Lesson description. Lesson description. Lesson description. Lesson description.</string>
-    <string name="game_card_play_button">Play</string>
-    <string name="lesson_card_start_button">Start</string>
+    <string name="game_card_play_button">Juega</string>
+    <string name="lesson_card_start_button">Empieza</string>
     <string name="mode_transition_name">Module transition</string>
 
     <!-- Profile activity -->
-    <string name="profile_title">Profile</string>
+    <string name="profile_title">Perfil</string>
     <string name="text_quiz_question">Question Question Question Question Question Question</string>
     <string name="swipe_card_text_dummy">This is a question which will be presented on a swipeable card. Of what I have seen, it could be quite long but who knows at this point! =)</string>
 
     <!-- Explanation dialogue -->
-    <string name="explanation_correct">CORRECT</string>
-    <string name="explanation_false">NOT CORRECT</string>
+    <string name="explanation_correct">CORRECTO</string>
+    <string name="explanation_false">FALSO</string>
 
     <!-- Game types -->
-    <string name="game_pairs_title">Form pairs!</string>
-    <string name="game_pairs_description">Select the corresponding pairs to win the game!</string>
-    <string name="game_swipe_title">SWIPE!</string>
-    <string name="game_swipe_description">Decide if the statement is true or false. If you think the statement is true then either click on “yes” or swipe the card to the right. If you think the statement is false then click on “no” or swipe the card to the left</string>
-    <string name="game_quiz_title">Quizmaster!</string>
-    <string name="game_quiz_description">Answer the following questions to see if you are the best quiz master in town!</string>
-    <string name="game_picture_quiz_title">Picture quiz!</string>
-    <string name="game_picture_quiz_description">Look closely and answer the question based on what you see!</string>
+    <string name="game_pairs_title">¡Forme parejas!</string>
+    <string name="game_pairs_description">¡Selecciona las parejas correspondientes para ganar el juego!</string>
+    <string name="game_swipe_title">¡SWIPE!</string>
+    <string name="game_swipe_description">Decida si la afirmación es cierta o falsa. Si cree que la afirmación es cierta o haga clic en "sí" o pasa la tarjeta a la derecha. Si cree que la declaración es falsa o haga clic en "no" o pasa la tarjeta a la izquierda.</string>
+    <string name="game_quiz_title">¡Maestro del Quiz!</string>
+    <string name="game_quiz_description">Responde a las siguientes preguntas para ver si usted es el maestro del Quiz en la ciudad!</string>
+    <string name="game_picture_quiz_title">¡Imagen Quiz!</string>
+    <string name="game_picture_quiz_description">Mira de cerca y responde a la pregunta basado en lo que se ve!</string>
     <string name="start_nutrifami_logo_description">Nutrifami logo</string>
     <string name="module_icon_description">Module icon</string>
     <string name="qr_transition">QR Transition</string>
-    <string name="explanation_positive_text">Ok</string>
-    <string name="explanation_benefits_title">BENEFITS</string>
-    <string name="explanation_benefits_nutrition_knowledge">GAIN NUTRITION KNOWLEDGE</string>
-    <string name="explanation_benefits_play">HAVE FUN BY PLAYING DIFFERENT GAMES</string>
-    <string name="explanation_benefits_happy">BECOME HAPPY AND HEALTHY</string>
-    <string name="explanation_profile_title">PROFILE</string>
-    <string name="explanation_profile_description">RECEIVE SHOPPING RECOMMENDATIONS BASED ON YOUR LAST PURCHASES</string>
-    <string name="explanation_training_title">TRAINING</string>
-    <string name="explanation_training_description">LEARN HOW TO EAT HEALTHY IN A FUN WAY</string>
-    <string name="start_get_started">GET STARTED</string>
-    <string name="start_big_text">YOUR\nHEALTHY LIFE\nSTARTS NOW!</string>
-    <string name="start_subtitle">DIGITAL NUTRITION TRAINING\nBY THE UNITED NATIONS WORLD FOOD PROGRAMME</string>
-    <string name="feedback_title">GREAT JOB!</string>
-    <string name="feedback_description">You came one step closer to a healthy life!</string>
-    <string name="feedback_continue_playing">CONTINUE PLAYING</string>
-    <string name="explanation_play_now">PLAY NOW</string>
+    <string name="explanation_positive_text">Vale</string>
+    <string name="explanation_benefits_title">BENEFICIOS</string>
+    <string name="explanation_benefits_nutrition_knowledge">ADQIUERA CONOCIMIENTOS DE NUTRICIÓN</string>
+    <string name="explanation_benefits_play">DIVIÉRTASE JUGANDO JUEGOS DIFERENTES</string>
+    <string name="explanation_benefits_happy">VUÉLVASE FELIZ Y SALUDABLE</string>
+    <string name="explanation_profile_title">PERFIL</string>
+    <string name="explanation_profile_description">RECIBE RECOMENDACIÓNES DE COMPRAS EN BASE A SU ÚLTIMAS COMPRAS</string>
+    <string name="explanation_training_title">FORMACIÓN</string>
+    <string name="explanation_training_description">APRENDE A COMER SANO DE UNA MANERA DIVERTIDA</string>
+    <string name="start_get_started">EMPIEZA</string>
+    <string name="start_big_text">¡SU VIDA\nSALUDABLE\nEMPIEZA AHORA!</string>
+    <string name="start_subtitle">FORMACIÓN NUTRICIÓN DIGITALES\nPOR LAS NACIONES UNIDAS PROGRAMA MUNDIAL DE ALIMENTOS</string>
+    <string name="feedback_title">¡GRAN TRABAJO!</string>
+    <string name="feedback_description">¡Ha venido un paso más cerca a una vida saludable!</string>
+    <string name="feedback_continue_playing">SIGA JUGAR</string>
+    <string name="explanation_play_now">JUEGA AHORA</string>
 
 </resources>
