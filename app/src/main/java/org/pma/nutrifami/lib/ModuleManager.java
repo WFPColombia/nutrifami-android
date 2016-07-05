@@ -15,7 +15,6 @@ import org.pma.nutrifami.data.GsonUnitDeserializer;
 import org.pma.nutrifami.data.ModulesDownloadTask;
 import org.pma.nutrifami.data.OnFileReadListener;
 import org.pma.nutrifami.data.OnModulesLoadedListener;
-import org.pma.nutrifami.demo.DemoModuleManager;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.Module;
 import org.pma.nutrifami.model.unit.UnitType;
@@ -23,6 +22,8 @@ import org.pma.nutrifami.view.activity.game.PairsActivity;
 import org.pma.nutrifami.view.activity.game.PictureQuizActivity;
 import org.pma.nutrifami.view.activity.game.QuizActivity;
 import org.pma.nutrifami.view.activity.game.SwipeActivity;
+
+import java.util.Arrays;
 
 /**
  * Created by Peter Juras on 01.06.16.
@@ -33,8 +34,7 @@ public class ModuleManager {
 
     public static ModuleManager getInstance() {
         if (mInstance == null) {
-//            mInstance = new ModuleManager();
-            mInstance = new DemoModuleManager();
+            mInstance = new ModuleManager();
         }
         return mInstance;
     }
@@ -86,6 +86,10 @@ public class ModuleManager {
                 }
             }
         }).execute(Constants.MODULES_FILE_NAME);
+    }
+
+    public int getModuleOrder(Module module) {
+        return Arrays.asList(this.mModules).indexOf(module) + 1;
     }
 
     private void serveModules(Module[] modules, OnModulesLoadedListener onModulesLoadedListener) {

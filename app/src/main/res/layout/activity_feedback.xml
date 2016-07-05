@@ -42,7 +42,7 @@
         android:textColor="@android:color/white"
         android:gravity="center"
         android:layout_marginTop="50dp"
-        android:text="GREAT JOB!"
+        android:text="@string/feedback_title"
         />
 
     <TextView
@@ -56,7 +56,7 @@
         android:textColor="@android:color/white"
         android:id="@+id/feedback_healthy_text"
         android:layout_height="wrap_content"
-        android:text="You received 10 credits that are directly loaded on your Voucher and came one step closer to a healthy life."
+        android:text="@string/feedback_description"
         />
 
     <Button
@@ -67,7 +67,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="25dp"
-        android:text="CONTINUE PLAYING"
+        android:text="@string/feedback_continue_playing"
         android:textColor="@android:color/white"
         android:backgroundTint="@color/colorAccent"
         />

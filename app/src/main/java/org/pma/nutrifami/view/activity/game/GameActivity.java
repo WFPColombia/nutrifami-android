@@ -14,6 +14,7 @@ import org.pma.nutrifami.lib.UnitExplanationManager;
 import org.pma.nutrifami.model.Lesson;
 import org.pma.nutrifami.model.unit.SwipeUnit;
 import org.pma.nutrifami.model.unit.Unit;
+import org.pma.nutrifami.view.activity.FeedbackActivity;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -58,6 +59,8 @@ public abstract class GameActivity extends AppCompatActivity {
 
     protected void saveAndFinish(Context context, Lesson lesson) {
         SessionManager.getInstance().setUnitPackageAsCompleted(context, lesson, mUnitsPosition);
+        final Intent intent = new Intent(this, FeedbackActivity.class);
+        startActivity(intent);
         finish();
     }
 
@@ -73,12 +76,6 @@ public abstract class GameActivity extends AppCompatActivity {
             };
         }
 
-        int currentExplanationImage = R.mipmap.m1;
-        try {
-            currentExplanationImage = ((SwipeUnit) this.mUnits.get(this.mCurrentUnit)).getExplanationImage();
-        } catch (Exception e) {
-
-        }
         final String answerExplanation = this.mUnits.get(this.mCurrentUnit).getAnswerExplanation();
         String feedbackText;
         if (correctAnswer) {
@@ -103,7 +100,6 @@ public abstract class GameActivity extends AppCompatActivity {
                 this,
                 feedbackText,
                 answerExplanation,
-                currentExplanationImage,
                 dismissListener);
     }
 

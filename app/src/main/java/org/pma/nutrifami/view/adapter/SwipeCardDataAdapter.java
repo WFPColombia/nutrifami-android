@@ -23,9 +23,7 @@ public class SwipeCardDataAdapter extends ArrayAdapter<Unit>{
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         final SwipeUnit unit = (SwipeUnit) getItem(position);
-        final ImageView imageView = (ImageView) convertView.findViewById(R.id.swipe_card_image);
         final TextView questionView = (TextView) convertView.findViewById(R.id.swipe_card_text);
-        imageView.setImageResource(unit.getImage());
         questionView.setText(unit.getQuestion());
         return convertView;
     }

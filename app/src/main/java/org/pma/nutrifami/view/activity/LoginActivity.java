@@ -3,6 +3,7 @@ package org.pma.nutrifami.view.activity;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -20,6 +21,9 @@ import android.widget.TextView;
 import org.pma.nutrifami.Constants;
 import org.pma.nutrifami.R;
 import org.pma.nutrifami.lib.SessionManager;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * A login screen that offers login via email/password.
@@ -40,6 +44,10 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/century_gothic.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
         setContentView(R.layout.activity_login);
         // Set up the login form.
         mPassportTextView = (EditText) findViewById(R.id.passport_id);
@@ -72,7 +80,7 @@ public class LoginActivity extends AppCompatActivity {
         skipTextView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    navigateToModulesPage();
+                    navigateToBenefitsPage();
                 }
             }
         );
@@ -81,11 +89,12 @@ public class LoginActivity extends AppCompatActivity {
         mProgressView = findViewById(R.id.login_progress);
     }
 
-    private void navigateToModulesPage() {
+    private void navigateToBenefitsPage() {
         // Set first launch flag to navigate to modules the next time
-        SessionManager.getInstance().setFirstLaunch(this, false);
+        // Don't do this for the prototype
+//        SessionManager.getInstance().setFirstLaunch(this, false);
 
-        Intent intent = new Intent(this, ModulesActivity.class);
+        Intent intent = new Intent(this, ExplanationActivity.class);
         intent.putExtra(Constants.CALLED_FROM_LOGIN, true);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
@@ -221,7 +230,7 @@ public class LoginActivity extends AppCompatActivity {
             showProgress(false);
 
             if (success) {
-                navigateToModulesPage();
+                navigateToBenefitsPage();
             } else {
                 mVoucherIdTextView.setError(getString(R.string.error_login));
                 mVoucherIdTextView.requestFocus();
@@ -233,6 +242,11 @@ public class LoginActivity extends AppCompatActivity {
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext((CalligraphyContextWrapper.wrap(newBase)));
     }
 }
 

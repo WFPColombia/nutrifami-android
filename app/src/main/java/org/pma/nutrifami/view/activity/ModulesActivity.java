@@ -24,10 +24,17 @@ import org.pma.nutrifami.view.adapter.ModulesDataAdapter;
 import org.pma.nutrifami.view.custom.CustomLayoutManager;
 import org.pma.nutrifami.view.listener.ModuleClickListener;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class ModulesActivity extends AppCompatActivity implements ModuleClickListener, OnModulesLoadedListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/century_gothic.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
         setContentView(R.layout.activity_modules);
         setTitle(getString(R.string.modules_title));
 
@@ -88,6 +95,11 @@ public class ModulesActivity extends AppCompatActivity implements ModuleClickLis
         } else {
             startActivity(intent);
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext((CalligraphyContextWrapper.wrap(newBase)));
     }
 }
 

@@ -1,5 +1,6 @@
 package org.pma.nutrifami.view.activity.game;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,9 @@ import org.pma.nutrifami.R;
 import org.pma.nutrifami.view.adapter.QuizAnswersDataAdapter;
 import org.pma.nutrifami.view.listener.AnswerClickListener;
 
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
+
 public class QuizActivity extends GameActivity implements AnswerClickListener {
 
     private QuizAnswersDataAdapter mQuizAnswersDataAdapter;
@@ -18,6 +22,10 @@ public class QuizActivity extends GameActivity implements AnswerClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                .setDefaultFontPath("fonts/century_gothic.ttf")
+                .setFontAttrId(R.attr.fontPath)
+                .build());
         setContentView(R.layout.activity_quiz);
 
         final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.text_quiz_answers);
@@ -53,5 +61,10 @@ public class QuizActivity extends GameActivity implements AnswerClickListener {
         };
 
         answerSelected(correctAnswer, dismiss, null);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext((CalligraphyContextWrapper.wrap(newBase)));
     }
 }

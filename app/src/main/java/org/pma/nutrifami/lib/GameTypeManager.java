@@ -49,4 +49,17 @@ public class GameTypeManager {
                 return null;
         }
     }
+
+    public int getGameImage(String gameType) {
+        final UnitType type = UnitType.valueOf(gameType);
+        switch (type) {
+            case Swipe:
+                return R.mipmap.swipe;
+            case Pairs:
+            case TextQuiz:
+            case PictureQuiz:
+            default:
+                return R.mipmap.circle_placeholder;
+        }
+    }
 }

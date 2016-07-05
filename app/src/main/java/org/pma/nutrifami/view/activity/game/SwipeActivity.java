@@ -70,7 +70,7 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
             }
         });
 
-        setTitle("1. Introduction");
+        setTitle(getLesson().getTitle());
     }
 
     @Override
@@ -96,16 +96,11 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
             mSwipeCardDataAdapter.add(getCurrentUnit());
         }
 
-        answerSelected(correct, null, new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-                saveAndPresentFeedback();
-            }
-        });
         if (correct) {
             mTotalCorrect++;
         }
-        setTitle("1. Introduction: " + mTotalCorrect + "/" + getLesson().getUnits()[1].length);
+        setTitle(getLesson().getTitle() + ": " + mTotalCorrect + "/" + getLesson().getUnits()[1].length);
+        answerSelected(correct, null, null);
     }
 
     private int mTotalCorrect = 0;
@@ -113,13 +108,6 @@ public class SwipeActivity extends GameActivity implements CardStack.CardEventLi
     @Override
     public void topCardTapped() {
 
-    }
-
-    private void saveAndPresentFeedback() {
-        SessionManager.getInstance().setUnitPackageAsCompleted(this, getLesson(), getUnitsPosition());
-        final Intent intent = new Intent(this, FeedbackActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     @Override

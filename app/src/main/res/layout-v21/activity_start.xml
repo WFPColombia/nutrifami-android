@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.activity.StartActivity">
-
-    <ImageView
-        android:id="@+id/video_view_screenshot"
-        android:layout_width="match_parent"
-        android:src="@mipmap/video_screen"
-        android:scaleType="fitXY"
-        android:layout_height="match_parent"
-        />
 
     <VideoView
         android:id="@+id/start_video_view"
@@ -38,7 +29,7 @@
         android:layout_marginTop="-30dp"
         android:gravity="center"
         android:textSize="18sp"
-        android:text="DIGITAL NUTRITION TRAINING\nBY THE UNITED NATIONS WORLD FOOD PROGRAMME"
+        android:text="@string/start_subtitle"
         android:textColor="@android:color/white" />
 
     <TextView
@@ -47,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:gravity="center"
-        android:text="YOUR\nHEALTHY LIFE\nSTARTS NOW!"
+        android:text="@string/start_big_text"
         android:textColor="@android:color/white"
         android:textSize="36sp"/>
 
@@ -61,55 +52,8 @@
         android:layout_marginBottom="31dp"
         android:textSize="18sp"
         android:backgroundTint="@color/colorAccent"
-        android:text="SCAN YOUR VOUCHER"
+        android:text="@string/start_get_started"
         android:textColor="@android:color/white" />
-
-
-
-    <FrameLayout
-        android:id="@+id/start_qr_layout"
-        android:layout_width="300dp"
-        android:visibility="invisible"
-        android:layout_height="300dp"
-        android:layout_centerInParent="true" />
-
-    <TextView
-        fontPath="fonts/century_gothic.ttf"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_marginBottomPercent="15%"
-        android:gravity="center_horizontal"
-        android:visibility="invisible"
-        android:textColor="@android:color/white"
-        android:id="@+id/barcode_explanation_text"
-        android:layout_alignParentBottom="true"
-        android:text="SCAN THE BARCODE OF YOUR VOUCHER"
-        />
-
-    <ImageView
-        android:id="@+id/wfp_image_view"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:contentDescription="@string/start_nutrifami_logo_description"
-        android:src="@mipmap/wfp_white"
-        android:visibility="invisible"
-        app:layout_marginTopPercent="10%"
-        />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="WELCOME\nTO\nNUTRIFAMI!"
-        android:textColor="@android:color/white"
-        android:id="@+id/barcode_success_welcome_text"
-        android:visibility="invisible"
-        android:textSize="20sp"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:layout_below="@id/wfp_image_view"
-        />
 
     <ImageView
         android:id="@+id/imageView"

@@ -40,7 +40,7 @@ public class ExplanationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_explanation);
         setupWindow();
 
-        PagerAdapter mPagerAdapter = new ExplanationPagerAdapter(getSupportFragmentManager());
+        PagerAdapter mPagerAdapter = new ExplanationPagerAdapter(getSupportFragmentManager(), this);
 
         final ViewPager pager = (ViewPager) findViewById(R.id.lesson_page_pager);
         pager.setOffscreenPageLimit(3);

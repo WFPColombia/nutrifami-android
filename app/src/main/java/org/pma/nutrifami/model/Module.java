@@ -15,22 +15,19 @@ public class Module {
     private final int mImage;
     @SerializedName("lessons")
     private final Lesson[] mLessons;
-    private final int mOrder;
 
     // The prototype will only have one module, the others will simply be decoration. Therefore
     // we introduce a enabled field for modules. The real app should then decide whether all modules
     // are accessible from the beginning, or based on progress.
     @SerializedName("enabled")
     private final boolean mEnabled;
-    private int order;
 
-    public Module(String id, String title, int image, Lesson[] lessons, boolean enabled, int order) {
+    public Module(String id, String title, int image, Lesson[] lessons, boolean enabled) {
         this.mId = id;
         this.mTitle = title;
         this.mImage = image;
         this.mLessons = lessons;
         this.mEnabled = enabled;
-        this.mOrder = order;
     }
 
     public String getId() {
@@ -51,9 +48,5 @@ public class Module {
 
     public boolean getEnabled() {
         return this.mEnabled;
-    }
-
-    public int getOrder() {
-        return this.mOrder;
     }
 }

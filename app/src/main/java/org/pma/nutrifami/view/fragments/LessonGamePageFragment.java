@@ -67,7 +67,8 @@ public class LessonGamePageFragment extends LessonProgressFragment {
         descriptionTextView.setText(manager.getGameDescription(context, gameType));
 
         final ImageView gameImageView = (ImageView) rootView.findViewById(R.id.game_image);
-        gameImageView.setImageResource(R.mipmap.swipe);
+        final int gameImage = manager.getGameImage(gameType);
+        gameImageView.setImageResource(gameImage);
 
         if (SessionManager.getInstance().areUnitPackagesCompleted(context, lesson, unitsPosition)) {
             final ImageView completedImageView = (ImageView) rootView.findViewById(R.id.card_completed_image_view);

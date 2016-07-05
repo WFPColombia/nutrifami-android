@@ -115,14 +115,8 @@ public class ModulesExplanationFragment extends Fragment {
         playButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                final Intent intent = new Intent(view.getContext(), LessonActivity.class);
-                ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-                        ExplanationActivity.currentInstance,
-                        ModulesExplanationFragment.sharedElement,
-                        getString(R.string.mode_transition_name));
-                intent.putExtra(Constants.LESSON_ID, "l1");
-                intent.putExtra(Constants.LESSON_OVERVIEW, false);
-                startActivity(intent, options.toBundle());
+            final Intent intent = new Intent(view.getContext(), ModulesActivity.class);
+            startActivity(intent);
             }
         });
 

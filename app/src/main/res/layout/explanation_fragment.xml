@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:gravity="center"
-            android:text="Explanation title"
+            tools:text="Explanation title"
             android:textColor="@android:color/white"
             android:textSize="22sp"
             app:layout_marginTopPercent="10%"/>
@@ -47,7 +47,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="25dp"
-                android:text="First benefit text"
+                tools:text="First benefit text"
                 android:textColor="@android:color/white"
                 />
         </LinearLayout>
@@ -62,7 +62,6 @@
             <android.support.v7.widget.AppCompatImageView
                 android:id="@+id/second_explanation_icon"
                 android:layout_width="50dp"
-                tools:src="@mipmap/coins_banknotes_white"
                 android:layout_marginLeft="2dp"
                 android:layout_height="50dp"
                 />
@@ -73,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="23dp"
-                android:text="First benefit text"
+                tools:text="First benefit text"
                 android:textColor="@android:color/white"
                 />
         </LinearLayout>
@@ -97,7 +96,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginLeft="25dp"
-                android:text="First benefit text"
+                tools:text="First benefit text"
                 android:textColor="@android:color/white"
                 />
         </LinearLayout>

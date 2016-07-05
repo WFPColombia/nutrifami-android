@@ -11,9 +11,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.pma.nutrifami.R;
+import org.pma.nutrifami.lib.ModuleManager;
 import org.pma.nutrifami.lib.SessionManager;
 import org.pma.nutrifami.model.Module;
 import org.pma.nutrifami.view.listener.ModuleClickListener;
+
+import java.util.Locale;
 
 import static android.graphics.Color.GRAY;
 import static org.pma.nutrifami.util.Color.*;
@@ -49,7 +52,7 @@ public class ModuleViewHolder extends RecyclerView.ViewHolder {
     public void initialize(Module module) {
         this.mModuleId = module.getId();
         this.mTitleTextView.setText(module.getTitle());
-        this.mButton.setText(module.getOrder() + "");
+        this.mButton.setText(String.format(Locale.getDefault(), "%d", ModuleManager.getInstance().getModuleOrder(module)));
         this.mModuleImageView.setImageResource(module.getImage());
 
         if (!module.getEnabled()) {
@@ -60,9 +63,7 @@ public class ModuleViewHolder extends RecyclerView.ViewHolder {
         } else {
             this.mButton.setEnabled(true);
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                this.mButton.setBackgroundTintList(ColorStateList.valueOf(getAccentColor(this.mButton.getContext())));
-                // ffffbb33
-//                this.mButton.setBackgroundTintList(ColorStateList.valueOf(Color.rgb(255, 187, 51)));
+                this.mButton.setBackgroundTintList(ColorStateList.valueOf(getAccentColor()));
             }
 
             if (SessionManager.getInstance().isModuleCompleted(this.mCompletedImageView.getContext(), module)) {

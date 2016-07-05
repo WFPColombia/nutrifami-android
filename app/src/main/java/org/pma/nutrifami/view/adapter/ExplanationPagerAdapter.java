@@ -1,5 +1,6 @@
 package org.pma.nutrifami.view.adapter;
 
+import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
@@ -16,8 +17,11 @@ import org.pma.nutrifami.view.fragments.ScreenshotExplanationFragment;
  * Created by Peter on 18.06.2016.
  */
 public class ExplanationPagerAdapter extends FragmentStatePagerAdapter {
-    public ExplanationPagerAdapter(FragmentManager fm) {
+    private Context mContext;
+
+    public ExplanationPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
+        this.mContext = context;
     }
 
     @Override
@@ -29,11 +33,11 @@ public class ExplanationPagerAdapter extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
         switch (position) {
             case 0:
-                return ExplanationFragment.createInstance(BenefitsExplanation.getBenefits());
+                return ExplanationFragment.createInstance(BenefitsExplanation.getBenefits(this.mContext));
             case 1:
-                return ScreenshotExplanationFragment.createInstance(ScreenshotExplanation.getProfileExplanation());
+                return ScreenshotExplanationFragment.createInstance(ScreenshotExplanation.getProfileExplanation(this.mContext));
             case 2:
-                return ModulesExplanationFragment.createInstance(ScreenshotExplanation.getTrainingExplanation());
+                return ModulesExplanationFragment.createInstance(ScreenshotExplanation.getTrainingExplanation(this.mContext));
             default:
                 return null;
         }

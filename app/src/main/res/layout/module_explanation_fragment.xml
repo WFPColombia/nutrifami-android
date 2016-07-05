@@ -31,7 +31,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PLAY NOW"
+            android:text="@string/explanation_play_now"
             android:backgroundTint="@android:color/holo_orange_light"
             android:layout_alignParentBottom="true"
             android:id="@+id/explanation_play_button"

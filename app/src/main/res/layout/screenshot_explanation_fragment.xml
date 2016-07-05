@@ -30,7 +30,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PLAY NOW"
+            tools:text="PLAY NOW"
             android:layout_alignParentBottom="true"
             android:id="@+id/explanation_play_button"
             android:visibility="invisible"

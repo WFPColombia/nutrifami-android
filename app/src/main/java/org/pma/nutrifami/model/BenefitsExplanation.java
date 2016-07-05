@@ -1,5 +1,7 @@
 package org.pma.nutrifami.model;
 
+import android.content.Context;
+
 import org.pma.nutrifami.R;
 
 public class BenefitsExplanation extends Explanation {
@@ -52,14 +54,14 @@ public class BenefitsExplanation extends Explanation {
         return this.mThirdExplanationIcon;
     }
 
-    public static BenefitsExplanation getBenefits() {
+    public static BenefitsExplanation getBenefits(Context context) {
         return new BenefitsExplanation(
-                "BENEFITS",
-                "GAIN NUTRITION KNOWLEDGE",
+                context.getString(R.string.explanation_benefits_title),
+                context.getString(R.string.explanation_benefits_nutrition_knowledge),
                 R.mipmap.books_with_apple_white,
-                "EARN CREDITS FOR YOUR VOUCHER",
-                R.mipmap.coins_banknotes_white,
-                "BECOME HAPPY AND HEALTHY",
+                context.getString(R.string.explanation_benefits_play),
+                R.mipmap.gamepad,
+                context.getString(R.string.explanation_benefits_happy),
                 R.mipmap.healthy_lifestyle_white
         );
     }

@@ -38,7 +38,6 @@ dependencies {
     compile 'com.afollestad.material-dialogs:core:0.8.5.9'
     compile 'com.android.volley:volley:1.0.0'
     compile 'com.google.code.gson:gson:2.4'
-    compile 'me.dm7.barcodescanner:zxing:1.8.4'
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.android.support:percent:24.0.0'
     compile 'com.github.badoualy:stepper-indicator:1.0.1'
