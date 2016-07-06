@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">Nutrifami</string>
     <string name="get_started">Empieza</string>
-    <string name="title_activity_login">Registrese</string>
+    <string name="title_activity_login">Iniciar sesión</string>
 
     <!-- Strings related to login -->
     <string name="prompt_passport">Documento</string>
     <string name="prompt_voucher_id">Codigo</string>
-    <string name="action_sign_in">Registrese</string>
+    <string name="action_sign_in">Iniciar sesión</string>
     <string name="error_invalid_passport">Esta identificación del pasaporte no es válido</string>
     <string name="error_invalid_voucher_id">Este Identificación del vale no es válido</string>
     <string name="error_login">No podíamos iniciar la sesión. Consulte de nuevo la identificación de tu pasaporte y del vale.</string>
@@ -37,7 +37,7 @@
     <!-- Game types -->
     <string name="game_pairs_title">¡Forme parejas!</string>
     <string name="game_pairs_description">¡Selecciona las parejas correspondientes para ganar el juego!</string>
-    <string name="game_swipe_title">¡SWIPE!</string>
+    <string name="game_swipe_title">¡Empuje!</string>
     <string name="game_swipe_description">Decida si la afirmación es cierta o falsa. Si cree que la afirmación es cierta o haga clic en "sí" o pasa la tarjeta a la derecha. Si cree que la declaración es falsa o haga clic en "no" o pasa la tarjeta a la izquierda.</string>
     <string name="game_quiz_title">¡Maestro del Quiz!</string>
     <string name="game_quiz_description">Responde a las siguientes preguntas para ver si usted es el maestro del Quiz en la ciudad!</string>
